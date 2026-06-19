@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>URANUS | Building Modern Infrastructure</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .industrial-gradient {
+            background: linear-gradient(135deg, rgba(13, 23, 38, 0.9) 0%, rgba(13, 23, 38, 0.6) 100%);
+        }
+        .edge-bar {
+            position: relative;
+        }
+        .edge-bar::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background-color: #0B5FFF;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container": "#e7eeff",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed-variant": "#005231",
+                        "on-secondary-fixed": "#001e2d",
+                        "outline": "#737687",
+                        "tertiary": "#00623c",
+                        "on-primary-container": "#eff0ff",
+                        "secondary-container": "#2dbcfe",
+                        "on-primary-fixed": "#00164d",
+                        "on-surface-variant": "#424656",
+                        "on-error-container": "#93000a",
+                        "background": "#f9f9ff",
+                        "inverse-primary": "#b5c4ff",
+                        "on-primary-fixed-variant": "#003cac",
+                        "surface-bright": "#f9f9ff",
+                        "on-background": "#121c2b",
+                        "on-tertiary-container": "#c3ffd7",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "surface-variant": "#d9e3f8",
+                        "on-secondary-fixed-variant": "#004c6b",
+                        "secondary": "#00658d",
+                        "surface-dim": "#d1daef",
+                        "on-secondary": "#ffffff",
+                        "tertiary-container": "#007e4e",
+                        "primary-fixed": "#dbe1ff",
+                        "on-tertiary-fixed": "#002111",
+                        "error-container": "#ffdad6",
+                        "surface-container-highest": "#d9e3f8",
+                        "outline-variant": "#c3c5d9",
+                        "surface-tint": "#0051e0",
+                        "surface-container-high": "#dfe8fe",
+                        "tertiary-fixed": "#69fdb1",
+                        "on-secondary-container": "#004866",
+                        "primary-container": "#0b5fff",
+                        "surface": "#f9f9ff",
+                        "secondary-fixed": "#c6e7ff",
+                        "inverse-surface": "#273141",
+                        "inverse-on-surface": "#ebf1ff",
+                        "surface-container-low": "#f0f3ff",
+                        "primary-fixed-dim": "#b5c4ff",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed-dim": "#48e096",
+                        "on-surface": "#121c2b",
+                        "secondary-fixed-dim": "#82cfff",
+                        "primary": "#0049cc"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-desktop": "64px",
+                        "margin-mobile": "16px",
+                        "container-max": "1440px",
+                        "base": "8px",
+                        "gutter": "24px",
+                        "margin-tablet": "32px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "display-lg-mobile": ["Inter"],
+                        "headline-xl": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "display-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "display-lg-mobile": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "display-lg": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-surface text-on-surface font-body-md overflow-x-hidden">
+<!-- TopNavBar -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-surface border-b border-outline-variant h-20">
+<nav class="flex justify-between items-center w-full px-margin-desktop max-w-container-max mx-auto h-full">
+<div class="font-headline-md text-headline-md font-bold text-primary">URANUS</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="font-label-md text-label-md uppercase tracking-wider text-primary border-b-2 border-primary pb-1 transition-colors duration-200" href="#">Products</a>
+<a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Infrastructure</a>
+<a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Logistics</a>
+<a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Sustainability</a>
+<a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Corporate</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="hidden lg:block font-label-md text-label-md px-4 py-2 text-on-surface-variant hover:text-primary transition-colors">Client Portal</button>
+<button class="bg-primary-container text-on-primary-container px-6 py-3 font-label-md text-label-md uppercase tracking-wider rounded transition-all hover:opacity-90 active:opacity-80">Contact Sales</button>
+</div>
+</nav>
+</header>
+<main class="pt-20">
+<!-- Section 1: Hero -->
+<section class="relative h-screen flex items-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<div class="w-full h-full bg-cover bg-center scale-105 animate-[pulse_10s_ease-in-out_infinite]" data-alt="A massive industrial crushing plant with heavy machinery and conveyors set against a breathtaking landscape of rugged mountains and a dramatic blue-sky backdrop. The lighting is crisp and natural, emphasizing the cold grey tones of the machinery and the warm earth tones of the environment. The atmosphere is powerful and monumental, showcasing industrial scale." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCW6Cpu6cU5sNye5y-4qOfdvqAIMLeRzrsQS0-EMFLJCJEkkCWDL0gXCdUzV7DNlz0XncOmpG6YsgtuicpAtSi9XfdaRtdabX1MIw_wMO7cN2P2Du-12J_f8lqdRyU3nSOOp0P1_7I7YSnmj4eAl-I7tR9NU0GoGQsUUmal5cFZawZr_BuJAwHdcYm-xgpQpYbkXZPat7OhUGy3z9XK78T0vxN8ev5CzYYuhLJPcaTAZU0xA1F34BeW0X61SnKck_EmaOgxkkSIbxI')"></div>
+<div class="absolute inset-0 bg-inverse-surface/60"></div>
+</div>
+<div class="relative z-10 px-margin-desktop max-w-container-max mx-auto w-full">
+<div class="max-w-3xl">
+<h1 class="font-display-lg text-display-lg text-white mb-6">Building the Foundation of Modern Infrastructure</h1>
+<p class="font-body-lg text-body-lg text-surface-variant mb-10">Premium aggregates, M-Sand, GSB and construction materials powering infrastructure projects across the region.</p>
+<div class="flex flex-wrap gap-4">
+<button class="bg-primary-container text-on-primary-container px-8 py-4 font-label-md text-label-md uppercase tracking-widest rounded transition-all hover:translate-y-[-2px]">Request a Quote</button>
+<button class="border border-white text-white px-8 py-4 font-label-md text-label-md uppercase tracking-widest rounded hover:bg-white/10 transition-all">Explore Products</button>
+</div>
+</div>
+<!-- Stats -->
+<div class="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-white/20 pt-10">
+<div>
+<div class="text-white font-headline-xl text-headline-xl">5M+ Tons</div>
+<div class="text-surface-variant font-label-sm text-label-sm uppercase tracking-widest">Annual Capacity</div>
+</div>
+<div>
+<div class="text-white font-headline-xl text-headline-xl">15+ Types</div>
+<div class="text-surface-variant font-label-sm text-label-sm uppercase tracking-widest">Product Categories</div>
+</div>
+<div>
+<div class="text-white font-headline-xl text-headline-xl">200+ Sites</div>
+<div class="text-surface-variant font-label-sm text-label-sm uppercase tracking-widest">Projects Served</div>
+</div>
+<div>
+<div class="text-white font-headline-xl text-headline-xl">25 Years</div>
+<div class="text-surface-variant font-label-sm text-label-sm uppercase tracking-widest">Industry Expertise</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 2: Company Overview -->
+<section class="py-24 px-margin-desktop max-w-container-max mx-auto overflow-hidden">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+<div class="relative">
+<div class="absolute -top-10 -left-10 w-40 h-40 bg-surface-container rounded-full -z-10 animate-pulse"></div>
+<div class="w-full aspect-[4/3] bg-cover bg-center rounded-lg shadow-xl relative z-10" data-alt="A wide-angle professional photograph of a large-scale industrial mining operation. Giant excavators and heavy-duty trucks are seen navigating a massive open-pit quarry with precision. The image is crisp, with high-contrast lighting that highlights the raw textures of the rock and the bright yellow of the heavy machinery against a cool blue industrial atmosphere." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBXOU0BhJxo8suSkg4uc2pzQIDw_cgsLmxJfues4KvtvdlFoeQu5vn4onVFo_nTIZmyQr8TNHThspYGv5fK6IpGtdiFd6weNnm4hvs3YuaarRK2hheypebG_wXNzyV88xHkLgWW4HUhsC5l2m2_s4ySZJqMOrVh6r5305bhLRVwDbi_YfiNBJEWd3L9dns6iXYyU-Fug0DU3Qh6JF2OPizTiYaus2a5gbLDUtmxX4xKQmPLhC6ZYpW5WHWUqfR1NHgnq3LBI_olIpk')"></div>
+<div class="absolute -bottom-6 -right-6 bg-primary p-8 rounded-lg shadow-2xl z-20 hidden md:block">
+<div class="text-white font-headline-lg text-headline-lg">ISO Certified</div>
+<div class="text-primary-fixed font-label-md text-label-md">Quality Management Systems</div>
+</div>
+</div>
+<div class="space-y-8">
+<div class="inline-block px-4 py-1 bg-surface-container-high text-primary font-label-md text-label-md rounded uppercase tracking-widest">About Uranus</div>
+<h2 class="font-headline-xl text-headline-xl text-on-surface edge-bar pl-6">Decades of Reliability and Engineering Excellence</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Uranus stands as a titan in the infrastructure materials sector, specializing in the extraction and processing of high-grade aggregates. Our operations are defined by sheer scale, advanced robotics, and a relentless commitment to sustainability.</p>
+<div class="space-y-4">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary" data-icon="check_circle">check_circle</span>
+<span class="font-body-md text-body-md font-semibold">Proprietary VSI Technology for M-Sand Production</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary" data-icon="check_circle">check_circle</span>
+<span class="font-body-md text-body-md font-semibold">Fully Integrated Logistics Network</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary" data-icon="check_circle">check_circle</span>
+<span class="font-body-md text-body-md font-semibold">Real-time Inventory &amp; Quality Tracking</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 3: Product Showcase -->
+<section class="bg-surface-container-low py-24">
+<div class="px-margin-desktop max-w-container-max mx-auto text-center mb-16">
+<h2 class="font-headline-xl text-headline-xl mb-4">Industrial Grade Materials</h2>
+<p class="text-on-surface-variant max-w-2xl mx-auto">Precisely graded and tested materials meeting the highest structural engineering standards.</p>
+</div>
+<div class="px-margin-desktop max-w-container-max mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- Product Card -->
+<div class="bg-surface group cursor-pointer border border-outline-variant hover:shadow-lg transition-all rounded p-1">
+<div class="w-full aspect-square bg-cover bg-center rounded-sm" data-alt="Close-up macro photography of 6mm crushed stone aggregates. The stones are clean, uniform in size, and have a sharp, crystalline texture. The lighting is bright and clear, highlighting the subtle grey and blue tones of the basalt rock." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuALdzg8tQsmsy0TDTy8UcH4OETnhICvmNEMrMa_QO-3TDrY1O0cSkdb-LyvGgMtboUZQZiKikvU7f6xthMoYcsbP2WGAWTj2DyOMXegZa1R5VivH03wD-CvbtphEY_LisejZXskTwT4Q9F34qc2RWFml7uDyKgakvzRm7CGceVNDSRTbcnpx95eFpohBTtiy-S1vr33M0ylUNma6VwyOtA2ZZpsgK6yRPIhEz-uQJLr_C_V6zAwPADvMW0k8rTxTqyHEVuEqcbOiG0')"></div>
+<div class="p-6">
+<h3 class="font-headline-md text-headline-md mb-2">6mm Aggregate</h3>
+<p class="text-on-surface-variant text-label-md mb-4">Ideal for surface finishes and pipe bedding.</p>
+<button class="text-primary font-label-md uppercase tracking-widest flex items-center gap-2 group-hover:gap-4 transition-all">Details <span class="material-symbols-outlined text-[16px]" data-icon="arrow_forward">arrow_forward</span></button>
+</div>
+</div>
+<!-- Repeat for other sizes -->
+<div class="bg-surface group cursor-pointer border border-outline-variant hover:shadow-lg transition-all rounded p-1">
+<div class="w-full aspect-square bg-cover bg-center rounded-sm" data-alt="Close-up macro photography of 10mm blue metal aggregate. The stones are expertly crushed with sharp edges, appearing in a uniform cool grey color palette under bright professional studio lighting." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBRICCKmoo3gADrlIACUzWmr_z2u5sjN5EKttyRVGkKR8x8bLTJNLbVBqQLG9KYgtH5gvs5h5y6rLEw3XQas-cL6vDshtpz1V2WJkA1381RlrnbWXg4UhNAIGM1fcMISTQryDMRh5dfePh9ilPQD6gWugYtgHEcV4cdWzfKrdO0wgT0uRIqgpt4puKp7w37V44wKGMKxXzRDAVLCxBM1EkYuBJjUwKdQof83V3t40NB3ex6aHnkj-ncyae3vsQ_NTatp_96eRCENfA')"></div>
+<div class="p-6">
+<h3 class="font-headline-md text-headline-md mb-2">10mm Aggregate</h3>
+<p class="text-on-surface-variant text-label-md mb-4">Precision graded for heavy-duty concrete mix.</p>
+<button class="text-primary font-label-md uppercase tracking-widest flex items-center gap-2 group-hover:gap-4 transition-all">Details <span class="material-symbols-outlined text-[16px]" data-icon="arrow_forward">arrow_forward</span></button>
+</div>
+</div>
+<div class="bg-surface group cursor-pointer border border-outline-variant hover:shadow-lg transition-all rounded p-1">
+<div class="w-full aspect-square bg-cover bg-center rounded-sm" data-alt="Close-up of 20mm crushed stone aggregate. Large, sturdy stones with varying facets and a deep charcoal grey color. The lighting emphasizes the density and structural integrity of the material." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBGAXFItQxFH3CGpU4gfa54LQSnyMnSFTQYU1qFHkgOpQ5Nhhed-hU0VRL0jQq41iJSgMiPivB5VyMQWTVfAtKnS3mv2MycEMpDbDV7f1RJVE8tWkuOxL92Kx3ZOPl8mytyaNtqx2vNHpSryer5W3sildfOWXSBQEJRUgGmO19RwtMor6-BpXkFyX_o3OBGHHrXoMYda9p8gOdn0-KjNbxm2uL7x7x2Sa3yws-6ZpqdEucyD42EMtwcCmMP3BqChDy12XqP56nJktU')"></div>
+<div class="p-6">
+<h3 class="font-headline-md text-headline-md mb-2">20mm Aggregate</h3>
+<p class="text-on-surface-variant text-label-md mb-4">The standard for general structural concrete.</p>
+<button class="text-primary font-label-md uppercase tracking-widest flex items-center gap-2 group-hover:gap-4 transition-all">Details <span class="material-symbols-outlined text-[16px]" data-icon="arrow_forward">arrow_forward</span></button>
+</div>
+</div>
+<div class="bg-surface group cursor-pointer border border-outline-variant hover:shadow-lg transition-all rounded p-1">
+<div class="w-full aspect-square bg-cover bg-center rounded-sm" data-alt="40mm large aggregate stones. Coarse, heavy boulders suitable for drainage and road base construction. High contrast lighting with dramatic shadows to show the scale and ruggedness." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB375z1QljDtPLHRaBlUj3N5hgyh_QRNAxXjrMAVLosdRy-LKE53YRkEEOT9_ZKP_6Ne1e1vwwA3QSJLaKrvZZc8A4s6qbnigTQMHbOvUSI8ZQrh_BkbIh4VEWw2yOqOKP8s-OrTO6PO8J9zlNwbWyzlDV3oOthUlVEU5AnRceke-DulMl-Xkz5QqoK10TCPONZCpbsYR5xbTzKI7mT27tZRw7P4Y43uUj6uoLgm4__5bpcNVGwb4EDN9S9Ut8ZzBCyAOHMdHaocB0')"></div>
+<div class="p-6">
+<h3 class="font-headline-md text-headline-md mb-2">40mm Aggregate</h3>
+<p class="text-on-surface-variant text-label-md mb-4">Perfect for road sub-bases and drainage layers.</p>
+<button class="text-primary font-label-md uppercase tracking-widest flex items-center gap-2 group-hover:gap-4 transition-all">Details <span class="material-symbols-outlined text-[16px]" data-icon="arrow_forward">arrow_forward</span></button>
+</div>
+</div>
+<div class="bg-surface group cursor-pointer border border-outline-variant hover:shadow-lg transition-all rounded p-1">
+<div class="w-full aspect-square bg-cover bg-center rounded-sm" data-alt="Very large 60mm stone aggregates used for heavy railway ballast or foundation work. The stones are chunky and raw with a powerful industrial presence." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCFdcMyHJs8rDCCNB6CfP4oMjgkzqHHGQ_zyEtjwLG0W52cKKVv8b-Ge7zQgtFpbStG3sRAPgqXrInF81pjYHdpzdIGCL8-CAb8BPvkGCxJx_ul-EoYZDranwkNsHyfHqrWoSQxNT6heRSMUdK8y4RuDThBh2b3lpyeaRgGxjWiD5fPeCP7Lw7LubQr4OVwwIVWRVC7oxtDMHFyBdLEUA5JTRpLYMgs6EnKsYQz39NfilDi8gX3t8mJIy6AlOJvYwVsd3-ngtaBg48')"></div>
+<div class="p-6">
+<h3 class="font-headline-md text-headline-md mb-2">60mm Aggregate</h3>
+<p class="text-on-surface-variant text-label-md mb-4">Heavy-duty ballast for railways and foundation.</p>
+<button class="text-primary font-label-md uppercase tracking-widest flex items-center gap-2 group-hover:gap-4 transition-all">Details <span class="material-symbols-outlined text-[16px]" data-icon="arrow_forward">arrow_forward</span></button>
+</div>
+</div>
+<div class="bg-surface group cursor-pointer border border-outline-variant hover:shadow-lg transition-all rounded p-1">
+<div class="w-full aspect-square bg-cover bg-center rounded-sm" data-alt="Fine, high-quality Manufactured Sand (M-Sand). The sand is golden-tan with a uniform texture. The shot is a detailed macro capturing individual granules, illuminated by warm sunlight." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDpmRToI_8sFqrw5W5jSdRsRfwr89TfVn3LSxUvK0iipLw2dj8WtFp7TMQ9VbftmYBzElSZmIX28DpqHrCo6cw2_viPBIDqbbGDn14uXXq2rVjeyiFWqFaT8z9RMHecUCMzlMusIu20VjoP2SDCtDgoiHTFXpb9VbbkofhauVfSxG83SaHLp9-DR_RqEFDXuZapdQjk6zbd3YV2rFoK4j3fS-2EM1N6RwEDZCX_nFFwzMMf4vYH-cBUyyQ0jvA9o8xcdv5imz-FtYA')"></div>
+<div class="p-6">
+<h3 class="font-headline-md text-headline-md mb-2">Manufactured Sand</h3>
+<p class="text-on-surface-variant text-label-md mb-4">Eco-friendly river sand alternative for plastering.</p>
+<button class="text-primary font-label-md uppercase tracking-widest flex items-center gap-2 group-hover:gap-4 transition-all">Details <span class="material-symbols-outlined text-[16px]" data-icon="arrow_forward">arrow_forward</span></button>
+</div>
+</div>
+<div class="bg-surface group cursor-pointer border border-outline-variant hover:shadow-lg transition-all rounded p-1">
+<div class="w-full aspect-square bg-cover bg-center rounded-sm" data-alt="Granular Sub Base (GSB) material mixture. A blend of crushed rock and fine particles optimized for road construction stability. Flat, neutral lighting to show material consistency." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAOoTT1U7fqIQfvolKuC95hYwTnHgzzO-vPDaX6-tFrQZAmld0ttwwGq3Jj1kGtSKWjCEL6yWjXytYDekhnlEwbNqpKD63oFq5hlkBu0OzotWGbN1Aemaecr1gbs7TJmeFoQaOOnvwpBIitm5Ejbp5FDcMVC4DTOsOMT0SmwSKitEyZAi8sUxJzrVNU8dricJZ1tfwlSgdbBrEF7Dpt2ni0S3_ErrrfTtK6VeVSdkUyWDBNoJPjUSvV9ApZoajnh94QTNsleDXjbn0')"></div>
+<div class="p-6">
+<h3 class="font-headline-md text-headline-md mb-2">GSB</h3>
+<p class="text-on-surface-variant text-label-md mb-4">Granular Sub Base for superior road pavement.</p>
+<button class="text-primary font-label-md uppercase tracking-widest flex items-center gap-2 group-hover:gap-4 transition-all">Details <span class="material-symbols-outlined text-[16px]" data-icon="arrow_forward">arrow_forward</span></button>
+</div>
+</div>
+<div class="bg-surface group cursor-pointer border border-outline-variant hover:shadow-lg transition-all rounded p-1">
+<div class="w-full aspect-square bg-cover bg-center rounded-sm" data-alt="Fine grey stone dust material. Smooth, powdery texture used in construction and tile fixing. Soft, diffused lighting highlights the fine quality of the dust." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDzQjcJ8M1rQplnLeYZKsr9M4yOLjW24FmNLHodmOUMIX4mgg4OFCdbuMYj1-jFXTew655rEpAo97NqcTIDqcS7-VhRaQXjE2lUjs6mt5ZvuMOAQyNtqGSgjZGs_KeP9WjvwXTE_-MlEHMLSttxXtbfjbaQNFzIWbxCq_VnHWOBuaSRCbBJhFEnI7bIkp_0ztvLc5SjBZ2W2kKN505qbP_es8ii2PWrAxSsVNgbSHUD1GNPH5AMfFtQhrozjcP2K0aUOePTPH-owOk')"></div>
+<div class="p-6">
+<h3 class="font-headline-md text-headline-md mb-2">Stone Dust</h3>
+<p class="text-on-surface-variant text-label-md mb-4">Versatile filler material for diverse construction.</p>
+<button class="text-primary font-label-md uppercase tracking-widest flex items-center gap-2 group-hover:gap-4 transition-all">Details <span class="material-symbols-outlined text-[16px]" data-icon="arrow_forward">arrow_forward</span></button>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 4: Why Choose Uranus -->
+<section class="py-24 px-margin-desktop max-w-container-max mx-auto">
+<h2 class="font-headline-xl text-headline-xl mb-16 text-center">Uncompromising Standards</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<div class="bg-surface border border-outline-variant p-10 flex gap-8 items-start group hover:bg-primary-container transition-all duration-300">
+<div class="bg-surface-container-high p-4 rounded group-hover:bg-white/20 transition-all">
+<span class="material-symbols-outlined text-primary text-4xl group-hover:text-white" data-icon="verified">verified</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md mb-3 group-hover:text-white">Quality Control</h3>
+<p class="text-on-surface-variant group-hover:text-white/80">Every batch undergoes 12-point testing in our NABL-accredited laboratory to ensure absolute strength.</p>
+</div>
+</div>
+<div class="bg-surface border border-outline-variant p-10 flex gap-8 items-start group hover:bg-primary-container transition-all duration-300">
+<div class="bg-surface-container-high p-4 rounded group-hover:bg-white/20 transition-all">
+<span class="material-symbols-outlined text-primary text-4xl group-hover:text-white" data-icon="factory">factory</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md mb-3 group-hover:text-white">Large Production Capacity</h3>
+<p class="text-on-surface-variant group-hover:text-white/80">Massive scale output ensuring we never fall short of your mega-project requirements.</p>
+</div>
+</div>
+<div class="bg-surface border border-outline-variant p-10 flex gap-8 items-start group hover:bg-primary-container transition-all duration-300">
+<div class="bg-surface-container-high p-4 rounded group-hover:bg-white/20 transition-all">
+<span class="material-symbols-outlined text-primary text-4xl group-hover:text-white" data-icon="local_shipping">local_shipping</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md mb-3 group-hover:text-white">Reliable Supply Chain</h3>
+<p class="text-on-surface-variant group-hover:text-white/80">Own fleet of 100+ heavy trucks and smart logistics for 24/7 delivery on tight deadlines.</p>
+</div>
+</div>
+<div class="bg-surface border border-outline-variant p-10 flex gap-8 items-start group hover:bg-primary-container transition-all duration-300">
+<div class="bg-surface-container-high p-4 rounded group-hover:bg-white/20 transition-all">
+<span class="material-symbols-outlined text-primary text-4xl group-hover:text-white" data-icon="precision_manufacturing">precision_manufacturing</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md mb-3 group-hover:text-white">Modern Infrastructure</h3>
+<p class="text-on-surface-variant group-hover:text-white/80">Equipped with state-of-the-art Metso and Sandvik crushers for superior material shape.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 5: Operations Process -->
+<section class="bg-inverse-surface py-24 text-white overflow-hidden">
+<div class="px-margin-desktop max-w-container-max mx-auto">
+<div class="text-center mb-20">
+<h2 class="font-headline-xl text-headline-xl mb-4">Our Streamlined Process</h2>
+<p class="text-surface-variant">Precision at every step from the quarry to the construction site.</p>
+</div>
+<div class="relative flex flex-col md:flex-row justify-between items-start gap-12 md:gap-0">
+<!-- Progress Line -->
+<div class="absolute top-10 left-0 right-0 h-1 bg-white/10 hidden md:block"></div>
+<div class="relative z-10 flex flex-col items-center text-center md:w-1/6 px-4">
+<div class="w-20 h-20 bg-primary-container rounded-full flex items-center justify-center mb-6 border-4 border-inverse-surface shadow-xl">
+<span class="material-symbols-outlined text-white text-3xl" data-icon="mining">dining</span>
+</div>
+<h4 class="font-headline-md text-headline-md mb-2">Mining</h4>
+<p class="text-label-sm text-surface-variant">Controlled extraction of raw material.</p>
+</div>
+<div class="relative z-10 flex flex-col items-center text-center md:w-1/6 px-4">
+<div class="w-20 h-20 bg-primary-container rounded-full flex items-center justify-center mb-6 border-4 border-inverse-surface shadow-xl">
+<span class="material-symbols-outlined text-white text-3xl" data-icon="architecture">architecture</span>
+</div>
+<h4 class="font-headline-md text-headline-md mb-2">Crushing</h4>
+<p class="text-label-sm text-surface-variant">Multi-stage size reduction.</p>
+</div>
+<div class="relative z-10 flex flex-col items-center text-center md:w-1/6 px-4">
+<div class="w-20 h-20 bg-primary-container rounded-full flex items-center justify-center mb-6 border-4 border-inverse-surface shadow-xl">
+<span class="material-symbols-outlined text-white text-3xl" data-icon="filter_list">filter_list</span>
+</div>
+<h4 class="font-headline-md text-headline-md mb-2">Screening</h4>
+<p class="text-label-sm text-surface-variant">Precise gradation sorting.</p>
+</div>
+<div class="relative z-10 flex flex-col items-center text-center md:w-1/6 px-4">
+<div class="w-20 h-20 bg-primary-container rounded-full flex items-center justify-center mb-6 border-4 border-inverse-surface shadow-xl">
+<span class="material-symbols-outlined text-white text-3xl" data-icon="biotech">biotech</span>
+</div>
+<h4 class="font-headline-md text-headline-md mb-2">Testing</h4>
+<p class="text-label-sm text-surface-variant">Strict quality laboratory check.</p>
+</div>
+<div class="relative z-10 flex flex-col items-center text-center md:w-1/6 px-4">
+<div class="w-20 h-20 bg-primary-container rounded-full flex items-center justify-center mb-6 border-4 border-inverse-surface shadow-xl">
+<span class="material-symbols-outlined text-white text-3xl" data-icon="inventory_2">inventory_2</span>
+</div>
+<h4 class="font-headline-md text-headline-md mb-2">Stocking</h4>
+<p class="text-label-sm text-surface-variant">Strategic inventory management.</p>
+</div>
+<div class="relative z-10 flex flex-col items-center text-center md:w-1/6 px-4">
+<div class="w-20 h-20 bg-primary rounded-full flex items-center justify-center mb-6 border-4 border-inverse-surface shadow-xl animate-bounce">
+<span class="material-symbols-outlined text-white text-3xl" data-icon="conveyor_belt" data-weight="fill">conveyor_belt</span>
+</div>
+<h4 class="font-headline-md text-headline-md mb-2">Dispatch</h4>
+<p class="text-label-sm text-surface-variant">Just-in-time logistics delivery.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 6: Infrastructure Showcase -->
+<section class="py-24">
+<div class="px-margin-desktop max-w-container-max mx-auto mb-16">
+<h2 class="font-headline-xl text-headline-xl edge-bar pl-6">Plant Infrastructure</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 h-[800px] gap-2 px-margin-desktop max-w-container-max mx-auto">
+<div class="md:col-span-2 relative overflow-hidden group">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="A panoramic view of a massive modern aggregate processing plant. Numerous high-reaching conveyors cross-cross each other against a bright blue sky. Large storage silos and processing units are shown in sharp detail with industrial grey and silver colors. The mood is highly productive and professional." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD7cAaMQUWszD6Y2NejIt1bcZ2hjy8wqh8XIXeR1ewuiHjquABnNZU8q64jKXEDEseL_-8u5okTzRwYsQ9_iP4kX-RrQCdR3m8Y4tUmj1CiI7s8KGX9V-2Vb3ue2_BWJTD8Ujuj5AHWuPasXxn3u5zkgUOb6FgdJCw91w74cqXooYraE62S3yo685KELTzHSQIafs8oQMwFuFRRnZDRzNta2QqY4lOmHNsjV_oLWgkn5RLxx6tOTRyKUZWJa-GWG4zoLdvn9YpXmbo')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-10 flex flex-col justify-end">
+<h3 class="text-white font-headline-lg text-headline-lg">Primary Processing Unit</h3>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<div class="h-1/2 relative overflow-hidden group">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="Action shot of a heavy excavator loading raw rock into a large crusher. Dust suppression systems are active, creating a misty atmosphere. The lighting is cinematic, capturing the raw power of the industrial process." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDFtR3WyvtcymlapY5YsKn9ceP7hS7ZaiCKyvqCBVAanzjfhNaNfPhj4KayBt06ta388HJ2LOXM2FBmp4t49azqe_0lZ6GZcAGnXWzkpjvHNoSYA2N7dQGE_DXgTnYP6OGru5e8jjiAhj7ki0QVQvqjvJ4Fv6TlKlTJHbWWhTkrUiuSN7GCcG2ZqYmxnxw10qUgSiK4TUEpgtzWNsDSLZAJdDcKwWOR8xkIbjfGmxBihit4L1Ulv3FwKTKYbKcBk_Ua5mScG9Yzd_0')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end">
+<h3 class="text-white font-headline-md text-headline-md">Mining Operations</h3>
+</div>
+</div>
+<div class="h-1/2 relative overflow-hidden group">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="A row of heavy-duty delivery trucks lined up at a dispatch station. The trucks are gleaming white and clean, parked on a precise grid. The scene suggests high-efficiency logistics and organizational excellence." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC_UdGDqeFrwjkBgApiFgZV6B4e-DKKjXOqL5k6vbtN3aqCS_BUwdjxJDjuveJU30pwdIBwde66w3gvoMfOrq28iT-fL2aU9u7kCneZ6tCgQLe56vNLJ8NKT7-VfqELuN4eLU1mAndHDEpXzTxZUcpszj9badH-BbIbBPVw8I3xAmVlpPOfXSNmNIXj8w8YfoNpURmLcZIGFLcVgibCisXQ_Ws2tAD_To0PcjPwa4D8hbnfrhEqgYXDEWJCsXBEyUf9KDvwFcmeNzI')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end">
+<h3 class="text-white font-headline-md text-headline-md">Logistics Fleet</h3>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 7: Sustainability -->
+<section class="bg-on-tertiary-fixed-variant py-24 text-white">
+<div class="px-margin-desktop max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+<div class="space-y-8">
+<div class="inline-block px-4 py-1 bg-tertiary text-white font-label-md text-label-md rounded uppercase tracking-widest">Sustainability First</div>
+<h2 class="font-headline-xl text-headline-xl">Engineering a Greener Future</h2>
+<p class="font-body-lg text-body-lg text-tertiary-fixed">We believe in industrial growth that respects the environment. Our comprehensive "Green-Mining" initiative sets new benchmarks in eco-friendly material production.</p>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-tertiary-fixed text-4xl" data-icon="park">park</span>
+<div>
+<h4 class="font-headline-md text-headline-md mb-1">Afforestation</h4>
+<p class="text-label-sm text-tertiary-fixed/80">10,000+ trees planted around our sites.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-tertiary-fixed text-4xl" data-icon="water_drop">water_drop</span>
+<div>
+<h4 class="font-headline-md text-headline-md mb-1">Dust Control</h4>
+<p class="text-label-sm text-tertiary-fixed/80">Advanced misting systems to ensure air quality.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-tertiary-fixed text-4xl" data-icon="recycling">recycling</span>
+<div>
+<h4 class="font-headline-md text-headline-md mb-1">Waste Recovery</h4>
+<p class="text-label-sm text-tertiary-fixed/80">100% recycling of process water and fines.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-tertiary-fixed text-4xl" data-icon="solar_power">solar_power</span>
+<div>
+<h4 class="font-headline-md text-headline-md mb-1">Renewable Energy</h4>
+<p class="text-label-sm text-tertiary-fixed/80">Hybrid operations powered by solar arrays.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="relative">
+<div class="w-full aspect-square bg-cover bg-center rounded-full border-8 border-tertiary shadow-2xl" data-alt="A lush green forest area juxtaposed with a modern, clean industrial facility. The foreground shows thriving young trees and a well-maintained garden, while the background reveals a sophisticated plant with no visible smoke or emissions. The image uses a vibrant, natural green and cool grey palette." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB6Kc5Ybu_FgAWqN67hbNmHmoA1gADUpHq37SvK_Eyjh89qNgXACJ5oIWhgXvkiCHb4RrOH64FK037Tm5Q4nyWDekxqEu2Nxmfu0IQinBCV3zoiuQH4lSSdQb8q56i9BFvA3Yt3EtkvR3apnc_mYN_k6-YaXBWNVVCMvaE6blPm4kkN-yexC3MilMxBJCWXRPQQ-b91TOzMYwyiBkQDMWf7qaP4sBP3W5Vix5ZGn7LeSghFZUjJDnYEWaHCsgi0Pz_fFVpyH-vO8hw')"></div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[110%] border-2 border-dashed border-tertiary-fixed/30 rounded-full animate-[spin_20s_linear_infinite]"></div>
+</div>
+</div>
+</section>
+<!-- Section 8: Leadership -->
+<section class="py-24 px-margin-desktop max-w-container-max mx-auto">
+<div class="text-center mb-16">
+<h2 class="font-headline-xl text-headline-xl mb-4">Leadership Team</h2>
+<p class="text-on-surface-variant">The visionaries steering Uranus towards global excellence.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Director Card -->
+<div class="text-center group">
+<div class="relative overflow-hidden mb-6 aspect-[4/5] rounded">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-500" data-alt="A professional studio portrait of a male executive in a sharp navy blue suit. He has a confident and authoritative expression. The background is a minimalist dark grey. High-key lighting highlights facial features with precision." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDidqyaanNmQH25b8-OrP3TSbPvT5bwKwz978gD04p-O31M4pYt0oDqsHK9UpgX7nzzNkg_QKyzo5LtdZ99AHegVvLjVtsjhSog5-pwi6PnUISY6qHM3o99bnJh2CUYJ3NwGQl4zQhY_1u22XPaAhpzZ0R6pPXdMzmerO-ZiL8W-4YcRl8weTtGu90oLZowyx0sl7AZxEgxdbH0R_uSlYCamqOZHvYWE8UQeuhXJFmtDJcLmiTq9fRHQdc6gP7Jf8sxYJPlZYjhZpE')"></div>
+</div>
+<h3 class="font-headline-md text-headline-md">Ankit Mittal</h3>
+<p class="text-primary font-label-md uppercase tracking-widest">Managing Director</p>
+</div>
+<div class="text-center group">
+<div class="relative overflow-hidden mb-6 aspect-[4/5] rounded">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-500" data-alt="A professional studio portrait of a female executive in elegant professional attire. She has a composed and visionary look. The lighting is soft and flattering with a clean modern studio background." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDRfTb022eWFCuxO8eVZCTu2jqDDNPNBIKV6WjVfYKpF7VrNdX4ezjV3JUtCtjTgVmLqKDM82fwK-Lxf1uK9F8WhRh2gL5agtoCEixtwfztUCH5IVVdKDu6dqM5ZlQi4H2AWPoK5h6uceT1K1v3olz0vCvzOBmilikeRLDgY1AOdmQuLqavQSRSbSdfnd9YSeG3l8qfjdpSGWP9cCb182YiVbr5zhRebI3IHWAfxzBlmBu--Y8qsGswqI1wKORqh63G65YROgwoCiY')"></div>
+</div>
+<h3 class="font-headline-md text-headline-md">Conformi Mukhim</h3>
+<p class="text-primary font-label-md uppercase tracking-widest">Director of Operations</p>
+</div>
+<div class="text-center group">
+<div class="relative overflow-hidden mb-6 aspect-[4/5] rounded">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-500" data-alt="A professional studio portrait of a male executive, appearing strategic and experienced. Clean-cut professional look with high-end corporate lighting and a sophisticated tonal background." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAMhBf7Kx5yYTo_qMpHTTG-VGFPFTOxSGbs4zu328WF8i5B3Wgz-1fmYvZs34iTZQILQjCwFX7zXaSEBHhKlsh7odrj0U_cfm700EqKBypr5CPNoTXPiy7_VHtJQP6pWwCNgTosZ5ShkUS1PoutPufi8utk3jmgkyAPUFmjf1fnCUfpeQhef04my-Zx3oKbVUFdrVgkN1bBb9BwuVfh7eTX3tT05_ZdUhOWMR7ztDMCUl9KhA3OhHwNWSBAFdsg1B0YGdh35LuqQuA')"></div>
+</div>
+<h3 class="font-headline-md text-headline-md">Shweta Mittal</h3>
+<p class="text-primary font-label-md uppercase tracking-widest">Director of Strategy</p>
+</div>
+</div>
+</section>
+<!-- Section 9: CTA -->
+<section class="py-24 px-margin-desktop max-w-container-max mx-auto mb-24">
+<div class="bg-inverse-surface rounded-xl overflow-hidden relative">
+<div class="absolute inset-0 opacity-20">
+
+</div>
+<div class="relative z-10 p-16 md:p-24 text-center">
+<h2 class="font-display-lg text-white mb-6">Need Reliable Aggregate Supply?</h2>
+<p class="text-surface-variant font-body-lg mb-10 max-w-2xl mx-auto">Connect with our materials experts for a customized quote and technical consultation for your project.</p>
+<div class="flex flex-col sm:flex-row justify-center gap-4">
+<button class="bg-primary-container text-on-primary-container px-10 py-5 font-headline-md rounded shadow-lg hover:translate-y-[-2px] transition-all">Request a Quote</button>
+<button class="bg-white text-inverse-surface px-10 py-5 font-headline-md rounded shadow-lg hover:bg-surface-variant transition-all">Download Catalog</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-inverse-surface dark:bg-surface-container-lowest py-24 text-surface-variant">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-desktop py-24 max-w-container-max mx-auto">
+<div class="col-span-1 md:col-span-1">
+<div class="font-headline-lg text-headline-lg font-black text-white mb-6">URANUS</div>
+<p class="text-body-md mb-6">Leading the way in industrial aggregate materials and modern infrastructure solutions with a commitment to quality and sustainability.</p>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-white" data-icon="public">public</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-white" data-icon="hub">hub</span>
+</a>
+</div>
+</div>
+<div>
+<h4 class="text-white font-headline-md mb-6">Quick Links</h4>
+<ul class="space-y-4">
+<li><a class="hover:text-white transition-colors" href="#">Product Catalog</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Global Logistics</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Sustainability Report</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Investor Relations</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-headline-md mb-6">Products</h4>
+<ul class="space-y-4">
+<li><a class="hover:text-white transition-colors" href="#">Aggregates</a></li>
+<li><a class="hover:text-white transition-colors" href="#">M-Sand</a></li>
+<li><a class="hover:text-white transition-colors" href="#">GSB Material</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Custom Mixes</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-headline-md mb-6">Contact Us</h4>
+<p class="mb-4">Industrial Park North,<br/>Main Crushing Yard, Zone 4</p>
+<p class="mb-2">T: +1 (800) URANUS-01</p>
+<p>E: sales@uranusinfra.com</p>
+</div>
+</div>
+<div class="px-margin-desktop max-w-container-max mx-auto pt-10 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-label-sm">© 2024 URANUS Infrastructure &amp; Heavy Materials. All rights reserved.</p>
+<div class="flex gap-8 text-label-sm">
+<a class="hover:text-white transition-colors underline decoration-transparent hover:decoration-white" href="#">Privacy Policy</a>
+<a class="hover:text-white transition-colors underline decoration-transparent hover:decoration-white" href="#">Terms of Service</a>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interaction for scroll effects
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.classList.add('shadow-md');
+                header.classList.remove('h-20');
+                header.classList.add('h-16');
+            } else {
+                header.classList.remove('shadow-md');
+                header.classList.remove('h-16');
+                header.classList.add('h-20');
+            }
+        });
+
+        // Intersection observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-10');
+            observer.observe(section);
+        });
+    </script>
+</body></html>

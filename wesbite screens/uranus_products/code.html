@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Products | URANUS Infrastructure &amp; Heavy Materials</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .industrial-grid {
+            background-image: radial-gradient(#d1daef 0.5px, transparent 0.5px);
+            background-size: 24px 24px;
+        }
+        .glass-header {
+            backdrop-filter: blur(8px);
+            background-color: rgba(249, 249, 255, 0.8);
+        }
+        .active-edge {
+            position: relative;
+        }
+        .active-edge::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background-color: #0051e0;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md industrial-grid min-h-screen">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container": "#e7eeff",
+                    "on-error": "#ffffff",
+                    "on-tertiary-fixed-variant": "#005231",
+                    "on-secondary-fixed": "#001e2d",
+                    "outline": "#737687",
+                    "tertiary": "#00623c",
+                    "on-primary-container": "#eff0ff",
+                    "secondary-container": "#2dbcfe",
+                    "on-primary-fixed": "#00164d",
+                    "on-surface-variant": "#424656",
+                    "on-error-container": "#93000a",
+                    "background": "#f9f9ff",
+                    "inverse-primary": "#b5c4ff",
+                    "on-primary-fixed-variant": "#003cac",
+                    "surface-bright": "#f9f9ff",
+                    "on-background": "#121c2b",
+                    "on-tertiary-container": "#c3ffd7",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "surface-variant": "#d9e3f8",
+                    "on-secondary-fixed-variant": "#004c6b",
+                    "secondary": "#00658d",
+                    "surface-dim": "#d1daef",
+                    "on-secondary": "#ffffff",
+                    "tertiary-container": "#007e4e",
+                    "primary-fixed": "#dbe1ff",
+                    "on-tertiary-fixed": "#002111",
+                    "error-container": "#ffdad6",
+                    "surface-container-highest": "#d9e3f8",
+                    "outline-variant": "#c3c5d9",
+                    "surface-tint": "#0051e0",
+                    "surface-container-high": "#dfe8fe",
+                    "tertiary-fixed": "#69fdb1",
+                    "on-secondary-container": "#004866",
+                    "primary-container": "#0b5fff",
+                    "surface": "#f9f9ff",
+                    "secondary-fixed": "#c6e7ff",
+                    "inverse-surface": "#273141",
+                    "inverse-on-surface": "#ebf1ff",
+                    "surface-container-low": "#f0f3ff",
+                    "primary-fixed-dim": "#b5c4ff",
+                    "error": "#ba1a1a",
+                    "tertiary-fixed-dim": "#48e096",
+                    "on-surface": "#121c2b",
+                    "secondary-fixed-dim": "#82cfff",
+                    "primary": "#0049cc"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "margin-desktop": "64px",
+                    "margin-mobile": "16px",
+                    "container-max": "1440px",
+                    "base": "8px",
+                    "gutter": "24px",
+                    "margin-tablet": "32px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "display-lg-mobile": ["Inter"],
+                    "headline-xl": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "body-md": ["Inter"],
+                    "label-md": ["Inter"],
+                    "display-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "display-lg-mobile": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "display-lg": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<!-- TopNavBar -->
+<header class="fixed top-0 left-0 right-0 z-50 glass-header border-b border-outline-variant">
+<nav class="flex justify-between items-center w-full px-margin-desktop max-w-container-max mx-auto h-20">
+<div class="font-headline-md text-headline-md font-bold text-primary">URANUS</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="font-label-md text-label-md uppercase tracking-wider text-primary border-b-2 border-primary pb-1" href="#">Products</a>
+<a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors" href="#">Infrastructure</a>
+<a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors" href="#">Logistics</a>
+<a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors" href="#">Sustainability</a>
+<a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors" href="#">Corporate</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="hidden lg:block font-label-md text-label-md uppercase tracking-wider text-primary px-4 py-2">Client Portal</button>
+<button class="bg-primary-container text-on-primary-container px-6 py-3 font-label-md uppercase tracking-widest rounded-lg hover:opacity-90 transition-all">Contact Sales</button>
+</div>
+</nav>
+</header>
+<main class="pt-32 pb-24 max-w-container-max mx-auto px-margin-desktop">
+<!-- Hero Section -->
+<section class="mb-24 flex flex-col md:flex-row justify-between items-end gap-12">
+<div class="max-w-3xl">
+<div class="inline-flex items-center gap-2 px-3 py-1 bg-surface-container text-primary font-label-md rounded mb-6">
+<span class="material-symbols-outlined text-[18px]">precision_manufacturing</span>
+                    INDUSTRIAL CATALOG V4.0
+                </div>
+<h1 class="font-display-lg text-display-lg mb-8 leading-none">High-Precision Construction Aggregates</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+                    Engineered for structural integrity. Our materials undergo rigorous ultrasonic and mechanical stress testing to meet global infrastructure standards for mega-projects.
+                </p>
+</div>
+<div class="flex gap-4">
+<div class="bg-surface-container-high p-6 border border-outline-variant rounded-lg text-center min-w-[160px]">
+<div class="text-headline-md text-primary font-bold">12k+</div>
+<div class="font-label-sm uppercase text-on-surface-variant">Daily Tonnes</div>
+</div>
+<div class="bg-surface-container-high p-6 border border-outline-variant rounded-lg text-center min-w-[160px]">
+<div class="text-headline-md text-primary font-bold">0.02%</div>
+<div class="font-label-sm uppercase text-on-surface-variant">Impurity Rate</div>
+</div>
+</div>
+</section>
+<!-- Product Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter mb-24">
+<!-- Coarse Aggregates (6mm - 60mm) -->
+<div class="md:col-span-8 bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden hover:shadow-xl transition-shadow group">
+<div class="relative h-[400px]">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="A wide-angle professional photograph of high-quality industrial basalt aggregates piled in a modern storage facility. The lighting is cool-toned and crisp, highlighting the sharp edges and grey textures of the 60mm stones. The aesthetic is extremely industrial and clean, emphasizing massive scale and professional processing. Deep blue shadows provide high contrast against the light grey surfaces." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAFqzWn5FJEwy9napPcDsh-FNPFMiy9Xp67fM9n-9eyaKy507fSEJAbDWXZ7203HFmlqsOMT_5m1V4k0G8G28OCpwxtJP_xL260D4tCCrPOA47VrriMlo1DWhkUf6CkAntR33yd-isWV2iBgdWG3C-L4mRi47Z11K4fjmvGCPNJ1tbkHI2SuAgH9P1PiGduSEUJzf-fagfm6q8RC_QymauJif4mfU2zWiQslRMNHWKoxS5TEEepzBu8HwHfPtaDhJaQ-oBdy8N7sQw')">
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-8">
+<div class="flex items-center gap-2 mb-4">
+<span class="bg-primary text-white text-[10px] px-2 py-0.5 rounded font-bold uppercase tracking-widest">Premium Grade</span>
+<span class="text-white/70 font-label-md uppercase tracking-widest">Range: 6mm - 60mm</span>
+</div>
+<h2 class="text-white font-headline-xl text-headline-xl mb-2">Coarse Aggregates</h2>
+<p class="text-white/80 font-body-md max-w-lg">Primary structural component for high-rise slabs and bridge foundations. Multi-stage crushed and washed for maximum adhesion.</p>
+</div>
+</div>
+<div class="p-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+<div>
+<h4 class="font-label-md text-primary uppercase mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">analytics</span> Specs
+                        </h4>
+<ul class="space-y-2 text-on-surface-variant font-body-md">
+<li class="flex justify-between border-b border-outline-variant pb-1"><span>Crushing Value</span> <span class="font-semibold text-on-surface">14.2%</span></li>
+<li class="flex justify-between border-b border-outline-variant pb-1"><span>Flakiness Index</span> <span class="font-semibold text-on-surface">18.5%</span></li>
+<li class="flex justify-between border-b border-outline-variant pb-1"><span>Specific Gravity</span> <span class="font-semibold text-on-surface">2.68</span></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-md text-primary uppercase mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">build_circle</span> Use Cases
+                        </h4>
+<p class="text-on-surface-variant font-body-md leading-relaxed">
+                            Highway paving base-layers, High-strength RMC (M60+), and seismic-resistant foundation casting.
+                        </p>
+</div>
+<div class="flex flex-col justify-end">
+<button class="w-full flex items-center justify-between px-6 py-4 border border-primary text-primary hover:bg-primary-container hover:text-on-primary-container transition-all group/btn">
+<span class="font-label-md uppercase tracking-wider">Download TDS</span>
+<span class="material-symbols-outlined group-hover/btn:translate-x-1 transition-transform">download</span>
+</button>
+</div>
+</div>
+</div>
+<!-- M-Sand -->
+<div class="md:col-span-4 bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden hover:shadow-xl transition-shadow flex flex-col group">
+<div class="h-64 bg-cover bg-center" data-alt="A close-up macro photograph of high-quality manufactured sand, showing uniform grain size and clean texture. The lighting is bright and industrial, reflecting off the fine crystalline particles. The overall color palette is composed of light tans and greys, aligned with the Uranus corporate theme. Professional industrial studio lighting captures every detail of the material's consistency." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuACuRs62nnIw2oNVqcYpsVdvWMeVOF2TEiGPGaBMAfvo_ZwQe6M3EjCM3lXTsgmCGz3s8fj6LjYQbwXpYbGX04IL3wj8tCdPkP3RHfz1FiUbC8dfvsKLo2D-TWN9xIXiBZvMB7ycW6kV2e_O8q8RkMrmGgwXtGXKkmX8YKmfzwUUQi5O4Zfysk0xghaWlVujvahmBlF8D86OUHwkF4bD81CVwsQuGWVS4swVq7A3zRFyz3s9AzYSH41K6xA5ae0mZkKAY3Rs12kcs0')">
+</div>
+<div class="p-8 flex-grow active-edge">
+<h3 class="font-headline-lg text-headline-lg mb-4">M-Sand</h3>
+<p class="text-on-surface-variant font-body-md mb-6 leading-relaxed">
+                        Precision-engineered alternative to river sand. Silt-free with cubical grain shape for superior workability and finish.
+                    </p>
+<div class="space-y-4 mb-8">
+<div class="bg-surface p-3 rounded border border-outline-variant">
+<div class="text-[10px] text-primary uppercase font-bold mb-1">Grading Zone</div>
+<div class="font-body-md font-semibold">Zone II - IS 383 Compliant</div>
+</div>
+<div class="bg-surface p-3 rounded border border-outline-variant">
+<div class="text-[10px] text-primary uppercase font-bold mb-1">Fineness Modulus</div>
+<div class="font-body-md font-semibold">2.8 - 3.2 Range</div>
+</div>
+</div>
+<button class="w-full bg-primary text-white py-4 font-label-md uppercase tracking-wider rounded hover:bg-primary/90 transition-colors">Request Sample</button>
+</div>
+</div>
+<!-- GSB -->
+<div class="md:col-span-6 bg-inverse-surface text-white rounded-xl p-10 flex flex-col justify-between group overflow-hidden relative">
+<div class="relative z-10">
+<h3 class="font-headline-lg text-headline-lg mb-4">Granular Sub-Base (GSB)</h3>
+<p class="text-white/70 font-body-md mb-8 max-w-md">
+                        The foundation of high-speed transport. Our GSB mix is calibrated for optimal compaction and drainage properties.
+                    </p>
+<div class="grid grid-cols-2 gap-6 mb-8">
+<div class="border-l-2 border-primary-fixed-dim pl-4">
+<div class="text-primary-fixed-dim font-bold text-headline-md">98%</div>
+<div class="text-white/50 text-[10px] uppercase font-bold">Standard Proctor</div>
+</div>
+<div class="border-l-2 border-primary-fixed-dim pl-4">
+<div class="text-primary-fixed-dim font-bold text-headline-md">35%</div>
+<div class="text-white/50 text-[10px] uppercase font-bold">CBR Value (Min)</div>
+</div>
+</div>
+</div>
+<div class="relative z-10 flex gap-4">
+<button class="bg-white text-inverse-surface px-6 py-3 font-label-md uppercase tracking-widest hover:bg-primary-fixed transition-colors">View Logistics</button>
+<button class="border border-white/20 text-white px-6 py-3 font-label-md uppercase tracking-widest hover:bg-white/10 transition-colors">Lab Reports</button>
+</div>
+<div class="absolute top-0 right-0 w-1/2 h-full opacity-20 transform translate-x-1/4 -translate-y-1/4 group-hover:scale-110 transition-transform duration-1000">
+<span class="material-symbols-outlined text-[300px]" style="font-variation-settings: 'FILL' 1;">architecture</span>
+</div>
+</div>
+<!-- Stone Dust -->
+<div class="md:col-span-6 bg-surface-container-high border border-outline-variant rounded-xl p-10 flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-6">
+<h3 class="font-headline-lg text-headline-lg">Stone Dust</h3>
+<span class="bg-on-surface-variant/10 text-on-surface-variant text-[10px] px-2 py-1 rounded font-bold uppercase">Sustainability Choice</span>
+</div>
+<p class="text-on-surface-variant font-body-md mb-8 leading-relaxed">
+                        High-density filler for pavement blocks and asphalt mixes. Reduced permeability for improved durability in harsh environments.
+                    </p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-white border border-outline-variant rounded font-label-sm">Asphalt Mix</span>
+<span class="px-3 py-1 bg-white border border-outline-variant rounded font-label-sm">Paver Blocks</span>
+<span class="px-3 py-1 bg-white border border-outline-variant rounded font-label-sm">Tile Mortar</span>
+<span class="px-3 py-1 bg-white border border-outline-variant rounded font-label-sm">Earth Filling</span>
+</div>
+</div>
+<div class="mt-12 flex items-center justify-between border-t border-outline-variant pt-6">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white">
+<span class="material-symbols-outlined">verified</span>
+</div>
+<div>
+<div class="font-label-md uppercase font-bold">ASTM Certified</div>
+<div class="text-on-surface-variant font-label-sm">Quality Batch: Q4-2024</div>
+</div>
+</div>
+<a class="text-primary font-label-md uppercase font-bold hover:underline flex items-center gap-2" href="#">
+                        Technical Specs <span class="material-symbols-outlined">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Quality Test Reports Preview -->
+<section class="mb-24">
+<div class="flex flex-col md:flex-row justify-between items-end gap-6 mb-12">
+<div>
+<h2 class="font-headline-xl text-headline-xl mb-4">Quality Assurance Dashboard</h2>
+<p class="font-body-md text-on-surface-variant max-w-xl">Transparent real-time laboratory verification for every batch. Access the URANUS blockchain-verified material certificate.</p>
+</div>
+<button class="bg-inverse-surface text-white px-8 py-4 font-label-md uppercase tracking-widest flex items-center gap-3 hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined">inventory</span> Open Laboratory Portal
+                </button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="bg-white border border-outline-variant p-6 rounded-lg active-edge">
+<div class="flex justify-between items-center mb-6">
+<div class="font-label-md uppercase text-primary">Sieve Analysis</div>
+<span class="material-symbols-outlined text-tertiary">check_circle</span>
+</div>
+<div class="h-32 flex items-end gap-1 mb-6 overflow-hidden">
+<div class="bg-primary/10 w-full h-1/4 rounded-t"></div>
+<div class="bg-primary/20 w-full h-2/4 rounded-t"></div>
+<div class="bg-primary/40 w-full h-3/4 rounded-t"></div>
+<div class="bg-primary w-full h-full rounded-t"></div>
+<div class="bg-primary/60 w-full h-4/5 rounded-t"></div>
+<div class="bg-primary/30 w-full h-1/2 rounded-t"></div>
+</div>
+<div class="text-on-surface font-headline-md mb-1">Batch #8821</div>
+<div class="text-on-surface-variant font-label-sm">Consistency Variance: ±1.2%</div>
+</div>
+<div class="bg-white border border-outline-variant p-6 rounded-lg active-edge">
+<div class="flex justify-between items-center mb-6">
+<div class="font-label-md uppercase text-primary">Strength Profile</div>
+<span class="material-symbols-outlined text-tertiary">check_circle</span>
+</div>
+<div class="relative h-32 flex items-center justify-center mb-6">
+<svg class="w-24 h-24 transform -rotate-90">
+<circle class="text-surface-container" cx="48" cy="48" fill="transparent" r="40" stroke="currentColor" stroke-width="8"></circle>
+<circle class="text-primary" cx="48" cy="48" fill="transparent" r="40" stroke="currentColor" stroke-dasharray="251.2" stroke-dashoffset="25.1" stroke-width="8"></circle>
+</svg>
+<div class="absolute inset-0 flex items-center justify-center font-bold text-headline-md">92%</div>
+</div>
+<div class="text-on-surface font-headline-md mb-1">Impact Value</div>
+<div class="text-on-surface-variant font-label-sm">Standard Deviation: 0.04</div>
+</div>
+<div class="bg-white border border-outline-variant p-6 rounded-lg active-edge">
+<div class="flex justify-between items-center mb-6">
+<div class="font-label-md uppercase text-primary">Moisture Matrix</div>
+<span class="material-symbols-outlined text-tertiary">check_circle</span>
+</div>
+<div class="h-32 flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-6xl text-primary-container">water_drop</span>
+</div>
+<div class="text-on-surface font-headline-md mb-1">0.45% Absorption</div>
+<div class="text-on-surface-variant font-label-sm">Target Range: &lt;0.50%</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="bg-primary-container rounded-2xl p-12 md:p-20 relative overflow-hidden text-on-primary-container">
+<div class="relative z-10 max-w-3xl">
+<h2 class="font-display-lg text-display-lg-mobile md:text-display-lg mb-8 leading-tight">Ready to fortify your project?</h2>
+<p class="font-body-lg text-body-lg mb-12 opacity-90">Our logistics network ensures just-in-time delivery for high-volume aggregate requirements across the continent.</p>
+<div class="flex flex-col sm:flex-row gap-6">
+<button class="bg-on-background text-white px-10 py-5 rounded-lg font-label-md uppercase tracking-widest hover:scale-105 transition-transform flex items-center justify-center gap-3">
+<span class="material-symbols-outlined">note</span> Request Bulk Pricing
+                    </button>
+<button class="border-2 border-on-primary-container text-on-primary-container px-10 py-5 rounded-lg font-label-md uppercase tracking-widest hover:bg-white/10 transition-all flex items-center justify-center gap-3">
+                         Logistics Calculator
+                    </button>
+</div>
+</div>
+<!-- Industrial graphic elements -->
+<div class="absolute top-0 right-0 w-1/3 h-full flex items-center justify-center opacity-10">
+<span class="material-symbols-outlined text-[400px]">factory</span>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-inverse-surface dark:bg-surface-container-lowest text-surface-variant py-24 mt-24">
+<div class="max-w-container-max mx-auto px-margin-desktop grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<div class="col-span-1 md:col-span-1">
+<div class="font-headline-lg text-headline-lg font-black text-white mb-6">URANUS</div>
+<p class="font-body-md text-body-md mb-8">Engineering the physical foundations of the future through advanced material science and logistical excellence.</p>
+<div class="flex gap-4">
+<a class="w-10 h-10 bg-white/10 flex items-center justify-center rounded hover:bg-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px] text-white">share</span>
+</a>
+<a class="w-10 h-10 bg-white/10 flex items-center justify-center rounded hover:bg-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px] text-white">hub</span>
+</a>
+</div>
+</div>
+<div>
+<h5 class="text-white font-label-md uppercase mb-8">Navigation</h5>
+<ul class="space-y-4 font-body-md">
+<li><a class="text-primary-fixed font-bold" href="#">Product Catalog</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Global Logistics</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Sustainability Report</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Investor Relations</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-white font-label-md uppercase mb-8">Legal</h5>
+<ul class="space-y-4 font-body-md">
+<li><a class="hover:text-white transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Terms of Service</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Compliance</a></li>
+<li><a class="hover:text-white transition-colors" href="#">MSDS Documents</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-white font-label-md uppercase mb-8">Contact</h5>
+<ul class="space-y-4 font-body-md">
+<li class="flex gap-3">
+<span class="material-symbols-outlined text-primary-fixed-dim">location_on</span>
+<span>Industrial Zone 4, Block C<br/>High-Security Hub</span>
+</li>
+<li class="flex gap-3">
+<span class="material-symbols-outlined text-primary-fixed-dim">mail</span>
+<span>sales@uranus-infra.com</span>
+</li>
+<li class="flex gap-3">
+<span class="material-symbols-outlined text-primary-fixed-dim">phone</span>
+<span>+1 (800) URANUS-0</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="max-w-container-max mx-auto px-margin-desktop mt-24 pt-8 border-t border-white/10 text-center font-label-sm uppercase tracking-widest text-white/40">
+            © 2024 URANUS Infrastructure &amp; Heavy Materials. All rights reserved.
+        </div>
+</footer>
+<script>
+        // Micro-interactions for hover effects
+        document.querySelectorAll('a, button').forEach(el => {
+            el.addEventListener('mousedown', () => el.classList.add('opacity-80'));
+            el.addEventListener('mouseup', () => el.classList.remove('opacity-80'));
+            el.addEventListener('mouseleave', () => el.classList.remove('opacity-80'));
+        });
+
+        // Simple scroll reveal for the glass header
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 20) {
+                header.classList.add('shadow-md');
+            } else {
+                header.classList.remove('shadow-md');
+            }
+        });
+    </script>
+</body></html>

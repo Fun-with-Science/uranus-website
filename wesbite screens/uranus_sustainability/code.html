@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sustainability & ESG | URANUS Infrastructure</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container": "#e7eeff",
+                    "on-error": "#ffffff",
+                    "on-tertiary-fixed-variant": "#005231",
+                    "on-secondary-fixed": "#001e2d",
+                    "outline": "#737687",
+                    "tertiary": "#00623c",
+                    "on-primary-container": "#eff0ff",
+                    "secondary-container": "#2dbcfe",
+                    "on-primary-fixed": "#00164d",
+                    "on-surface-variant": "#424656",
+                    "on-error-container": "#93000a",
+                    "background": "#f9f9ff",
+                    "inverse-primary": "#b5c4ff",
+                    "on-primary-fixed-variant": "#003cac",
+                    "surface-bright": "#f9f9ff",
+                    "on-background": "#121c2b",
+                    "on-tertiary-container": "#c3ffd7",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "surface-variant": "#d9e3f8",
+                    "on-secondary-fixed-variant": "#004c6b",
+                    "secondary": "#00658d",
+                    "surface-dim": "#d1daef",
+                    "on-secondary": "#ffffff",
+                    "tertiary-container": "#007e4e",
+                    "primary-fixed": "#dbe1ff",
+                    "on-tertiary-fixed": "#002111",
+                    "error-container": "#ffdad6",
+                    "surface-container-highest": "#d9e3f8",
+                    "outline-variant": "#c3c5d9",
+                    "surface-tint": "#0051e0",
+                    "surface-container-high": "#dfe8fe",
+                    "tertiary-fixed": "#69fdb1",
+                    "on-secondary-container": "#004866",
+                    "primary-container": "#0b5fff",
+                    "surface": "#f9f9ff",
+                    "secondary-fixed": "#c6e7ff",
+                    "inverse-surface": "#273141",
+                    "inverse-on-surface": "#ebf1ff",
+                    "surface-container-low": "#f0f3ff",
+                    "primary-fixed-dim": "#b5c4ff",
+                    "error": "#ba1a1a",
+                    "tertiary-fixed-dim": "#48e096",
+                    "on-surface": "#121c2b",
+                    "secondary-fixed-dim": "#82cfff",
+                    "primary": "#0049cc",
+                    "accent-green": "#19C37D"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "margin-desktop": "64px",
+                    "margin-mobile": "16px",
+                    "container-max": "1440px",
+                    "base": "8px",
+                    "gutter": "24px",
+                    "margin-tablet": "32px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "display-lg-mobile": ["Inter"],
+                    "headline-xl": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "body-md": ["Inter"],
+                    "label-md": ["Inter"],
+                    "display-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "display-lg-mobile": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "display-lg": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .green-accent-border {
+            border-left: 4px solid #19C37D;
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 24px;
+        }
+        .bento-item {
+            background: #ffffff;
+            border: 1px solid #E5E7EB;
+            border-radius: 4px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .bento-item:hover {
+            box-shadow: 0px 12px 24px rgba(13, 23, 38, 0.08);
+            transform: translateY(-4px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md antialiased">
+<!-- TopNavBar -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-surface border-b border-outline-variant h-20">
+<div class="flex justify-between items-center w-full px-margin-desktop max-w-container-max mx-auto h-full">
+<div class="font-headline-md text-headline-md font-bold text-primary">URANUS</div>
+<nav class="hidden md:flex items-center space-x-8">
+<a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Products</a>
+<a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Infrastructure</a>
+<a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Logistics</a>
+<a class="font-label-md text-label-md uppercase tracking-wider text-primary border-b-2 border-primary pb-1" href="#">Sustainability</a>
+<a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Corporate</a>
+</nav>
+<div class="flex items-center space-x-4">
+<button class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors px-4 py-2">Client Portal</button>
+<button class="bg-primary text-white font-label-md text-label-md uppercase tracking-wider px-6 py-3 rounded hover:opacity-90 transition-all">Contact Sales</button>
+</div>
+</div>
+</header>
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="relative h-[819px] flex items-center overflow-hidden bg-inverse-surface">
+<div class="absolute inset-0 opacity-40">
+<img class="w-full h-full object-cover" data-alt="A cinematic, wide-angle shot of a lush, reclaimed mining site that has been transformed into a thriving green forest with a diverse ecosystem. The lighting is warm and golden during the golden hour, highlighting the textures of the leaves and the structured industrial elements in the distant background. The overall aesthetic is professional, clean, and optimistic, blending heavy industry with natural restoration." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkNv4Hb1CA7aCkldNCw1yqCkv37sIKpJ3rnAvaRd07KYyi6vsJpwS6ugS67Nx0jP46UxRUlbuIgFww3FeW0gXFqQjpOC_ptDSby3RjoF9OfPIr9_g18pmlqxBtLj5ToVEvTPdJY3w3vZu-ChPmPNsSRndkmd6W8aM7n4dHhITDlhFaIhfS8sHgS5cT7tTgUbTgow4Azbi0FuiRhAzR_iQvu8XTn3F4SaOZpDS1Im1peHdaDfmQSKZqNsOOzgDwHRHyjDO_9cf6VQ0"/>
+</div>
+<div class="relative z-10 px-margin-desktop max-w-container-max mx-auto w-full">
+<div class="max-w-3xl">
+<span class="inline-block bg-accent-green text-white font-label-md text-label-md px-4 py-1 mb-6 rounded-sm uppercase tracking-widest">ESG Excellence</span>
+<h1 class="font-display-lg text-display-lg text-white mb-8 leading-tight">Forging a Greener <br/><span class="text-accent-green">Industrial Future.</span></h1>
+<p class="font-body-lg text-body-lg text-surface-variant mb-10 max-w-xl">URANUS Infrastructure leads the global heavy materials sector in responsible mining and carbon-neutral logistics, ensuring that the foundations of tomorrow don't compromise the safety of today.</p>
+<div class="flex space-x-4">
+<button class="bg-accent-green text-white px-8 py-4 font-label-md text-label-md uppercase tracking-wider rounded-sm hover:brightness-110 transition-all">Download 2024 ESG Report</button>
+<button class="border border-white text-white px-8 py-4 font-label-md text-label-md uppercase tracking-wider rounded-sm hover:bg-white hover:text-inverse-surface transition-all">Our Commitments</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Stats Grid -->
+<section class="py-24 px-margin-desktop max-w-container-max mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<div class="p-8 bento-item green-accent-border">
+<div class="text-accent-green font-display-lg text-headline-xl mb-2">1.2M+</div>
+<div class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest">Trees Planted</div>
+<p class="mt-4 text-on-surface-variant text-sm">Reforestation initiatives across active and legacy sites globally.</p>
+</div>
+<div class="p-8 bento-item green-accent-border">
+<div class="text-accent-green font-display-lg text-headline-xl mb-2">94%</div>
+<div class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest">Water Recycled</div>
+<p class="mt-4 text-on-surface-variant text-sm">Closed-loop water management systems in all processing facilities.</p>
+</div>
+<div class="p-8 bento-item green-accent-border">
+<div class="text-accent-green font-display-lg text-headline-xl mb-2">40%</div>
+<div class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest">Lower Emission</div>
+<p class="mt-4 text-on-surface-variant text-sm">Compared to industry average for logistics and material transit.</p>
+</div>
+<div class="p-8 bento-item green-accent-border">
+<div class="text-accent-green font-display-lg text-headline-xl mb-2">ISO</div>
+<div class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest">14001 Certified</div>
+<p class="mt-4 text-on-surface-variant text-sm">Adhering to the highest international environmental standards.</p>
+</div>
+</div>
+</section>
+<!-- Main Pillars -->
+<section class="py-32 bg-surface-container-low">
+<div class="px-margin-desktop max-w-container-max mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+<div class="max-w-2xl">
+<h2 class="font-headline-xl text-headline-xl text-on-surface mb-6">Four Pillars of Impact</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Our sustainability framework is integrated directly into our operational DNA, focusing on the areas where we can drive the most significant change.</p>
+</div>
+<div class="flex gap-4">
+<button class="p-4 rounded-full border border-outline-variant hover:bg-surface transition-colors">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<button class="p-4 rounded-full border border-outline-variant bg-primary text-white hover:opacity-90 transition-colors">
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="bento-grid">
+<!-- Dust Suppression -->
+<div class="col-span-12 md:col-span-8 bento-item overflow-hidden">
+<div class="grid grid-cols-1 md:grid-cols-2 h-full">
+<div class="p-12 flex flex-col justify-center">
+<span class="text-accent-green font-label-md mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">air</span> ADVANCED DUST CONTROL
+                                </span>
+<h3 class="font-headline-lg text-headline-lg mb-6">Smart Suppression Systems</h3>
+<p class="text-on-surface-variant mb-8">Our proprietary aerosol misting technology reduces particulate matter by 98.4% at the source, ensuring local air quality remains pristine even during peak extraction cycles.</p>
+<ul class="space-y-3 mb-10">
+<li class="flex items-center gap-3 text-on-surface-variant">
+<span class="material-symbols-outlined text-accent-green">check_circle</span> AI-driven moisture monitoring
+                                    </li>
+<li class="flex items-center gap-3 text-on-surface-variant">
+<span class="material-symbols-outlined text-accent-green">check_circle</span> Zero-chemical additives
+                                    </li>
+</ul>
+<a class="text-primary font-bold hover:underline flex items-center gap-2" href="#">Explore the technology <span class="material-symbols-outlined">east</span></a>
+</div>
+<div class="relative min-h-[300px]">
+<img class="w-full h-full object-cover" data-alt="High-tech macro photography of a dust suppression nozzle emitting a fine, crystalline mist over an industrial aggregate pile. The lighting is sharp and technical, emphasizing the engineering precision. The palette is dominated by cool blues and the vibrant green of the URANUS branding, conveying a sense of clean, controlled industrial power." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPWhW8FINTJyZcKnsfZe6klcgAKh0QLIRnxnxPHCcz4mcyy_ydOuw7uVdvUmZvg3-w55lFyVRM-yJ9nHbfii5xs0kTBZH6clBwY11ptP1wn79nFbjArYBVIDh7XHEADHmqy-VOSBIASCzb3urqNl2HTK5k0yhktA98RuZUO05yRyrg_F0iMohbw5Fsy0fr0de722HKzcFb_0FufQg5uRqEqKPiV-y7kYRwxkcP6fSLVB4c3ZK2KXauflaXz48rRYtZdt5SrTRfZcc"/>
+</div>
+</div>
+</div>
+<!-- Water Recycling -->
+<div class="col-span-12 md:col-span-4 bento-item p-12 bg-inverse-surface text-white flex flex-col justify-between">
+<div>
+<span class="text-accent-green font-label-md mb-4 block">RESOURCE RECOVERY</span>
+<h3 class="font-headline-md text-headline-md mb-6">Circular Water Economy</h3>
+<p class="text-surface-variant">We treat and reuse industrial wastewater through multi-stage desalination and filtration, returning surplus clean water to local agriculture.</p>
+</div>
+<div class="mt-12">
+<div class="text-display-lg text-accent-green font-black">94%</div>
+<div class="text-label-sm uppercase tracking-widest opacity-60">Cycle Completion</div>
+</div>
+</div>
+<!-- Tree Plantation -->
+<div class="col-span-12 md:col-span-5 bento-item p-12 overflow-hidden relative">
+<div class="relative z-10">
+<span class="text-accent-green font-label-md mb-4 block">BIODIVERSITY</span>
+<h3 class="font-headline-md text-headline-md mb-6">Operation Green Belt</h3>
+<p class="text-on-surface-variant mb-8">For every hectare utilized, we restore three. Our autonomous seed-planting drones are currently reforesting vast regions across the Global South.</p>
+<button class="bg-primary text-white px-6 py-3 rounded-sm font-label-md">View Our Forest Map</button>
+</div>
+<div class="absolute bottom-0 right-0 w-1/2 opacity-10">
+<span class="material-symbols-outlined" style="font-size: 200px;">forest</span>
+</div>
+</div>
+<!-- Responsible Mining -->
+<div class="col-span-12 md:col-span-7 bento-item p-12 flex flex-col md:flex-row gap-8 items-center">
+<div class="flex-1">
+<span class="text-accent-green font-label-md mb-4 block">ETHICAL SOURCING</span>
+<h3 class="font-headline-md text-headline-md mb-6">Responsible Extraction Protocols</h3>
+<p class="text-on-surface-variant">We employ precision geological mapping to minimize footprint and ensure that our mining processes respect local heritage sites and ecological buffers.</p>
+</div>
+<div class="flex-1 w-full h-64 rounded bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A clean, minimalist aerial view of a responsible mining site where the extraction areas are neatly organized and surrounded by large, vibrant green buffer zones. The site shows modern electric excavators and a well-maintained road system. The atmosphere is bright, clear, and demonstrates professional ecological management in a corporate infrastructure context." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC89Aoz4H_ZhbVtlV1A8tWA11KMCx9ROn-6XmZjGVOWdTdC-xdaU-0gN8fEmzXCMsWfcHOAUqA-TSoWoKOoFGVd4e_mx9g4lLYNOsyQH5gPfCsmNekDzftd_UKVs-BCgco7bHjNeeVzN950ati6l6dor_BBQcvPAU5BKCzNFkTSpOaxhW_yfECOUh56MiApSjXX2j9LXngo-0lrPtIey8pTh3RyR8R6XusJ4eI8CTx9Yg40GKTXmoQrgiW8utIN15R78qkL5taPNY0"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive Data Section -->
+<section class="py-32 px-margin-desktop max-w-container-max mx-auto">
+<div class="text-center mb-20">
+<h2 class="font-headline-xl text-headline-xl mb-4">ESG Performance Transparency</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">Real-time data visualization of our environmental impact metrics across all global operational hubs.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter">
+<!-- Emissions Tracker -->
+<div class="bg-white border border-outline-variant p-8 rounded-sm">
+<div class="flex justify-between items-center mb-8">
+<h4 class="font-headline-md text-headline-md">Carbon Footprint</h4>
+<span class="bg-surface-container-low text-primary px-3 py-1 rounded text-sm font-bold">-12% YoY</span>
+</div>
+<div class="h-48 flex items-end justify-between gap-2 mb-6">
+<div class="w-full bg-surface-container-highest rounded-t-sm h-[80%] transition-all hover:bg-accent-green cursor-pointer"></div>
+<div class="w-full bg-surface-container-highest rounded-t-sm h-[65%] transition-all hover:bg-accent-green cursor-pointer"></div>
+<div class="w-full bg-surface-container-highest rounded-t-sm h-[50%] transition-all hover:bg-accent-green cursor-pointer"></div>
+<div class="w-full bg-accent-green rounded-t-sm h-[40%]"></div>
+</div>
+<div class="flex justify-between text-xs text-on-surface-variant font-bold">
+<span>2021</span>
+<span>2022</span>
+<span>2023</span>
+<span class="text-accent-green">CURRENT</span>
+</div>
+</div>
+<!-- Global Reforestation -->
+<div class="bg-white border border-outline-variant p-8 rounded-sm">
+<h4 class="font-headline-md text-headline-md mb-8">Reforestation Progress</h4>
+<div class="relative h-48 mb-6 flex items-center justify-center">
+<svg class="w-40 h-40 transform -rotate-90" viewbox="0 0 36 36">
+<circle class="stroke-surface-container-highest" cx="18" cy="18" fill="none" r="16" stroke-width="3"></circle>
+<circle class="stroke-accent-green" cx="18" cy="18" fill="none" r="16" stroke-dasharray="75, 100" stroke-width="3"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-3xl font-bold">75%</span>
+<span class="text-xs text-on-surface-variant">OF 2025 GOAL</span>
+</div>
+</div>
+<p class="text-sm text-center text-on-surface-variant">On track to plant 2 million trees by the end of Q4 2025.</p>
+</div>
+<!-- Compliance -->
+<div class="bg-white border border-outline-variant p-8 rounded-sm flex flex-col justify-between">
+<div>
+<h4 class="font-headline-md text-headline-md mb-8">Certifications</h4>
+<div class="space-y-4">
+<div class="flex items-center gap-4 p-3 bg-surface-container-low rounded">
+<span class="material-symbols-outlined text-accent-green">verified</span>
+<div>
+<div class="font-bold text-sm">GRI Standard 2023</div>
+<div class="text-xs text-on-surface-variant">Global Reporting Initiative</div>
+</div>
+</div>
+<div class="flex items-center gap-4 p-3 bg-surface-container-low rounded">
+<span class="material-symbols-outlined text-accent-green">verified</span>
+<div>
+<div class="font-bold text-sm">SASB Metals & Mining</div>
+<div class="text-xs text-on-surface-variant">Sustainability Accounting Standards</div>
+</div>
+</div>
+<div class="flex items-center gap-4 p-3 bg-surface-container-low rounded">
+<span class="material-symbols-outlined text-accent-green">verified</span>
+<div>
+<div class="font-bold text-sm">Carbon Trust Standard</div>
+<div class="text-xs text-on-surface-variant">Zero Waste to Landfill</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-24 bg-primary">
+<div class="px-margin-desktop max-w-container-max mx-auto text-center text-white">
+<h2 class="font-headline-xl text-headline-xl mb-8">Build the Future Responsibly.</h2>
+<p class="font-body-lg text-body-lg mb-12 max-w-2xl mx-auto opacity-90">Partner with URANUS for your next infrastructure project and leverage our industry-leading ESG framework for your own sustainability goals.</p>
+<div class="flex justify-center gap-6">
+<button class="bg-white text-primary px-10 py-4 font-label-md text-label-md uppercase tracking-wider rounded-sm hover:bg-surface transition-all">Contact ESG Team</button>
+<button class="border border-white text-white px-10 py-4 font-label-md text-label-md uppercase tracking-wider rounded-sm hover:bg-white hover:text-primary transition-all">Investor Center</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-inverse-surface text-surface-variant py-24">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-desktop py-24 max-w-container-max mx-auto">
+<div class="space-y-6">
+<div class="font-headline-lg text-headline-lg font-black text-white">URANUS</div>
+<p class="font-body-md text-body-md opacity-70">Powering the world's most ambitious infrastructure projects through sustainable material science and heavy logistics.</p>
+<div class="flex space-x-4">
+<a class="hover:text-white transition-colors" href="#"><span class="material-symbols-outlined">public</span></a>
+<a class="hover:text-white transition-colors" href="#"><span class="material-symbols-outlined">partner_exchange</span></a>
+<a class="hover:text-white transition-colors" href="#"><span class="material-symbols-outlined">analytics</span></a>
+</div>
+</div>
+<div>
+<h5 class="text-white font-bold mb-8 uppercase tracking-widest text-sm">Resources</h5>
+<ul class="space-y-4 font-body-md text-body-md">
+<li><a class="hover:text-white transition-colors" href="#">Product Catalog</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Global Logistics</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Sustainability Report</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-white font-bold mb-8 uppercase tracking-widest text-sm">Corporate</h5>
+<ul class="space-y-4 font-body-md text-body-md">
+<li><a class="hover:text-white transition-colors" href="#">Investor Relations</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Careers</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Media Kit</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-white font-bold mb-8 uppercase tracking-widest text-sm">Legal</h5>
+<ul class="space-y-4 font-body-md text-body-md">
+<li><a class="hover:text-white transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Terms of Service</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Site Map</a></li>
+</ul>
+</div>
+</div>
+<div class="border-t border-white/10 mt-12 pt-12 px-margin-desktop max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="font-body-md text-body-md opacity-60">© 2024 URANUS Infrastructure & Heavy Materials. All rights reserved.</div>
+<div class="flex gap-8">
+<span class="text-accent-green font-bold text-sm">NET ZERO COMMITMENT 2040</span>
+<span class="text-white font-bold text-sm">ISO 9001 • ISO 14001 • ISO 45001</span>
+</div>
+</div>
+</footer>
+<script>
+        // Simple micro-interaction for bento grid items
+        document.querySelectorAll('.bento-item').forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                const icon = item.querySelector('.material-symbols-outlined');
+                if(icon) icon.style.transform = 'scale(1.1)';
+            });
+            item.addEventListener('mouseleave', () => {
+                const icon = item.querySelector('.material-symbols-outlined');
+                if(icon) icon.style.transform = 'scale(1)';
+            });
+        });
+
+        // Add sticky header behavior
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('shadow-md');
+            } else {
+                header.classList.remove('shadow-md');
+            }
+        });
+    </script>
+</body></html>

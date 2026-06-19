@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Contact &amp; Inquiry | URANUS Infrastructure</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container": "#e7eeff",
+                    "on-error": "#ffffff",
+                    "on-tertiary-fixed-variant": "#005231",
+                    "on-secondary-fixed": "#001e2d",
+                    "outline": "#737687",
+                    "tertiary": "#00623c",
+                    "on-primary-container": "#eff0ff",
+                    "secondary-container": "#2dbcfe",
+                    "on-primary-fixed": "#00164d",
+                    "on-surface-variant": "#424656",
+                    "on-error-container": "#93000a",
+                    "background": "#f9f9ff",
+                    "inverse-primary": "#b5c4ff",
+                    "on-primary-fixed-variant": "#003cac",
+                    "surface-bright": "#f9f9ff",
+                    "on-background": "#121c2b",
+                    "on-tertiary-container": "#c3ffd7",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "surface-variant": "#d9e3f8",
+                    "on-secondary-fixed-variant": "#004c6b",
+                    "secondary": "#00658d",
+                    "surface-dim": "#d1daef",
+                    "on-secondary": "#ffffff",
+                    "tertiary-container": "#007e4e",
+                    "primary-fixed": "#dbe1ff",
+                    "on-tertiary-fixed": "#002111",
+                    "error-container": "#ffdad6",
+                    "surface-container-highest": "#d9e3f8",
+                    "outline-variant": "#c3c5d9",
+                    "surface-tint": "#0051e0",
+                    "surface-container-high": "#dfe8fe",
+                    "tertiary-fixed": "#69fdb1",
+                    "on-secondary-container": "#004866",
+                    "primary-container": "#0b5fff",
+                    "surface": "#f9f9ff",
+                    "secondary-fixed": "#c6e7ff",
+                    "inverse-surface": "#273141",
+                    "inverse-on-surface": "#ebf1ff",
+                    "surface-container-low": "#f0f3ff",
+                    "primary-fixed-dim": "#b5c4ff",
+                    "error": "#ba1a1a",
+                    "tertiary-fixed-dim": "#48e096",
+                    "on-surface": "#121c2b",
+                    "secondary-fixed-dim": "#82cfff",
+                    "primary": "#0049cc"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "margin-desktop": "64px",
+                    "margin-mobile": "16px",
+                    "container-max": "1440px",
+                    "base": "8px",
+                    "gutter": "24px",
+                    "margin-tablet": "32px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "display-lg-mobile": ["Inter"],
+                    "headline-xl": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "body-md": ["Inter"],
+                    "label-md": ["Inter"],
+                    "display-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "display-lg-mobile": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "display-lg": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .industrial-edge { border-left: 4px solid #0051e0; }
+        .glass-card { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md overflow-x-hidden">
+<!-- TopNavBar -->
+<nav class="fixed top-0 z-50 w-full h-20 bg-surface border-b border-outline-variant flex justify-between items-center px-margin-desktop max-w-container-max mx-auto left-0 right-0">
+<div class="flex items-center gap-8">
+<span class="font-headline-md text-headline-md font-bold text-primary">URANUS</span>
+<div class="hidden md:flex gap-6">
+<a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Products</a>
+<a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Infrastructure</a>
+<a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Logistics</a>
+<a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Sustainability</a>
+<a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Corporate</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="px-6 py-2 border border-primary text-primary font-label-md uppercase tracking-wider hover:bg-primary-container hover:text-white transition-all">Client Portal</button>
+<button class="px-6 py-2 bg-primary-container text-white font-label-md uppercase tracking-wider industrial-shadow active:opacity-80 transition-all">Contact Sales</button>
+</div>
+</nav>
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="relative py-24 md:py-32 px-margin-desktop overflow-hidden bg-surface-container-low">
+<div class="absolute inset-0 z-0 opacity-10">
+
+</div>
+<div class="relative z-10 max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-2 gap-gutter items-center">
+<div class="industrial-edge pl-8">
+<span class="text-primary font-label-md uppercase tracking-widest mb-4 block">Global Inquiries</span>
+<h1 class="font-display-lg text-display-lg mb-6 leading-tight">Scale Your Infrastructure With <span class="text-primary">Precision</span>.</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">From large-scale government procurement to complex B2B logistics, our global teams provide the structural support and material excellence your project demands.</p>
+</div>
+<div class="hidden lg:block">
+<div class="h-[400px] w-full rounded-lg overflow-hidden border border-outline-variant relative group">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-700" data-alt="A wide-angle professional photograph of a massive industrial logistics hub at sunset. Huge steel structures and transport cranes are silhouetted against a deep indigo and orange sky. The scene conveys a sense of immense scale, professional reliability, and high-end engineering. The lighting is dramatic, highlighting the textures of raw materials and heavy machinery." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD55xLrmNLuF-nlmDbO3M4NWFNMwPfl1fJDR526XWRpM3u12UNIoio_EC95vVYGBnYexK7YPWMdrSHqiDieF4A-FQu_H5iiwVAoYhk955Ts7-FXMFrgJyeos70UKsyTkkZ84XULj6uyXSMm3EEQvt9bLxWDZfFi3TPLxibYpQW_peQ0d6d5G4HT9CHXLhCc6bflHSD7D82OXufShhN2iqTtDTbsYKuhRNsfcQT3CnQTLFZitQlNZDv487k1bRrKt64l1OkAueLQ5TU')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-inverse-surface/60 to-transparent"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Inquiry Form & Departments -->
+<section class="py-24 px-margin-desktop max-w-container-max mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+<!-- Inquiry Form (Bento Style Layout) -->
+<div class="lg:col-span-7 bg-surface-container-lowest p-10 border border-outline-variant rounded-lg shadow-sm">
+<h2 class="font-headline-lg text-headline-lg mb-2">Project Quote Request</h2>
+<p class="font-body-md text-on-surface-variant mb-10">Submit your project specifications for a comprehensive B2B or Government-level quotation within 48 business hours.</p>
+<form class="space-y-8" id="inquiry-form">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<div class="space-y-2">
+<label class="block text-label-sm font-medium uppercase text-on-surface-variant">Full Name</label>
+<input class="w-full px-4 py-3 rounded border border-outline-variant focus:ring-2 focus:ring-primary focus:border-primary bg-white transition-all outline-none" placeholder="John Doe" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="block text-label-sm font-medium uppercase text-on-surface-variant">Corporate Email</label>
+<input class="w-full px-4 py-3 rounded border border-outline-variant focus:ring-2 focus:ring-primary focus:border-primary bg-white transition-all outline-none" placeholder="doe@organization.gov" type="email"/>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<div class="space-y-2">
+<label class="block text-label-sm font-medium uppercase text-on-surface-variant">Organization Type</label>
+<select class="w-full px-4 py-3 rounded border border-outline-variant focus:ring-2 focus:ring-primary focus:border-primary bg-white transition-all outline-none">
+<option>Government Agency</option>
+<option>Enterprise B2B</option>
+<option>Infrastructure Logistics</option>
+<option>Environmental Sustainability</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="block text-label-sm font-medium uppercase text-on-surface-variant">Estimated Budget (USD)</label>
+<input class="w-full px-4 py-3 rounded border border-outline-variant focus:ring-2 focus:ring-primary focus:border-primary bg-white transition-all outline-none" placeholder="$5M - $50M+" type="text"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="block text-label-sm font-medium uppercase text-on-surface-variant">Project Scope &amp; Material Requirements</label>
+<textarea class="w-full px-4 py-3 rounded border border-outline-variant focus:ring-2 focus:ring-primary focus:border-primary bg-white transition-all outline-none" placeholder="Detail your specific tonnage, logistics timeline, and material specifications..." rows="5"></textarea>
+</div>
+<div class="flex items-center gap-3">
+<input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary" id="nda" type="checkbox"/>
+<label class="text-body-md text-on-surface-variant" for="nda">Request formal Non-Disclosure Agreement (NDA) before detailed documentation exchange.</label>
+</div>
+<button class="w-full py-4 bg-primary text-white font-headline-md rounded hover:bg-primary-fixed-dim hover:text-on-primary-fixed transition-all flex items-center justify-center gap-2" type="submit">
+<span class="material-symbols-outlined">send</span>
+                            Initialize Formal Inquiry
+                        </button>
+</form>
+</div>
+<!-- Contact Sidebar -->
+<div class="lg:col-span-5 space-y-12">
+<!-- Direct Contacts -->
+<div>
+<h3 class="font-headline-md text-headline-md mb-6 industrial-edge pl-4">Department Access</h3>
+<div class="space-y-6">
+<div class="p-6 bg-surface-container-high border border-outline-variant hover:shadow-lg transition-shadow">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary text-3xl">precision_manufacturing</span>
+<div>
+<h4 class="font-label-md text-primary uppercase">Global Sales &amp; Procurement</h4>
+<p class="font-body-md font-semibold mt-1">sales.global@uranus.material</p>
+<p class="text-label-sm text-on-surface-variant">+1 (800) 555-URNS (Ext 41)</p>
+</div>
+</div>
+</div>
+<div class="p-6 bg-white border border-outline-variant hover:shadow-lg transition-shadow">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-secondary text-3xl">local_shipping</span>
+<div>
+<h4 class="font-label-md text-secondary uppercase">Logistics Support</h4>
+<p class="font-body-md font-semibold mt-1">logistics.ops@uranus.material</p>
+<p class="text-label-sm text-on-surface-variant">24/7 Priority Hotline Available</p>
+</div>
+</div>
+</div>
+<div class="p-6 bg-white border border-outline-variant hover:shadow-lg transition-shadow">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-tertiary text-3xl">eco</span>
+<div>
+<h4 class="font-label-md text-tertiary uppercase">Sustainability Compliance</h4>
+<p class="font-body-md font-semibold mt-1">compliance@uranus.material</p>
+<p class="text-label-sm text-on-surface-variant">ESG Reporting &amp; Verification</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Regional Hubs -->
+<div class="pt-8">
+<h3 class="font-headline-md text-headline-md mb-6 industrial-edge pl-4">Global Command Centers</h3>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+<div class="space-y-1">
+<p class="font-bold text-on-background">North America</p>
+<p class="text-body-md text-on-surface-variant">1200 Industrial Way<br/>Chicago, IL 60601</p>
+</div>
+<div class="space-y-1">
+<p class="font-bold text-on-background">EMEA Hub</p>
+<p class="text-body-md text-on-surface-variant">Rue de l'Industrie 45<br/>Luxembourg City, L-1234</p>
+</div>
+<div class="space-y-1">
+<p class="font-bold text-on-background">APAC Region</p>
+<p class="text-body-md text-on-surface-variant">77 Marina Boulevard<br/>Singapore 018989</p>
+</div>
+<div class="space-y-1">
+<p class="font-bold text-on-background">LatAm HQ</p>
+<p class="text-body-md text-on-surface-variant">Av. Paulista 1000<br/>São Paulo, SP 01310</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Map Section -->
+<section class="w-full h-[500px] relative mt-16 bg-surface-variant overflow-hidden">
+<div class="absolute inset-0 z-0">
+<div class="w-full h-full bg-cover bg-center grayscale opacity-80 contrast-125" data-alt="A sophisticated, high-contrast digital map rendering showing global logistics nodes connected by glowing lines. The map uses a palette of navy blue, deep greys, and vibrant Uranus Blue highlights. It features a clean, technical aesthetic with subtle topographical details and sharp data visualization overlays. The mood is professional, high-tech, and globally expansive." data-location="Chicago" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDI5PZoW8ySqlb_dV1O-6GtUyyd9mEkFNiENvQVu8CsxgrnS17EZowwAtEEcZPbrmqtZ2m4LBAQ2r7cQSj2pmwBflXXRxJ9Ec2aLgWV2fACdn-6R9tLiSCnChie8mZcxtvbnj6a8Kd0-X9SAYfOZAPw3raZqxYyT63b6L9CM1PScZGbRtBbh3ib5hi6V-dfIZdBTW7wUhWNNtJxq12F4d8wGmZbpjMmD0XiHrlmHB2l5Tw8ip5rFnjnAy58ZobQwM2zr0l8-TMhIBA')"></div>
+</div>
+<div class="absolute inset-0 bg-primary/10 pointer-events-none"></div>
+<div class="relative z-10 h-full flex items-center justify-center pointer-events-none">
+<div class="glass-card p-10 border border-white/20 rounded-xl max-w-lg pointer-events-auto shadow-2xl">
+<h3 class="font-headline-md text-headline-md mb-4 text-on-background">Visit Our Global Facilities</h3>
+<p class="font-body-md text-on-surface-variant mb-6">Our manufacturing plants and logistics hubs are strategic points of power. Schedule a site audit or technical visitation through your dedicated account manager.</p>
+<button class="flex items-center gap-2 text-primary font-bold hover:underline">
+                        Explore Network Locations
+                        <span class="material-symbols-outlined">north_east</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Trust Section -->
+<section class="py-24 bg-inverse-surface text-white px-margin-desktop">
+<div class="max-w-container-max mx-auto text-center">
+<h2 class="font-headline-lg text-headline-lg mb-12">The Standard of Industrial Excellence</h2>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-gutter opacity-70 grayscale hover:grayscale-0 transition-all duration-700">
+<div class="flex flex-col items-center gap-4">
+<span class="material-symbols-outlined text-5xl">verified_user</span>
+<p class="font-label-md uppercase tracking-widest">ISO 9001 Certified</p>
+</div>
+<div class="flex flex-col items-center gap-4">
+<span class="material-symbols-outlined text-5xl">foundation</span>
+<p class="font-label-md uppercase tracking-widest">Tier 1 Gov Partner</p>
+</div>
+<div class="flex flex-col items-center gap-4">
+<span class="material-symbols-outlined text-5xl">security</span>
+<p class="font-label-md uppercase tracking-widest">SEC Compliant</p>
+</div>
+<div class="flex flex-col items-center gap-4">
+<span class="material-symbols-outlined text-5xl">public</span>
+<p class="font-label-md uppercase tracking-widest">Global ESG Leader</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-inverse-surface dark:bg-surface-container-lowest py-24 px-margin-desktop">
+<div class="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<div class="col-span-1 md:col-span-1">
+<span class="font-headline-lg text-headline-lg font-black text-white">URANUS</span>
+<p class="mt-4 text-surface-variant font-body-md">Advanced heavy materials and global infrastructure solutions for the next century of engineering.</p>
+</div>
+<div class="space-y-4">
+<h5 class="text-primary-fixed font-bold uppercase tracking-wider">Solutions</h5>
+<ul class="space-y-2 text-surface-variant">
+<li><a class="hover:text-white transition-colors" href="#">Product Catalog</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Global Logistics</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Strategic Sourcing</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h5 class="text-primary-fixed font-bold uppercase tracking-wider">Corporate</h5>
+<ul class="space-y-2 text-surface-variant">
+<li><a class="hover:text-white transition-colors" href="#">Sustainability Report</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Investor Relations</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Governance</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h5 class="text-primary-fixed font-bold uppercase tracking-wider">Legal</h5>
+<ul class="space-y-2 text-surface-variant">
+<li><a class="hover:text-white transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Terms of Service</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Accessibility</a></li>
+</ul>
+</div>
+</div>
+<div class="max-w-container-max mx-auto mt-24 pt-8 border-t border-outline-variant/30">
+<p class="text-center text-surface-variant font-body-md opacity-60">© 2024 URANUS Infrastructure &amp; Heavy Materials. All rights reserved.</p>
+</div>
+</footer>
+<script>
+        // Form Interaction
+        const form = document.getElementById('inquiry-form');
+        if(form) {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const btn = form.querySelector('button');
+                const originalText = btn.innerHTML;
+                btn.innerHTML = '<span class="material-symbols-outlined animate-spin">sync</span> Initializing Secure Protocol...';
+                btn.disabled = true;
+                
+                setTimeout(() => {
+                    btn.innerHTML = '<span class="material-symbols-outlined">check_circle</span> Inquiry Submitted Successfully';
+                    btn.classList.replace('bg-primary', 'bg-tertiary-container');
+                    form.reset();
+                }, 2000);
+            });
+        }
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section > div').forEach(el => {
+            el.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-10');
+            observer.observe(el);
+        });
+    </script>
+</body></html>
