@@ -36,21 +36,20 @@ export default function Header() {
             <span className="name">URANUS<span>STONE PRODUCTS LTD</span></span>
           </Link>
           
+          {/* Desktop Navigation links - kept to the 5 primary ones to prevent navbar compression */}
           <div className="nav-links">
             <Link href="/products">Products</Link>
             <Link href={isHome ? "#process" : "/#process"}>Process</Link>
             <Link href="/sustainability">Sustainability</Link>
             <Link href="/about">Company</Link>
-            <Link href="/infrastructure">Infrastructure</Link>
-            <Link href="/gallery">Gallery</Link>
             <Link href="/contact">Contact</Link>
           </div>
           
           <div className="nav-cta">
-            <span className="nav-phone mono">+91 00000 00000</span>
+            <span className="nav-phone mono whitespace-nowrap">+91 00000 00000</span>
             <button 
               onClick={() => openModal()} 
-              className="btn btn-amber py-3 px-5 text-sm cursor-pointer"
+              className="btn btn-amber btn-sm cursor-pointer"
             >
               Request a quote
             </button>
@@ -68,7 +67,7 @@ export default function Header() {
         </div>
       </nav>
 
-      {/* Mobile Drawer menu */}
+      {/* Mobile Drawer menu - lists all available page routes */}
       <div className={`mpanel ${isMenuOpen ? "open" : ""}`} id="mpanel">
         <button 
           className="close cursor-pointer" 

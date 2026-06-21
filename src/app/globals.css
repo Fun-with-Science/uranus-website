@@ -15,9 +15,9 @@
   --color-copper: #B86A1C;
   --color-moss: #5FA463;
 
-  --font-archivo: var(--font-archivo), sans-serif;
-  --font-ibm-sans: var(--font-ibm-sans), sans-serif;
-  --font-ibm-mono: var(--font-ibm-mono), monospace;
+  --font-archivo: var(--font-archivo-next), sans-serif;
+  --font-ibm-sans: var(--font-ibm-sans-next), sans-serif;
+  --font-ibm-mono: var(--font-ibm-mono-next), monospace;
 }
 
 :root {
@@ -108,9 +108,20 @@ h1, h2, h3, h4 {
   position: relative;
 }
 
+/* ---------- PAGE BANNER ---------- */
+.page-banner {
+  position: relative;
+  padding-top: 160px; /* Ample clearance below sticky navigation header */
+  padding-bottom: 90px;
+  overflow: hidden;
+  border-bottom: 1px solid var(--line);
+}
+
 .btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+  white-space: nowrap;
   gap: 10px;
   font-family: var(--font-archivo);
   font-weight: 700;
@@ -121,6 +132,11 @@ h1, h2, h3, h4 {
   cursor: pointer;
   border: 1px solid transparent;
   transition: transform .25s, background .25s, color .25s, border-color .25s;
+}
+
+.btn-sm {
+  padding: 10px 18px;
+  font-size: 13px;
 }
 
 .btn-amber {

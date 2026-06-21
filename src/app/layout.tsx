@@ -6,21 +6,21 @@ import Footer from "@/components/Footer";
 import { Providers } from "@/components/Providers";
 
 const archivo = Archivo({
-  variable: "--font-archivo",
+  variable: "--font-archivo-next",
   subsets: ["latin"],
   weight: ["500", "600", "700", "800", "900"],
   display: "swap",
 });
 
 const ibmSans = IBM_Plex_Sans({
-  variable: "--font-ibm-sans",
+  variable: "--font-ibm-sans-next",
   subsets: ["latin"],
   weight: ["400", "500", "600"],
   display: "swap",
 });
 
 const ibmMono = IBM_Plex_Mono({
-  variable: "--font-ibm-mono",
+  variable: "--font-ibm-mono-next",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   display: "swap",

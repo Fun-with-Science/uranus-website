@@ -148,7 +148,7 @@ export default function ContactPage() {
   return (
     <div>
       {/* Page Header Banner */}
-      <section className="relative pt-36 pb-24 flex items-center overflow-hidden">
+      <section className="page-banner">
         <div className="absolute inset-0 z-0">
           <div 
             className="w-full h-full bg-cover bg-center" 
