@@ -43,9 +43,9 @@ export default function BlogPage() {
         </div>
         <div className="relative z-10 wrap w-full">
           <div className="max-w-3xl border-l-4 border-amber pl-6">
-            <span className="text-xs font-bold text-amber uppercase tracking-widest block font-mono">Industry Resources</span>
-            <h1 className="text-3xl md:text-5xl font-black text-paper leading-tight mt-1">Blog &amp; Heavy Materials Guide</h1>
-            <p className="text-sm text-paper-dim mt-2">Technical articles, guides, and industry news for B2B procurement managers and engineers.</p>
+            <span className="text-xs font-bold text-amber uppercase tracking-widest block font-mono mb-2">Industry Resources</span>
+            <h1 className="text-3xl md:text-5xl font-black text-paper leading-tight mb-4">Blog &amp; Heavy Materials Guide</h1>
+            <p className="text-base text-paper-dim">Technical articles, guides, and industry news for B2B procurement managers and engineers.</p>
           </div>
         </div>
       </section>
@@ -61,18 +61,18 @@ export default function BlogPage() {
                 <div className="relative w-full h-full">
                   <div className="aspect-video bg-stone relative rounded overflow-hidden border border-line">
                     <img src={article.image} alt={article.title} className="w-full h-full object-cover" />
-                    <span className="absolute top-4 left-4 bg-amber text-ink text-[10px] font-bold uppercase px-2 py-1 rounded font-mono">{article.tag}</span>
+                    <span className="absolute top-4 left-4 bg-amber text-ink text-xs font-bold uppercase px-2.5 py-1 rounded font-mono shadow-md">{article.tag}</span>
                   </div>
-                  <div className="p-6 space-y-3">
-                    <h3 className="font-bold text-lg text-paper hover:text-amber transition-colors">
+                  <div className="p-6">
+                    <h3 className="font-bold text-xl text-paper hover:text-amber transition-colors mb-3">
                       <a href="#">{article.title}</a>
                     </h3>
-                    <p className="text-xs text-paper-dim leading-relaxed">
+                    <p className="text-sm text-paper-dim leading-relaxed">
                       {article.description}
                     </p>
                   </div>
                 </div>
-                <div className="p-6 pt-0 border-t border-line mt-4 flex items-center justify-between text-xs text-fog font-mono">
+                <div className="p-6 pt-4 border-t border-line mt-4 flex items-center justify-between text-sm text-fog font-mono">
                   <span>{article.date}</span>
                   <span className="font-semibold text-amber hover:underline cursor-pointer">Read Article</span>
                 </div>

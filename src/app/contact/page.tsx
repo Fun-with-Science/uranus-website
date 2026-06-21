@@ -185,7 +185,7 @@ export default function ContactPage() {
                 <span className="corner tl"></span>
                 <span className="corner br"></span>
                 <h3 className="font-bold text-lg text-paper mb-6 uppercase tracking-tight">Plant Office</h3>
-                <ul className="space-y-4 text-sm text-paper-dim">
+                <ul className="space-y-5 text-sm text-paper-dim">
                   <li className="flex items-start gap-3">
                     <span className="material-symbols-outlined text-amber">location_on</span>
                     <span>Uranus Stone Yard Area,<br/>Nongpoh, Ri-Bhoi District,<br/>Meghalaya - 793102</span>
@@ -205,9 +205,9 @@ export default function ContactPage() {
                 <span className="corner tl"></span>
                 <span className="corner br"></span>
                 <h3 className="font-bold text-lg text-paper mb-4 uppercase tracking-tight">Operations Hours</h3>
-                <p className="text-xs text-paper-dim leading-relaxed mb-4">Our crushing yards and logistics dispatch networks operate 24 hours a day, 6 days a week, ensuring zero-delay bulk aggregate supply.</p>
-                <ul className="text-xs text-paper space-y-2 font-semibold font-mono">
-                  <li className="flex justify-between border-b border-line pb-1"><span>Mon - Sat:</span> <span>24 Hours Operations</span></li>
+                <p className="text-sm text-paper-dim leading-relaxed mb-6 block">Our crushing yards and logistics dispatch networks operate 24 hours a day, 6 days a week, ensuring zero-delay bulk aggregate supply.</p>
+                <ul className="text-sm text-paper space-y-3 font-semibold font-mono">
+                  <li className="flex justify-between border-b border-line pb-2"><span>Mon - Sat:</span> <span>24 Hours Operations</span></li>
                   <li className="flex justify-between text-red-500"><span>Sunday:</span> <span>Maintenance Shutdown</span></li>
                 </ul>
               </div>

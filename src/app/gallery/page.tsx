@@ -72,9 +72,9 @@ export default function GalleryPage() {
         </div>
         <div className="relative z-10 wrap w-full">
           <div className="max-w-3xl border-l-4 border-amber pl-6">
-            <span className="text-xs font-bold text-amber uppercase tracking-widest block font-mono">Visual Portfolio</span>
-            <h1 className="text-3xl md:text-5xl font-black text-paper leading-tight mt-1">Operational Media Gallery</h1>
-            <p className="text-sm text-paper-dim mt-2">A photographic showcase of our plants, quarry excavation, and materials catalog.</p>
+            <span className="text-xs font-bold text-amber uppercase tracking-widest block font-mono mb-2">Visual Portfolio</span>
+            <h1 className="text-3xl md:text-5xl font-black text-paper leading-tight mb-4">Operational Media Gallery</h1>
+            <p className="text-base text-paper-dim">A photographic showcase of our plants, quarry excavation, and materials catalog.</p>
           </div>
         </div>
       </section>
@@ -88,9 +88,9 @@ export default function GalleryPage() {
               <button
                 key={filter.id}
                 onClick={() => setActiveFilter(filter.id)}
-                className={`px-6 py-2 rounded font-bold text-xs uppercase border cursor-pointer transition-all ${
+                className={`px-6 py-2.5 rounded font-bold text-sm uppercase border cursor-pointer transition-all ${
                   activeFilter === filter.id
-                    ? "bg-amber border-amber text-ink"
+                    ? "bg-amber border-amber text-ink shadow-md"
                     : "border-line text-paper-dim hover:border-amber hover:text-paper"
                 }`}
               >
