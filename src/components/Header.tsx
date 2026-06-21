@@ -29,7 +29,7 @@ export default function Header() {
         <div className="nav-inner">
           <Link href="/" className="brand" aria-label="Uranus Stone Products home">
             <img 
-              src="/uranus website assets/Uranus Logo.png" 
+              src="/uranus website assets/Uranus_Logo_Transparent.png" 
               alt="Uranus Logo" 
               className="h-10 w-auto object-contain hover:opacity-90 transition-opacity" 
             />

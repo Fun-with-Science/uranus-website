@@ -13,7 +13,7 @@ export default function Footer() {
         <div className="foot-grid">
           <div>
             <img 
-              src="/uranus website assets/Uranus Logo.png" 
+              src="/uranus website assets/Uranus_Logo_Transparent.png" 
               alt="Uranus Logo" 
               className="h-7 w-auto object-contain mb-4" 
             />
