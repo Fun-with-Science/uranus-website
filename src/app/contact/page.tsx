@@ -157,10 +157,10 @@ export default function ContactPage() {
           <div className="absolute inset-0 bg-gradient-to-b from-ink/60 via-ink/88 to-ink"></div>
         </div>
         <div className="relative z-10 wrap w-full">
-          <div className="max-w-3xl border-l-4 border-amber pl-6">
-            <span className="text-xs font-bold text-amber uppercase tracking-widest block font-mono">Connect With Us</span>
-            <h1 className="text-3xl md:text-5xl font-black text-paper leading-tight mt-1">Request B2B Quote &amp; Consultation</h1>
-            <p className="text-sm text-paper-dim mt-2">Submit material requirements, grading specs, and logistics dispatch targets.</p>
+          <div className="max-w-3xl border-l-4 border-amber pl-10">
+            <span className="text-xs font-bold text-amber uppercase tracking-widest block font-mono mb-3">Connect With Us</span>
+            <h1 className="text-3xl md:text-5xl font-black text-paper leading-tight mb-4">Request B2B Quote &amp; Consultation</h1>
+            <p className="text-base text-paper-dim">Submit material requirements, grading specs, and logistics dispatch targets.</p>
           </div>
         </div>
       </section>
