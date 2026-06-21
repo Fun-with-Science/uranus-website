@@ -28,12 +28,11 @@ export default function Header() {
       <nav className={`nav ${isScrolled ? "scrolled" : ""}`} id="nav">
         <div className="nav-inner">
           <Link href="/" className="brand" aria-label="Uranus Stone Products home">
-            <svg className="mark" width="30" height="34" viewBox="0 0 30 34" fill="none" aria-hidden="true">
-              <path d="M15 1 L29 9 L15 17 L1 9 Z" fill="#E8931A"/>
-              <path d="M4 14 L15 20 L26 14" stroke="#E8931A" stroke-width="2" opacity=".7" fill="none"/>
-              <path d="M7 19 L15 23.6 L23 19" stroke="#E8931A" stroke-width="2" opacity=".45" fill="none"/>
-            </svg>
-            <span className="name">URANUS<span>STONE PRODUCTS LTD</span></span>
+            <img 
+              src="/uranus website assets/Uranus Logo.png" 
+              alt="Uranus Logo" 
+              className="h-10 w-auto object-contain hover:opacity-90 transition-opacity" 
+            />
           </Link>
           
           {/* Desktop Navigation links - kept to the 5 primary ones to prevent navbar compression */}

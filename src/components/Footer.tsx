@@ -12,7 +12,11 @@ export default function Footer() {
       <div className="wrap">
         <div className="foot-grid">
           <div>
-            <div className="name text-paper">URANUS STONE PRODUCTS LTD</div>
+            <img 
+              src="/uranus website assets/Uranus Logo.png" 
+              alt="Uranus Logo" 
+              className="h-7 w-auto object-contain mb-4" 
+            />
             <p className="tag">
               Calibrated aggregate, manufactured sand &amp; base material — graded to the millimetre, supplied by the tonne.
             </p>
