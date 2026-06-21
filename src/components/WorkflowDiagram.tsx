@@ -9,13 +9,15 @@ export default function WorkflowDiagram() {
   ];
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 pt-12 text-center text-dark font-bold text-xs uppercase">
+    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 pt-12 text-center text-paper font-bold text-xs uppercase">
       {steps.map((step) => (
-        <div key={step.num} className="p-6 bg-white rounded border border-gray-200 shadow-sm space-y-2 hover:border-primary hover:shadow transition-all duration-200">
-          <span className={`material-symbols-outlined ${step.accent ? "text-accent" : "text-primary"} text-3xl`}>
+        <div key={step.num} className="p-6 bg-surface rounded border border-line shadow-2xl space-y-2 hover:border-amber hover:shadow-amber/10 transition-all duration-200 relative">
+          <span className="corner tl"></span>
+          <span className="corner br"></span>
+          <span className={`material-symbols-outlined ${step.accent ? "text-moss" : "text-amber"} text-3xl`}>
             {step.icon}
           </span>
-          <div>{step.num}. {step.label}</div>
+          <div className="pt-2">{step.num}. {step.label}</div>
         </div>
       ))}
     </div>

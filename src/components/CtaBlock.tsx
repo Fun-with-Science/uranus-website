@@ -1,22 +1,55 @@
-import Link from "next/link";
+"use client";
+
+import React from "react";
+import { useQuoteModal } from "./Providers";
 
 export default function CtaBlock() {
+  const { openModal } = useQuoteModal();
+
+  const handleDownload = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const link = document.createElement("a");
+    link.href = "data:text/plain;charset=utf-8," + encodeURIComponent("Uranus Stone Products Limited - Corporate Profile\n\nAggregate grades: 6mm, 10mm, 20mm, 40mm, 60mm.\nInstalled capacity: 500+ Tonnes/Day.\nQuarry & Crushing Plant: Ri-Bhoi, Meghalaya.\nContact: hello@uranusstone.in");
+    link.download = "Uranus_Stone_Corporate_Profile.txt";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
-    <section className="bg-dark text-white py-20 px-margin-desktop max-w-container-max mx-auto my-16 rounded-xl overflow-hidden relative">
-      <div className="absolute inset-0 opacity-10 bg-[linear-gradient(to_right,rgba(11,95,255,0.15)_1px,transparent_1px),linear-gradient(to_bottom,rgba(11,95,255,0.15)_1px,transparent_1px)] bg-[size:30px_30px]"></div>
-      <div className="relative z-10 text-center max-w-3xl mx-auto space-y-6">
-        <span className="text-primary font-bold tracking-widest text-xs uppercase">Enterprise Grade Supply</span>
-        <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight">Need Bulk Aggregate Supply for Your Project?</h2>
-        <p className="text-gray-400 text-base md:text-lg">
-          Get high-precision materials, customized lab testing reports, and dedicated fleet dispatch logistics. Connect with our technical team today.
-        </p>
-        <div className="flex flex-wrap justify-center gap-4 pt-4">
-          <Link href="/contact?inquiry=bulk" className="bg-primary hover:bg-blue-700 text-white px-8 py-4 font-semibold text-sm uppercase tracking-wider rounded transition-all shadow-lg">
-            Request a Quote
-          </Link>
-          <Link href="/products" className="border border-gray-600 hover:bg-gray-800 text-white px-8 py-4 font-semibold text-sm uppercase tracking-wider rounded transition-all">
-            View Specifications
-          </Link>
+    <section className="section cta">
+      <div 
+        className="cta-bg" 
+        style={{ backgroundImage: "url('/uranus website assets/duhb.png')" }}
+      />
+      <div className="cta-veil"></div>
+      <div className="wrap">
+        <div className="cta-inner">
+          <h2>Have a project? Let's talk <span className="a text-amber">grades, volumes &amp; delivery.</span></h2>
+          <p className="text-paper-dim">Send us your specification and quantity. We'll come back with availability and a quote — usually within a day.</p>
+          <div className="cta-actions">
+            <button 
+              onClick={() => openModal()} 
+              className="btn btn-amber cursor-pointer"
+            >
+              Request a quote
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h9M8 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <a 
+              href="https://wa.me/910000000000" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="btn btn-wa"
+            >
+              WhatsApp us
+            </a>
+            <button 
+              onClick={handleDownload} 
+              className="btn btn-ghost cursor-pointer"
+            >
+              Download company profile
+            </button>
+          </div>
         </div>
       </div>
     </section>

@@ -1,92 +1,97 @@
 "use client";
 
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useQuoteModal } from "./Providers";
 
 export default function Header() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
+  const { openModal } = useQuoteModal();
 
-  const pages = [
-    { href: "/", name: "Home" },
-    { href: "/about", name: "About Us" },
-    { href: "/products", name: "Products" },
-    { href: "/why-choose-uranus", name: "Why Uranus" },
-    { href: "/infrastructure", name: "Infrastructure" },
-    { href: "/sustainability", name: "Sustainability" },
-    { href: "/gallery", name: "Gallery" },
-    { href: "/blog", name: "Blog & Resources" },
-    { href: "/contact", name: "Contact" },
-  ];
+  const isHome = pathname === "/";
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 40);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const closeMenu = () => setIsMenuOpen(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 h-20 shadow-sm">
-      <nav className="flex justify-between items-center w-full px-margin-desktop max-w-container-max mx-auto h-full">
-        <Link href="/" className="flex items-center">
-          <img src="/uranus website assets/Uranus Logo.png" alt="Uranus Logo" className="h-10 w-auto hover:opacity-90 transition-opacity" />
-        </Link>
-        
-        {/* Desktop Nav */}
-        <div className="hidden xl:flex items-center gap-8">
-          {pages.map((page) => {
-            const isActive = pathname === page.href;
-            return (
-              <Link
-                key={page.href}
-                href={page.href}
-                className={`font-semibold text-xs uppercase tracking-wider transition-colors duration-200 ${
-                  isActive
-                    ? "text-primary border-b-2 border-primary pb-1"
-                    : "text-gray-600 hover:text-primary"
-                }`}
-              >
-                {page.name}
-              </Link>
-            );
-          })}
-        </div>
-        
-        <div className="flex items-center gap-4">
-          <Link href="/contact" className="bg-primary hover:bg-blue-700 text-white px-6 py-3 font-semibold text-xs uppercase tracking-wider rounded transition-all shadow-md">
-            Request Quote
+    <>
+      <nav className={`nav ${isScrolled ? "scrolled" : ""}`} id="nav">
+        <div className="nav-inner">
+          <Link href="/" className="brand" aria-label="Uranus Stone Products home">
+            <svg className="mark" width="30" height="34" viewBox="0 0 30 34" fill="none" aria-hidden="true">
+              <path d="M15 1 L29 9 L15 17 L1 9 Z" fill="#E8931A"/>
+              <path d="M4 14 L15 20 L26 14" stroke="#E8931A" stroke-width="2" opacity=".7" fill="none"/>
+              <path d="M7 19 L15 23.6 L23 19" stroke="#E8931A" stroke-width="2" opacity=".45" fill="none"/>
+            </svg>
+            <span className="name">URANUS<span>STONE PRODUCTS LTD</span></span>
           </Link>
           
-          {/* Mobile menu button */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="xl:hidden text-dark focus:outline-none p-2"
-            aria-label="Toggle Menu"
-          >
-            <span className="material-symbols-outlined text-3xl">
-              {isOpen ? "close" : "menu"}
-            </span>
-          </button>
+          <div className="nav-links">
+            <Link href="/products">Products</Link>
+            <Link href={isHome ? "#process" : "/#process"}>Process</Link>
+            <Link href="/sustainability">Sustainability</Link>
+            <Link href="/about">Company</Link>
+            <Link href="/infrastructure">Infrastructure</Link>
+            <Link href="/gallery">Gallery</Link>
+            <Link href="/contact">Contact</Link>
+          </div>
+          
+          <div className="nav-cta">
+            <span className="nav-phone mono">+91 00000 00000</span>
+            <button 
+              onClick={() => openModal()} 
+              className="btn btn-amber py-3 px-5 text-sm cursor-pointer"
+            >
+              Request a quote
+            </button>
+            <button 
+              className="burger" 
+              id="burger" 
+              aria-label="Open menu"
+              onClick={() => setIsMenuOpen(true)}
+            >
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+          </div>
         </div>
       </nav>
-      
-      {/* Mobile Navigation Menu */}
-      {isOpen && (
-        <div className="absolute top-20 left-0 right-0 bg-white border-b border-gray-200 shadow-lg p-6 flex flex-col gap-4 z-50">
-          {pages.map((page) => {
-            const isActive = pathname === page.href;
-            return (
-              <Link
-                key={page.href}
-                onClick={() => setIsOpen(false)}
-                href={page.href}
-                className={`block py-2.5 px-4 rounded transition duration-200 text-sm ${
-                  isActive
-                    ? "text-primary font-bold bg-gray-50"
-                    : "text-gray-700 hover:text-primary hover:bg-gray-50"
-                }`}
-              >
-                {page.name}
-              </Link>
-            );
-          })}
-        </div>
-      )}
-    </header>
+
+      {/* Mobile Drawer menu */}
+      <div className={`mpanel ${isMenuOpen ? "open" : ""}`} id="mpanel">
+        <button 
+          className="close cursor-pointer" 
+          id="mclose" 
+          aria-label="Close menu"
+          onClick={closeMenu}
+        >
+          &times;
+        </button>
+        <Link href="/products" onClick={closeMenu}>Products</Link>
+        <Link href={isHome ? "#process" : "/#process"} onClick={closeMenu}>Process</Link>
+        <Link href="/sustainability" onClick={closeMenu}>Sustainability</Link>
+        <Link href="/about" onClick={closeMenu}>Company</Link>
+        <Link href="/infrastructure" onClick={closeMenu}>Infrastructure</Link>
+        <Link href="/gallery" onClick={closeMenu}>Gallery</Link>
+        <Link href="/contact" onClick={closeMenu}>Contact</Link>
+        <button 
+          onClick={() => { closeMenu(); openModal(); }} 
+          className="btn btn-amber mt-6 w-full text-center py-4 uppercase font-bold tracking-widest cursor-pointer"
+        >
+          Request a quote
+        </button>
+      </div>
+    </>
   );
 }

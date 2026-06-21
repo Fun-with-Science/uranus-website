@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Blog & Resources | Infrastructure Materials Guide",
@@ -31,52 +31,54 @@ export default function BlogPage() {
   ];
 
   return (
-    <>
+    <div className="pt-20">
       {/* Page Header Banner */}
-      <section className="relative h-[40vh] min-h-[300px] flex items-center bg-dark">
+      <section className="relative h-[45vh] min-h-[300px] flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <div 
             className="w-full h-full bg-cover bg-center" 
-            style={{ backgroundImage: `url('/uranus website assets/Aparna-Crusher-Plant_4.jpg.jpeg')` }}
+            style={{ backgroundImage: "url('/uranus website assets/Aparna-Crusher-Plant_4.jpg.jpeg')" }}
           />
-          <div className="absolute inset-0 bg-dark/85"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-ink/60 via-ink/88 to-ink"></div>
         </div>
-        <div className="relative z-10 px-margin-desktop max-w-container-max mx-auto w-full">
-          <div className="max-w-3xl border-l-4 border-primary pl-6">
-            <span className="text-xs font-bold text-primary uppercase tracking-widest">Industry Resources</span>
-            <h1 className="text-3xl md:text-5xl font-black text-white leading-tight">Blog &amp; Heavy Materials Guide</h1>
-            <p className="text-sm text-gray-300 mt-2">Technical articles, guides, and industry news for B2B procurement managers and engineers.</p>
+        <div className="relative z-10 wrap w-full">
+          <div className="max-w-3xl border-l-4 border-amber pl-6">
+            <span className="text-xs font-bold text-amber uppercase tracking-widest block font-mono">Industry Resources</span>
+            <h1 className="text-3xl md:text-5xl font-black text-paper leading-tight mt-1">Blog &amp; Heavy Materials Guide</h1>
+            <p className="text-sm text-paper-dim mt-2">Technical articles, guides, and industry news for B2B procurement managers and engineers.</p>
           </div>
         </div>
       </section>
 
       {/* Blog Posts Grid */}
-      <section className="py-24 px-margin-desktop max-w-container-max mx-auto">
+      <section className="py-24 wrap">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {articles.map((article, index) => (
-            <article key={index} className="bg-white border border-gray-200 rounded overflow-hidden shadow-sm hover:border-primary transition-all flex flex-col justify-between">
-              <div>
-                <div className="aspect-video bg-light relative">
+            <article key={index} className="bg-surface border border-line rounded overflow-hidden shadow-2xl hover:border-amber transition-all flex flex-col justify-between relative p-2">
+              <span className="corner tl"></span>
+              <span className="corner br"></span>
+              <div className="relative w-full h-full">
+                <div className="aspect-video bg-stone relative rounded overflow-hidden border border-line">
                   <img src={article.image} alt={article.title} className="w-full h-full object-cover" />
-                  <span className="absolute top-4 left-4 bg-primary text-white text-[10px] font-bold uppercase px-2 py-1 rounded">{article.tag}</span>
+                  <span className="absolute top-4 left-4 bg-amber text-ink text-[10px] font-bold uppercase px-2 py-1 rounded font-mono">{article.tag}</span>
                 </div>
                 <div className="p-6 space-y-3">
-                  <h3 className="font-bold text-lg text-dark hover:text-primary transition-colors">
+                  <h3 className="font-bold text-lg text-paper hover:text-amber transition-colors">
                     <a href="#">{article.title}</a>
                   </h3>
-                  <p className="text-xs text-gray-500 leading-relaxed">
+                  <p className="text-xs text-paper-dim leading-relaxed">
                     {article.description}
                   </p>
                 </div>
               </div>
-              <div className="p-6 pt-0 border-t border-gray-100 mt-4 flex items-center justify-between text-xs text-gray-400">
+              <div className="p-6 pt-0 border-t border-line mt-4 flex items-center justify-between text-xs text-fog font-mono">
                 <span>{article.date}</span>
-                <span className="font-semibold text-primary">Read Article</span>
+                <span className="font-semibold text-amber hover:underline cursor-pointer">Read Article</span>
               </div>
             </article>
           ))}
         </div>
       </section>
-    </>
+    </div>
   );
 }

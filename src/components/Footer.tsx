@@ -1,74 +1,77 @@
+"use client";
+
+import React from "react";
 import Link from "next/link";
+import { useQuoteModal } from "./Providers";
 
 export default function Footer() {
+  const { openModal } = useQuoteModal();
+
   return (
-    <footer className="bg-dark text-gray-300 py-16">
-      <div className="px-margin-desktop max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 border-b border-gray-800 pb-12 mb-8">
-        <div className="space-y-4">
-          <div className="flex items-center">
-            <div className="bg-white px-3 py-1.5 rounded shadow-sm inline-flex items-center justify-center">
-              <img src="/uranus website assets/Uranus Logo.png" alt="Uranus Logo" className="h-7 w-auto block" />
+    <footer className="foot">
+      <div className="wrap">
+        <div className="foot-grid">
+          <div>
+            <div className="name text-paper">URANUS STONE PRODUCTS LTD</div>
+            <p className="tag">
+              Calibrated aggregate, manufactured sand &amp; base material — graded to the millimetre, supplied by the tonne.
+            </p>
+          </div>
+          
+          <div>
+            <h4>Products</h4>
+            <ul>
+              <li><Link href="/products">6 / 10 / 20 mm Aggregate</Link></li>
+              <li><Link href="/products">40 / 60 mm Aggregate</Link></li>
+              <li><Link href="/products">Manufactured Sand (M-Sand)</Link></li>
+              <li><Link href="/products">GSB &amp; Stone Dust</Link></li>
+            </ul>
+          </div>
+          
+          <div>
+            <h4>Company</h4>
+            <ul>
+              <li><Link href="/about">About us</Link></li>
+              <li><Link href="/#process">Our process</Link></li>
+              <li><Link href="/sustainability">Sustainability</Link></li>
+              <li><Link href="/gallery">Gallery</Link></li>
+              <li><Link href="/contact">Contact</Link></li>
+              <li>
+                <button 
+                  onClick={() => openModal()} 
+                  className="text-left text-paper-dim hover:text-amber transition-colors bg-none border-none p-0 cursor-pointer"
+                >
+                  Request quote
+                </button>
+              </li>
+            </ul>
+          </div>
+          
+          <div>
+            <h4>Plant &amp; Office</h4>
+            <ul className="mb-4">
+              <li>Uranus Stone Yard, Nongpoh, Ri-Bhoi District, Meghalaya - 793102</li>
+              <li>Phone: +91 00000 00000</li>
+              <li>Email: hello@uranusstone.in</li>
+              <li>GSTIN: 17AAACO1234A1Z9</li>
+            </ul>
+            <div className="mapbox overflow-hidden rounded">
+              <iframe
+                title="Uranus Stone Plant Location Map"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d114851.9868750849!2d91.80373030386762!3d25.900827299999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x375a52d3a339bd95%3A0xe50682054ff8e7b3!2sNongpoh%2C%20Meghalaya!5e0!3m2!1sen!2sin!4v1718919000000!5m2!1sen!2sin"
+                width="100%"
+                height="100%"
+                style={{ border: 0, filter: "grayscale(1) invert(0.9) contrast(1.2)" }}
+                allowFullScreen={false}
+                loading="lazy"
+              ></iframe>
             </div>
           </div>
-          <p className="text-sm text-gray-400 leading-relaxed">
-            Uranus is a premier enterprise-grade mining and aggregate manufacturing corporation, supplying high-precision materials for national infrastructure, highway networks, and mega development projects.
-          </p>
-          <div className="flex gap-4">
-            <a className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors text-white" href="#" aria-label="LinkedIn">
-              <span className="material-symbols-outlined text-[20px]">hub</span>
-            </a>
-            <a className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors text-white" href="#" aria-label="Global Operations">
-              <span className="material-symbols-outlined text-[20px]">public</span>
-            </a>
-          </div>
         </div>
         
-        <div>
-          <h4 className="text-white font-bold mb-6 text-sm uppercase tracking-wider">Useful Links</h4>
-          <ul className="space-y-3 text-sm">
-            <li><Link className="hover:text-primary transition-colors" href="/about">About Company</Link></li>
-            <li><Link className="hover:text-primary transition-colors" href="/why-choose-uranus">Why Choose Uranus</Link></li>
-            <li><Link className="hover:text-primary transition-colors" href="/infrastructure">Infrastructure Plant</Link></li>
-            <li><Link className="hover:text-primary transition-colors" href="/sustainability">Environmental Protection</Link></li>
-            <li><Link className="hover:text-primary transition-colors" href="/gallery">Operational Gallery</Link></li>
-          </ul>
-        </div>
-        
-        <div>
-          <h4 className="text-white font-bold mb-6 text-sm uppercase tracking-wider">Products &amp; Materials</h4>
-          <ul className="space-y-3 text-sm">
-            <li><Link className="hover:text-primary transition-colors" href="/products">Manufactured Sand (M-Sand)</Link></li>
-            <li><Link className="hover:text-primary transition-colors" href="/products">Granular Sub Base (GSB)</Link></li>
-            <li><Link className="hover:text-primary transition-colors" href="/products">Concrete Aggregates (10mm/20mm)</Link></li>
-            <li><Link className="hover:text-primary transition-colors" href="/products">Heavy Sub-base Aggregates (40mm/60mm)</Link></li>
-            <li><Link className="hover:text-primary transition-colors" href="/products">High-compactness Stone Dust</Link></li>
-          </ul>
-        </div>
-        
-        <div className="space-y-4">
-          <h4 className="text-white font-bold mb-6 text-sm uppercase tracking-wider">Corporate Contacts</h4>
-          <ul className="space-y-4 text-sm text-gray-400">
-            <li className="flex items-start gap-3">
-              <span className="material-symbols-outlined text-primary mt-0.5">location_on</span>
-              <span>Industrial Park North,<br />Main Crushing Yard, Zone 4</span>
-            </li>
-            <li className="flex items-center gap-3">
-              <span className="material-symbols-outlined text-primary">phone_in_talk</span>
-              <span>T: +1 (800) URANUS-01</span>
-            </li>
-            <li className="flex items-center gap-3">
-              <span className="material-symbols-outlined text-primary">mail</span>
-              <span>E: sales@uranusinfra.com</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-      
-      <div className="px-margin-desktop max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center text-xs text-gray-500 gap-4">
-        <p>&copy; {new Date().getFullYear()} URANUS Infrastructure &amp; Heavy Materials. All rights reserved.</p>
-        <div className="flex gap-6">
-          <a className="hover:text-primary transition-colors" href="#">Privacy Policy</a>
-          <a className="hover:text-primary transition-colors" href="#">Terms of Service</a>
+        <div className="foot-bottom">
+          <span>© {new Date().getFullYear()} Uranus Stone Products Limited. All rights reserved.</span>
+          <span>Directors: Ankit Mittal · Conformi Mukhim · Shweta Mittal</span>
         </div>
       </div>
     </footer>
