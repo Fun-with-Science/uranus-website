@@ -31,9 +31,9 @@ export default function BlogPage() {
   ];
 
   return (
-    <div className="pt-20">
+    <div>
       {/* Page Header Banner */}
-      <section className="relative h-[45vh] min-h-[300px] flex items-center overflow-hidden">
+      <section className="relative pt-36 pb-24 flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <div 
             className="w-full h-full bg-cover bg-center" 
@@ -51,32 +51,34 @@ export default function BlogPage() {
       </section>
 
       {/* Blog Posts Grid */}
-      <section className="py-24 wrap">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {articles.map((article, index) => (
-            <article key={index} className="bg-surface border border-line rounded overflow-hidden shadow-2xl hover:border-amber transition-all flex flex-col justify-between relative p-2">
-              <span className="corner tl"></span>
-              <span className="corner br"></span>
-              <div className="relative w-full h-full">
-                <div className="aspect-video bg-stone relative rounded overflow-hidden border border-line">
-                  <img src={article.image} alt={article.title} className="w-full h-full object-cover" />
-                  <span className="absolute top-4 left-4 bg-amber text-ink text-[10px] font-bold uppercase px-2 py-1 rounded font-mono">{article.tag}</span>
+      <section className="py-24 w-full">
+        <div className="wrap">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {articles.map((article, index) => (
+              <article key={index} className="bg-surface border border-line rounded overflow-hidden shadow-2xl hover:border-amber transition-all flex flex-col justify-between relative p-2">
+                <span className="corner tl"></span>
+                <span className="corner br"></span>
+                <div className="relative w-full h-full">
+                  <div className="aspect-video bg-stone relative rounded overflow-hidden border border-line">
+                    <img src={article.image} alt={article.title} className="w-full h-full object-cover" />
+                    <span className="absolute top-4 left-4 bg-amber text-ink text-[10px] font-bold uppercase px-2 py-1 rounded font-mono">{article.tag}</span>
+                  </div>
+                  <div className="p-6 space-y-3">
+                    <h3 className="font-bold text-lg text-paper hover:text-amber transition-colors">
+                      <a href="#">{article.title}</a>
+                    </h3>
+                    <p className="text-xs text-paper-dim leading-relaxed">
+                      {article.description}
+                    </p>
+                  </div>
                 </div>
-                <div className="p-6 space-y-3">
-                  <h3 className="font-bold text-lg text-paper hover:text-amber transition-colors">
-                    <a href="#">{article.title}</a>
-                  </h3>
-                  <p className="text-xs text-paper-dim leading-relaxed">
-                    {article.description}
-                  </p>
+                <div className="p-6 pt-0 border-t border-line mt-4 flex items-center justify-between text-xs text-fog font-mono">
+                  <span>{article.date}</span>
+                  <span className="font-semibold text-amber hover:underline cursor-pointer">Read Article</span>
                 </div>
-              </div>
-              <div className="p-6 pt-0 border-t border-line mt-4 flex items-center justify-between text-xs text-fog font-mono">
-                <span>{article.date}</span>
-                <span className="font-semibold text-amber hover:underline cursor-pointer">Read Article</span>
-              </div>
-            </article>
-          ))}
+              </article>
+            ))}
+          </div>
         </div>
       </section>
     </div>

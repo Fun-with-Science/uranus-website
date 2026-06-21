@@ -128,7 +128,6 @@ function ContactForm() {
       <div>
         <label className="block text-xs font-semibold uppercase tracking-wider text-fog mb-2">Delivery Details &amp; Specifications *</label>
         <textarea 
-          rows={5} 
           required 
           placeholder="Please list specific aggregate sizes, delivery site coordinates, and timeline targets..."
           className="w-full bg-ink border border-line focus:border-amber text-paper text-sm px-4 py-3 outline-none rounded transition-colors resize-none"
@@ -147,9 +146,9 @@ function ContactForm() {
 
 export default function ContactPage() {
   return (
-    <div className="pt-20">
+    <div>
       {/* Page Header Banner */}
-      <section className="relative h-[45vh] min-h-[300px] flex items-center overflow-hidden">
+      <section className="relative pt-36 pb-24 flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <div 
             className="w-full h-full bg-cover bg-center" 
@@ -167,49 +166,51 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Bento Grid */}
-      <section className="py-24 wrap">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-          {/* Form Block */}
-          <div className="lg:col-span-8 bg-surface border border-line p-10 rounded shadow-2xl relative">
-            <span className="corner tl"></span>
-            <span className="corner br"></span>
-            <h2 className="text-2xl font-black text-paper uppercase tracking-tight mb-6">Material Inquiry Form</h2>
-            <Suspense fallback={<div className="text-center py-20 text-fog font-mono">Loading inquiry parameters...</div>}>
-              <ContactForm />
-            </Suspense>
-          </div>
-
-          {/* Contacts Info */}
-          <div className="lg:col-span-4 space-y-8">
-            <div className="bg-surface p-8 rounded border border-line shadow-2xl relative">
+      <section className="py-24 w-full">
+        <div className="wrap">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            {/* Form Block */}
+            <div className="lg:col-span-8 bg-surface border border-line p-10 rounded shadow-2xl relative">
               <span className="corner tl"></span>
               <span className="corner br"></span>
-              <h3 className="font-bold text-lg text-paper mb-6 uppercase tracking-tight">Plant Office</h3>
-              <ul className="space-y-4 text-sm text-paper-dim">
-                <li className="flex items-start gap-3">
-                  <span className="material-symbols-outlined text-amber">location_on</span>
-                  <span>Uranus Stone Yard Area,<br/>Nongpoh, Ri-Bhoi District,<br/>Meghalaya - 793102</span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <span className="material-symbols-outlined text-amber">phone</span>
-                  <span>+91 00000 00000</span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <span className="material-symbols-outlined text-amber">mail</span>
-                  <span>hello@uranusstone.in</span>
-                </li>
-              </ul>
+              <h2 className="text-2xl font-black text-paper uppercase tracking-tight mb-6">Material Inquiry Form</h2>
+              <Suspense fallback={<div className="text-center py-20 text-fog font-mono">Loading inquiry parameters...</div>}>
+                <ContactForm />
+              </Suspense>
             </div>
-            
-            <div className="bg-surface p-8 rounded border border-line shadow-2xl relative">
-              <span className="corner tl"></span>
-              <span className="corner br"></span>
-              <h3 className="font-bold text-lg text-paper mb-4 uppercase tracking-tight">Operations Hours</h3>
-              <p className="text-xs text-paper-dim leading-relaxed mb-4">Our crushing yards and logistics dispatch networks operate 24 hours a day, 6 days a week, ensuring zero-delay bulk aggregate supply.</p>
-              <ul className="text-xs text-paper space-y-2 font-semibold font-mono">
-                <li className="flex justify-between border-b border-line pb-1"><span>Mon - Sat:</span> <span>24 Hours Operations</span></li>
-                <li className="flex justify-between text-red-500"><span>Sunday:</span> <span>Maintenance Shutdown</span></li>
-              </ul>
+
+            {/* Contacts Info */}
+            <div className="lg:col-span-4 space-y-8">
+              <div className="bg-surface p-8 rounded border border-line shadow-2xl relative">
+                <span className="corner tl"></span>
+                <span className="corner br"></span>
+                <h3 className="font-bold text-lg text-paper mb-6 uppercase tracking-tight">Plant Office</h3>
+                <ul className="space-y-4 text-sm text-paper-dim">
+                  <li className="flex items-start gap-3">
+                    <span className="material-symbols-outlined text-amber">location_on</span>
+                    <span>Uranus Stone Yard Area,<br/>Nongpoh, Ri-Bhoi District,<br/>Meghalaya - 793102</span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <span className="material-symbols-outlined text-amber">phone</span>
+                    <span>+91 00000 00000</span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <span className="material-symbols-outlined text-amber">mail</span>
+                    <span>hello@uranusstone.in</span>
+                  </li>
+                </ul>
+              </div>
+              
+              <div className="bg-surface p-8 rounded border border-line shadow-2xl relative">
+                <span className="corner tl"></span>
+                <span className="corner br"></span>
+                <h3 className="font-bold text-lg text-paper mb-4 uppercase tracking-tight">Operations Hours</h3>
+                <p className="text-xs text-paper-dim leading-relaxed mb-4">Our crushing yards and logistics dispatch networks operate 24 hours a day, 6 days a week, ensuring zero-delay bulk aggregate supply.</p>
+                <ul className="text-xs text-paper space-y-2 font-semibold font-mono">
+                  <li className="flex justify-between border-b border-line pb-1"><span>Mon - Sat:</span> <span>24 Hours Operations</span></li>
+                  <li className="flex justify-between text-red-500"><span>Sunday:</span> <span>Maintenance Shutdown</span></li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>

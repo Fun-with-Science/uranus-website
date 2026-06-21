@@ -68,9 +68,9 @@ export default function ProductsPage() {
   ];
 
   return (
-    <div className="pt-20">
+    <div>
       {/* Page Header Banner */}
-      <section className="relative h-[45vh] min-h-[300px] flex items-center overflow-hidden">
+      <section className="relative pt-36 pb-24 flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <div 
             className="w-full h-full bg-cover bg-center" 
@@ -88,79 +88,81 @@ export default function ProductsPage() {
       </section>
 
       {/* Specifications Table */}
-      <section className="py-24 wrap">
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <span className="eyebrow">Specifications</span>
-          <h2 className="text-3xl font-extrabold text-paper">Material Gradation &amp; Specification Table</h2>
-          <p className="text-paper-dim text-sm">Review size parameters, structural targets, and primary applications for our core materials catalog.</p>
-        </div>
-        
-        <div className="overflow-x-auto border border-line rounded shadow-2xl bg-surface">
-          <table className="w-full text-left border-collapse">
-            <thead>
-              <tr className="bg-surface-2 text-paper text-xs uppercase tracking-wider border-b border-line">
-                <th className="py-4 px-6 font-bold">Product</th>
-                <th className="py-4 px-6 font-bold">Size Range</th>
-                <th className="py-4 px-6 font-bold">Primary Application</th>
-                <th className="py-4 px-6 font-bold">Technical Standards</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-line text-sm text-paper-dim">
-              <tr className="hover:bg-surface-2 transition-colors">
-                <td className="py-4 px-6 font-bold text-paper">6mm Aggregate</td>
-                <td className="py-4 px-6 text-paper-dim">6mm (Fine aggregate)</td>
-                <td className="py-4 px-6">Pipe bedding, pre-cast concrete block mixes, surface plastering finishes.</td>
-                <td className="py-4 px-6 text-amber font-mono">IS 383:2016 Compliant</td>
-              </tr>
-              <tr className="hover:bg-surface-2 transition-colors">
-                <td className="py-4 px-6 font-bold text-paper">10mm Aggregate</td>
-                <td className="py-4 px-6 text-paper-dim">10mm</td>
-                <td className="py-4 px-6">RCC structural designs, concrete mixes, residential slabs, casting columns.</td>
-                <td className="py-4 px-6 text-amber font-mono">IS 383:2016 Compliant</td>
-              </tr>
-              <tr className="hover:bg-surface-2 transition-colors">
-                <td className="py-4 px-6 font-bold text-paper">20mm Aggregate</td>
-                <td className="py-4 px-6 text-paper-dim">20mm</td>
-                <td className="py-4 px-6">Skyscrapers, industrial foundations, heavy pillars, high-strength concrete mixes.</td>
-                <td className="py-4 px-6 text-amber font-mono">IS 383:2016 Compliant</td>
-              </tr>
-              <tr className="hover:bg-surface-2 transition-colors">
-                <td className="py-4 px-6 font-bold text-paper">40mm Aggregate</td>
-                <td className="py-4 px-6 text-paper-dim">40mm</td>
-                <td className="py-4 px-6">Sub-base road construction, drainage filtration grids, concrete foundations.</td>
-                <td className="py-4 px-6 text-amber font-mono">IS 383:2016 Compliant</td>
-              </tr>
-              <tr className="hover:bg-surface-2 transition-colors">
-                <td className="py-4 px-6 font-bold text-paper">60mm Aggregate</td>
-                <td className="py-4 px-6 text-paper-dim">60mm</td>
-                <td className="py-4 px-6">Heavy railway ballast, road subgrades, sub-base drainage protection layers.</td>
-                <td className="py-4 px-6 text-amber font-mono">NHAI Specifications</td>
-              </tr>
-              <tr className="hover:bg-surface-2 transition-colors">
-                <td className="py-4 px-6 font-bold text-paper">Manufactured Sand (M-Sand)</td>
-                <td className="py-4 px-6 text-paper-dim">{"Fine (<4.75mm)"}</td>
-                <td className="py-4 px-6">Concrete structures, structural brick masonry plastering, eco-friendly filler.</td>
-                <td className="py-4 px-6 text-amber font-mono">IS 383 Zone II</td>
-              </tr>
-              <tr className="hover:bg-surface-2 transition-colors">
-                <td className="py-4 px-6 font-bold text-paper">GSB (Granular Sub Base)</td>
-                <td className="py-4 px-6 text-paper-dim">Mixed Graded</td>
-                <td className="py-4 px-6">Highway subgrade stabilization, load-bearing road pavements.</td>
-                <td className="py-4 px-6 text-amber font-mono">MORTH Section 400</td>
-              </tr>
-              <tr className="hover:bg-surface-2 transition-colors">
-                <td className="py-4 px-6 font-bold text-paper">Stone Dust</td>
-                <td className="py-4 px-6 text-paper-dim">{"Powder (<2.36mm)"}</td>
-                <td className="py-4 px-6">Tile jointing, road base binder filler, concrete blocks manufacture.</td>
-                <td className="py-4 px-6 text-amber font-mono">IS 383 Compliant</td>
-              </tr>
-            </tbody>
-          </table>
+      <section className="py-24 w-full">
+        <div className="wrap">
+          <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+            <span className="eyebrow">Specifications</span>
+            <h2 className="text-3xl font-extrabold text-paper">Material Gradation &amp; Specification Table</h2>
+            <p className="text-paper-dim text-sm">Review size parameters, structural targets, and primary applications for our core materials catalog.</p>
+          </div>
+          
+          <div className="overflow-x-auto border border-line rounded shadow-2xl bg-surface">
+            <table className="w-full text-left border-collapse">
+              <thead>
+                <tr className="bg-surface-2 text-paper text-xs uppercase tracking-wider border-b border-line">
+                  <th className="py-4 px-6 font-bold">Product</th>
+                  <th className="py-4 px-6 font-bold">Size Range</th>
+                  <th className="py-4 px-6 font-bold">Primary Application</th>
+                  <th className="py-4 px-6 font-bold">Technical Standards</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-line text-sm text-paper-dim">
+                <tr className="hover:bg-surface-2 transition-colors">
+                  <td className="py-4 px-6 font-bold text-paper">6mm Aggregate</td>
+                  <td className="py-4 px-6 text-paper-dim">6mm (Fine aggregate)</td>
+                  <td className="py-4 px-6">Pipe bedding, pre-cast concrete block mixes, surface plastering finishes.</td>
+                  <td className="py-4 px-6 text-amber font-mono">IS 383:2016 Compliant</td>
+                </tr>
+                <tr className="hover:bg-surface-2 transition-colors">
+                  <td className="py-4 px-6 font-bold text-paper">10mm Aggregate</td>
+                  <td className="py-4 px-6 text-paper-dim">10mm</td>
+                  <td className="py-4 px-6">RCC structural designs, concrete mixes, residential slabs, casting columns.</td>
+                  <td className="py-4 px-6 text-amber font-mono">IS 383:2016 Compliant</td>
+                </tr>
+                <tr className="hover:bg-surface-2 transition-colors">
+                  <td className="py-4 px-6 font-bold text-paper">20mm Aggregate</td>
+                  <td className="py-4 px-6 text-paper-dim">20mm</td>
+                  <td className="py-4 px-6">Skyscrapers, industrial foundations, heavy pillars, high-strength concrete mixes.</td>
+                  <td className="py-4 px-6 text-amber font-mono">IS 383:2016 Compliant</td>
+                </tr>
+                <tr className="hover:bg-surface-2 transition-colors">
+                  <td className="py-4 px-6 font-bold text-paper">40mm Aggregate</td>
+                  <td className="py-4 px-6 text-paper-dim">40mm</td>
+                  <td className="py-4 px-6">Sub-base road construction, drainage filtration grids, concrete foundations.</td>
+                  <td className="py-4 px-6 text-amber font-mono">IS 383:2016 Compliant</td>
+                </tr>
+                <tr className="hover:bg-surface-2 transition-colors">
+                  <td className="py-4 px-6 font-bold text-paper">60mm Aggregate</td>
+                  <td className="py-4 px-6 text-paper-dim">60mm</td>
+                  <td className="py-4 px-6">Heavy railway ballast, road subgrades, sub-base drainage protection layers.</td>
+                  <td className="py-4 px-6 text-amber font-mono">NHAI Specifications</td>
+                </tr>
+                <tr className="hover:bg-surface-2 transition-colors">
+                  <td className="py-4 px-6 font-bold text-paper">Manufactured Sand (M-Sand)</td>
+                  <td className="py-4 px-6 text-paper-dim">{"Fine (<4.75mm)"}</td>
+                  <td className="py-4 px-6">Concrete structures, structural brick masonry plastering, eco-friendly filler.</td>
+                  <td className="py-4 px-6 text-amber font-mono">IS 383 Zone II</td>
+                </tr>
+                <tr className="hover:bg-surface-2 transition-colors">
+                  <td className="py-4 px-6 font-bold text-paper">GSB (Granular Sub Base)</td>
+                  <td className="py-4 px-6 text-paper-dim">Mixed Graded</td>
+                  <td className="py-4 px-6">Highway subgrade stabilization, load-bearing road pavements.</td>
+                  <td className="py-4 px-6 text-amber font-mono">MORTH Section 400</td>
+                </tr>
+                <tr className="hover:bg-surface-2 transition-colors">
+                  <td className="py-4 px-6 font-bold text-paper">Stone Dust</td>
+                  <td className="py-4 px-6 text-paper-dim">{"Powder (<2.36mm)"}</td>
+                  <td className="py-4 px-6">Tile jointing, road base binder filler, concrete blocks manufacture.</td>
+                  <td className="py-4 px-6 text-amber font-mono">IS 383 Compliant</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </section>
 
       {/* Product Details Grid */}
-      <section className="py-24 bg-surface border-y border-line">
+      <section className="py-24 bg-surface border-y border-line w-full">
         <div className="wrap space-y-12">
           <h2 className="text-3xl font-extrabold text-paper text-center">Detailed Materials List</h2>
           
