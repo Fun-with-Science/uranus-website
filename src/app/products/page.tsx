@@ -3,10 +3,21 @@
 import React, { useState } from "react";
 import { useQuoteModal } from "@/components/Providers";
 
+/* ─────────── Style constants ─────────── */
+const BLUE      = "#3E82F7";
+const INK       = "#0E1116";
+const SURFACE   = "#14181F";
+const SURFACE2  = "#1B212B";
+const STONE     = "#2A313C";
+const LINE      = "rgba(255,255,255,0.10)";
+const FOG       = "#98A2AE";
+const PAPER     = "#ECEEF1";
+const PAPER_DIM = "#C3C9D1";
+
+/* ─────────── Data types ─────────── */
 interface Material {
   name: string;
   tag: string;
-  tagColor: string;
   image: string;
   description: string;
   apps: string[];
@@ -19,12 +30,21 @@ interface Material {
   };
 }
 
+interface TableRow {
+  name: string;
+  size: string;
+  app: string;
+  std: string;
+}
+
 export default function ProductsPage() {
   const { openModal } = useQuoteModal();
   const [searchTerm, setSearchTerm] = useState("");
 
+  /* ─── Download handler ─── */
   const handleDownload = (productName: string) => {
-    const fileContent = `URANUS STONE PRODUCTS LIMITED - TECHNICAL DATASHEET\n\n` +
+    const fileContent =
+      `URANUS STONE PRODUCTS LIMITED - TECHNICAL DATASHEET\n\n` +
       `Product: ${productName}\n` +
       `Crushing Zone: Metso VSI multi-stage processing\n` +
       `Compliance: IS 383:2016 Gradation curves zone limits compliant\n` +
@@ -44,226 +64,485 @@ export default function ProductsPage() {
     document.body.removeChild(link);
   };
 
+  /* ─── Product detail cards data ─── */
   const materials: Material[] = [
     {
       name: "10mm Aggregate",
       tag: "RCC Structures",
-      tagColor: "bg-blue/10 text-blue border border-blue/20",
       image: "/uranus website assets/3.png",
-      description: "Specifically processed basalt aggregates sorted using precision screening grids. Conforms strictly to mechanical strength targets for RCC columns and structural slabs.",
-      apps: ["RCC Columns", "Detailed Concrete Slabs", "Precast Block casting"],
+      description:
+        "Specifically processed basalt aggregates sorted using precision screening grids. Conforms strictly to mechanical strength targets for RCC columns and structural slabs.",
+      apps: ["RCC Columns", "Concrete Slabs", "Precast Blocks"],
       slug: "10mm",
-      specs: {
-        gradation: "IS 383:2016 Compliant",
-        flakiness: "< 14%",
-        absorption: "< 0.5%",
-        crushing: "< 16%"
-      }
+      specs: { gradation: "IS 383:2016", flakiness: "< 14%", absorption: "< 0.5%", crushing: "< 16%" },
     },
     {
       name: "20mm Aggregate",
       tag: "Heavy Foundations",
-      tagColor: "bg-blue/10 text-blue border border-blue/20",
       image: "/uranus website assets/wbs.png",
-      description: "Our premier concrete aggregate, featuring exceptional cubic particles for optimum binder packing. Reduces cement voids, ensuring strong skyscrapers and bridge structures.",
+      description:
+        "Premier concrete aggregate featuring exceptional cubic particles for optimum binder packing. Reduces cement voids for strong structures.",
       apps: ["High-rise Buildings", "Bridge Girders", "Heavy Foundations"],
       slug: "20mm",
-      specs: {
-        gradation: "IS 383:2016 Compliant",
-        flakiness: "< 12%",
-        absorption: "< 0.5%",
-        crushing: "< 15%"
-      }
+      specs: { gradation: "IS 383:2016", flakiness: "< 12%", absorption: "< 0.5%", crushing: "< 15%" },
     },
     {
-      name: "Manufactured Sand (M-Sand)",
-      tag: "Eco Friendly Plaster",
-      tagColor: "bg-moss/10 text-moss border border-moss/20",
+      name: "Manufactured Sand",
+      tag: "Eco Friendly",
       image: "/uranus website assets/wbs.png",
-      description: "High-quality manufactured sand, crushed and washed with zero organic or silt impurities. Perfect grading makes it the ultimate eco-friendly choice for masonry plasters.",
+      description:
+        "High-quality manufactured sand, crushed and washed with zero organic impurities. Perfect grading for masonry plasters.",
       apps: ["Masonry Mortar", "Wall Plastering", "Concrete Mixes"],
       slug: "msand",
-      specs: {
-        gradation: "IS 383 Zone II",
-        flakiness: "N/A",
-        absorption: "< 0.8%",
-        crushing: "N/A"
-      }
+      specs: { gradation: "IS 383 Zone II", flakiness: "N/A", absorption: "< 0.8%", crushing: "N/A" },
     },
     {
-      name: "Granular Sub Base (GSB)",
-      tag: "Highway Base Layer",
-      tagColor: "bg-blue/10 text-blue border border-blue/20",
+      name: "GSB (Sub-base)",
+      tag: "Highway Base",
       image: "/uranus website assets/duhb.png",
-      description: "MORTH specification compliant Granular Sub Base. Ideal for highway base stabilization, drainage subgrades, and heavy road pavement layers.",
+      description:
+        "MORTH specification compliant Granular Sub Base for highway base stabilization and heavy road pavement layers.",
       apps: ["Highway Subgrades", "Base Stabilization", "Structural Fill"],
       slug: "gsb",
-      specs: {
-        gradation: "MORTH Section 400",
-        flakiness: "< 18%",
-        absorption: "< 1.2%",
-        crushing: "< 24%"
-      }
-    }
+      specs: { gradation: "MORTH Sec 400", flakiness: "< 18%", absorption: "< 1.2%", crushing: "< 24%" },
+    },
   ];
 
-  const tableRows = [
-    { name: "6mm Aggregate", size: "6mm (Fine aggregate)", app: "Pipe bedding, pre-cast blocks, surface plastering finishes.", std: "IS 383:2016 Compliant" },
-    { name: "10mm Aggregate", size: "10mm", app: "RCC structural designs, concrete mixes, residential slabs, casting columns.", std: "IS 383:2016 Compliant" },
-    { name: "20mm Aggregate", size: "20mm", app: "Skyscrapers, industrial foundations, heavy pillars, high-strength concrete mixes.", std: "IS 383:2016 Compliant" },
-    { name: "40mm Aggregate", size: "40mm", app: "Sub-base road construction, drainage filtration grids, concrete foundations.", std: "IS 383:2016 Compliant" },
-    { name: "60mm Aggregate", size: "60mm", app: "Heavy railway ballast, road subgrades, sub-base drainage protection layers.", std: "NHAI Specifications" },
-    { name: "Manufactured Sand (M-Sand)", size: "Fine (<4.75mm)", app: "Concrete structures, structural brick masonry plastering, eco-friendly filler.", std: "IS 383 Zone II" },
-    { name: "GSB (Granular Sub Base)", size: "Mixed Graded", app: "Highway subgrade stabilization, load-bearing road pavements.", std: "MORTH Section 400" },
-    { name: "Stone Dust", size: "Powder (<2.36mm)", app: "Tile jointing, road base binder filler, concrete blocks manufacture.", std: "IS 383 Compliant" }
+  /* ─── Table data ─── */
+  const tableRows: TableRow[] = [
+    { name: "6mm Aggregate", size: "6mm (Fine)", app: "Pipe bedding, pre-cast blocks, surface plastering.", std: "IS 383:2016" },
+    { name: "10mm Aggregate", size: "10mm", app: "RCC structural, concrete mixes, residential slabs.", std: "IS 383:2016" },
+    { name: "20mm Aggregate", size: "20mm", app: "High-rises, bridge girders, heavy foundations.", std: "IS 383:2016" },
+    { name: "40mm Aggregate", size: "40mm", app: "Sub-base roads, drainage filtration, foundations.", std: "IS 383:2016" },
+    { name: "60mm Aggregate", size: "60mm", app: "Railway ballast, road subgrades, drainage layers.", std: "NHAI Specs" },
+    { name: "M-Sand", size: "Fine (<4.75mm)", app: "Concrete structures, masonry plastering, filler.", std: "IS 383 Zone II" },
+    { name: "GSB", size: "Mixed Graded", app: "Highway subgrades, load-bearing pavements.", std: "MORTH Sec 400" },
+    { name: "Stone Dust", size: "Powder (<2.36mm)", app: "Tile jointing, road base binder, concrete blocks.", std: "IS 383" },
   ];
 
-  const filteredRows = tableRows.filter(row => 
-    row.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
-    row.app.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    row.std.toLowerCase().includes(searchTerm.toLowerCase())
+  const filteredRows = tableRows.filter(
+    (row) =>
+      row.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      row.app.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      row.std.toLowerCase().includes(searchTerm.toLowerCase())
   );
+
+  /* ─── Spec metric labels ─── */
+  const specLabels: { key: keyof Material["specs"]; label: string }[] = [
+    { key: "gradation", label: "Grading Limit" },
+    { key: "flakiness", label: "Flakiness" },
+    { key: "absorption", label: "Absorption" },
+    { key: "crushing", label: "Max Crushing" },
+  ];
 
   return (
     <div>
-      {/* Page Header Banner */}
+      {/* ══════════ HERO BANNER ══════════ */}
       <section className="page-banner">
         <div className="absolute inset-0 z-0">
-          <div 
-            className="w-full h-full bg-cover bg-center" 
+          <div
+            className="w-full h-full bg-cover bg-center"
             style={{ backgroundImage: "url('/uranus website assets/Aparna-Crusher-Plant_4.jpg.jpeg')" }}
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-ink/60 via-ink/88 to-ink"></div>
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(to bottom, rgba(14,17,22,0.5), rgba(14,17,22,0.85) 70%, rgba(14,17,22,0.98))",
+            }}
+          />
         </div>
         <div className="relative z-10 wrap w-full">
-          <div className="max-w-3xl border-l-4 border-blue pl-10">
-            <span className="text-xs font-bold text-blue uppercase tracking-widest block font-mono mb-3">Material Catalog</span>
-            <h1 className="text-3xl md:text-5xl font-black text-paper leading-tight mb-4">Calibrated Materials Catalog</h1>
-            <p className="text-base text-paper-dim">Graded aggregates, manufactured sand, and base layers conforming to national standards.</p>
+          <div style={{ maxWidth: 680 }}>
+            <span className="eyebrow" style={{ display: "block", marginBottom: 18 }}>
+              Material Catalog
+            </span>
+            <h1
+              style={{
+                fontSize: "clamp(30px, 5vw, 48px)",
+                fontWeight: 900,
+                color: PAPER,
+                lineHeight: 1.1,
+                marginBottom: 20,
+              }}
+            >
+              Calibrated Materials Catalog
+            </h1>
+            <p style={{ fontSize: 16, color: PAPER_DIM, lineHeight: 1.7, maxWidth: 540 }}>
+              Graded aggregates, manufactured sand, and base layers conforming to national standards.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Specifications Table Section */}
-      <section className="py-24 w-full">
+      {/* ══════════ SPECIFICATIONS TABLE ══════════ */}
+      <section style={{ background: INK, padding: "80px 0" }}>
         <div className="wrap">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end mb-12">
-            <div className="lg:col-span-8">
-              <span className="eyebrow mb-3 block">Specifications</span>
-              <h2 className="text-3xl md:text-4xl font-extrabold text-paper mb-4">Material Gradation &amp; Sizing Matrix</h2>
-              <p className="text-paper-dim text-base">Review size parameters, structural targets, and primary applications for our core materials catalog.</p>
+          {/* Header + Search */}
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "1fr",
+              gap: 24,
+              marginBottom: 40,
+            }}
+          >
+            <div>
+              <span className="eyebrow" style={{ display: "block", marginBottom: 12 }}>
+                Specifications
+              </span>
+              <h2
+                style={{
+                  fontSize: "clamp(24px, 3vw, 32px)",
+                  fontWeight: 800,
+                  color: PAPER,
+                  lineHeight: 1.15,
+                  marginBottom: 12,
+                }}
+              >
+                Material Gradation &amp; Sizing Matrix
+              </h2>
+              <p style={{ fontSize: 15, color: PAPER_DIM, margin: 0 }}>
+                Review size parameters, structural targets, and primary applications for our core materials catalog.
+              </p>
             </div>
-            <div className="lg:col-span-4 w-full">
-              <div className="relative flex items-center bg-surface border border-line rounded px-4 py-3 focus-within:border-blue transition-colors shadow-inner">
-                <span className="material-symbols-outlined text-fog mr-3">search</span>
-                <input 
-                  type="text" 
-                  placeholder="Filter materials or applications..."
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full bg-transparent text-paper text-sm outline-none"
-                />
-                {searchTerm && (
-                  <button onClick={() => setSearchTerm("")} className="text-fog hover:text-paper font-mono text-xs">Clear</button>
-                )}
-              </div>
+
+            {/* Search input */}
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                background: SURFACE,
+                border: `1px solid ${LINE}`,
+                borderRadius: 8,
+                padding: "12px 16px",
+                maxWidth: 480,
+              }}
+            >
+              <span className="material-symbols-outlined" style={{ color: FOG, marginRight: 12, fontSize: 20 }}>
+                search
+              </span>
+              <input
+                type="text"
+                placeholder="Filter materials or applications..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                style={{
+                  flex: 1,
+                  background: "transparent",
+                  border: "none",
+                  outline: "none",
+                  color: PAPER,
+                  fontSize: 14,
+                }}
+              />
+              {searchTerm && (
+                <button
+                  onClick={() => setSearchTerm("")}
+                  style={{
+                    background: "none",
+                    border: "none",
+                    color: FOG,
+                    cursor: "pointer",
+                    fontSize: 12,
+                    fontFamily: "monospace",
+                  }}
+                >
+                  Clear
+                </button>
+              )}
             </div>
           </div>
-          
-          <div className="overflow-x-auto border border-line rounded shadow-2xl bg-surface relative">
-            <span className="corner tl"></span>
-            <span className="corner br"></span>
-            <table className="w-full text-left border-collapse">
-              <thead>
-                <tr className="bg-surface-2 text-paper text-sm uppercase tracking-wider border-b border-line">
-                  <th className="py-5 px-6 font-bold">Product</th>
-                  <th className="py-5 px-6 font-bold">Size Range</th>
-                  <th className="py-5 px-6 font-bold">Primary Application</th>
-                  <th className="py-5 px-6 font-bold">Technical Standards</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-line text-sm text-paper-dim">
-                {filteredRows.length > 0 ? (
-                  filteredRows.map((row) => (
-                    <tr key={row.name} className="hover:bg-surface-2/40 transition-colors">
-                      <td className="py-5 px-6 font-bold text-paper">{row.name}</td>
-                      <td className="py-5 px-6 text-paper-dim">{row.size}</td>
-                      <td className="py-5 px-6 leading-relaxed">{row.app}</td>
-                      <td className="py-5 px-6 text-blue font-semibold font-mono">{row.std}</td>
-                    </tr>
-                  ))
-                ) : (
-                  <tr>
-                    <td colSpan={4} className="py-12 text-center text-fog font-mono">No matching products found.</td>
+
+          {/* Table */}
+          <div
+            style={{
+              background: SURFACE,
+              border: `1px solid ${LINE}`,
+              borderRadius: 16,
+              overflow: "hidden",
+              position: "relative",
+            }}
+          >
+            <span className="corner tl" />
+            <span className="corner br" />
+            <div style={{ overflowX: "auto" }}>
+              <table style={{ width: "100%", textAlign: "left", borderCollapse: "collapse" }}>
+                <thead>
+                  <tr style={{ background: SURFACE2 }}>
+                    {["Product", "Size Range", "Primary Application", "Technical Standards"].map((heading) => (
+                      <th
+                        key={heading}
+                        style={{
+                          padding: "16px 20px",
+                          fontSize: 13,
+                          fontWeight: 700,
+                          color: PAPER,
+                          textTransform: "uppercase",
+                          letterSpacing: "0.05em",
+                          borderBottom: `1px solid ${LINE}`,
+                        }}
+                      >
+                        {heading}
+                      </th>
+                    ))}
                   </tr>
-                )}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {filteredRows.length > 0 ? (
+                    filteredRows.map((row) => (
+                      <tr key={row.name}>
+                        <td
+                          style={{
+                            padding: "16px 20px",
+                            fontSize: 14,
+                            fontWeight: 700,
+                            color: PAPER,
+                            borderBottom: `1px solid ${LINE}`,
+                          }}
+                        >
+                          {row.name}
+                        </td>
+                        <td
+                          style={{
+                            padding: "16px 20px",
+                            fontSize: 14,
+                            color: PAPER_DIM,
+                            borderBottom: `1px solid ${LINE}`,
+                          }}
+                        >
+                          {row.size}
+                        </td>
+                        <td
+                          style={{
+                            padding: "16px 20px",
+                            fontSize: 14,
+                            color: PAPER_DIM,
+                            borderBottom: `1px solid ${LINE}`,
+                            lineHeight: 1.5,
+                          }}
+                        >
+                          {row.app}
+                        </td>
+                        <td
+                          style={{
+                            padding: "16px 20px",
+                            fontSize: 14,
+                            color: BLUE,
+                            fontWeight: 600,
+                            borderBottom: `1px solid ${LINE}`,
+                            fontFamily: "monospace",
+                          }}
+                        >
+                          {row.std}
+                        </td>
+                      </tr>
+                    ))
+                  ) : (
+                    <tr>
+                      <td
+                        colSpan={4}
+                        style={{
+                          padding: "48px 20px",
+                          textAlign: "center",
+                          color: FOG,
+                          fontSize: 14,
+                          fontFamily: "monospace",
+                        }}
+                      >
+                        No matching products found.
+                      </td>
+                    </tr>
+                  )}
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Product Details Section */}
-      <section className="py-24 bg-surface border-y border-line w-full">
+      {/* ══════════ PRODUCT DETAIL CARDS ══════════ */}
+      <section style={{ background: SURFACE, borderTop: `1px solid ${LINE}`, padding: "80px 0" }}>
         <div className="wrap">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="eyebrow mb-3 block">Data Sheets</span>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-paper">Detailed Product Profiles</h2>
-            <p className="text-paper-dim text-base">Select calibrated materials with precise laboratory-tested values.</p>
+          {/* Section header */}
+          <div style={{ textAlign: "center", maxWidth: 600, margin: "0 auto 56px" }}>
+            <span className="eyebrow" style={{ display: "block", marginBottom: 12 }}>
+              Data Sheets
+            </span>
+            <h2
+              style={{
+                fontSize: "clamp(24px, 3vw, 32px)",
+                fontWeight: 800,
+                color: PAPER,
+                lineHeight: 1.15,
+                marginBottom: 12,
+              }}
+            >
+              Detailed Product Profiles
+            </h2>
+            <p style={{ fontSize: 15, color: PAPER_DIM, margin: 0 }}>
+              Select calibrated materials with precise laboratory-tested values.
+            </p>
           </div>
-          
-          <div className="grid grid-cols-1 gap-12">
+
+          {/* Cards */}
+          <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: 48 }}>
             {materials.map((mat) => (
-              <div key={mat.name} className="bg-surface-2 border border-line rounded shadow-2xl overflow-hidden relative group p-1 lg:p-2">
-                <span className="corner tl"></span>
-                <span className="corner br"></span>
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 p-6 lg:p-8">
-                  
-                  {/* Left Column: Image Frame */}
-                  <div className="lg:col-span-5 relative overflow-hidden rounded border border-line p-2 bg-surface">
-                    <img src={mat.image} alt={mat.name} className="w-full h-full min-h-[220px] max-h-[300px] lg:max-h-full object-cover rounded" />
+              <div
+                key={mat.name}
+                style={{
+                  background: SURFACE2,
+                  border: `1px solid ${LINE}`,
+                  borderRadius: 16,
+                  overflow: "hidden",
+                  position: "relative",
+                  padding: 8,
+                }}
+              >
+                <span className="corner tl" />
+                <span className="corner br" />
+
+                <div
+                  style={{
+                    display: "grid",
+                    gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+                    gap: 24,
+                    padding: 24,
+                  }}
+                >
+                  {/* Left: Image */}
+                  <div
+                    style={{
+                      overflow: "hidden",
+                      borderRadius: 12,
+                      border: `1px solid ${LINE}`,
+                      background: STONE,
+                    }}
+                  >
+                    <img
+                      src={mat.image}
+                      alt={mat.name}
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        minHeight: 240,
+                        objectFit: "cover",
+                        borderRadius: 12,
+                        display: "block",
+                      }}
+                    />
                   </div>
-                  
-                  {/* Right Column: Details & Specs */}
-                  <div className="lg:col-span-7 flex flex-col justify-between">
+
+                  {/* Right: Details */}
+                  <div style={{ display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
                     <div>
-                      <div className="flex flex-wrap justify-between items-start gap-4 mb-4">
-                        <h3 className="text-2xl md:text-3xl font-black text-paper">{mat.name}</h3>
-                        <span className={`px-3 py-1 text-xs font-bold uppercase rounded ${mat.tagColor}`}>
+                      {/* Name + Tag */}
+                      <div
+                        style={{
+                          display: "flex",
+                          flexWrap: "wrap",
+                          justifyContent: "space-between",
+                          alignItems: "flex-start",
+                          gap: 16,
+                          marginBottom: 16,
+                        }}
+                      >
+                        <h3 style={{ fontSize: 24, fontWeight: 800, color: PAPER, margin: 0 }}>{mat.name}</h3>
+                        <span
+                          style={{
+                            padding: "4px 12px",
+                            fontSize: 11,
+                            fontWeight: 700,
+                            textTransform: "uppercase",
+                            letterSpacing: "0.05em",
+                            borderRadius: 6,
+                            background: "rgba(62,130,247,0.1)",
+                            color: BLUE,
+                            border: `1px solid rgba(62,130,247,0.2)`,
+                          }}
+                        >
                           {mat.tag}
                         </span>
                       </div>
-                      
-                      <p className="text-base text-paper-dim leading-relaxed mb-6">
+
+                      {/* Description */}
+                      <p style={{ fontSize: 15, color: PAPER_DIM, lineHeight: 1.7, marginBottom: 24 }}>
                         {mat.description}
                       </p>
-                      
-                      {/* Technical Specs Dashboard */}
-                      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 bg-surface border border-line p-4 rounded mb-6 text-xs">
-                        <div>
-                          <span className="block text-fog uppercase font-mono tracking-wider mb-1">Grading Limit</span>
-                          <span className="font-bold text-paper font-mono text-sm">{mat.specs.gradation}</span>
-                        </div>
-                        <div>
-                          <span className="block text-fog uppercase font-mono tracking-wider mb-1">Flakiness</span>
-                          <span className="font-bold text-paper font-mono text-sm">{mat.specs.flakiness}</span>
-                        </div>
-                        <div>
-                          <span className="block text-fog uppercase font-mono tracking-wider mb-1">Absorption</span>
-                          <span className="font-bold text-paper font-mono text-sm">{mat.specs.absorption}</span>
-                        </div>
-                        <div>
-                          <span className="block text-fog uppercase font-mono tracking-wider mb-1">Max Crushing</span>
-                          <span className="font-bold text-paper font-mono text-sm">{mat.specs.crushing}</span>
-                        </div>
+
+                      {/* Technical Specs */}
+                      <div
+                        style={{
+                          display: "grid",
+                          gridTemplateColumns: "repeat(2, 1fr)",
+                          gap: 16,
+                          background: SURFACE,
+                          border: `1px solid ${LINE}`,
+                          padding: 16,
+                          borderRadius: 10,
+                          marginBottom: 24,
+                        }}
+                      >
+                        {specLabels.map((spec) => (
+                          <div key={spec.key}>
+                            <span
+                              style={{
+                                display: "block",
+                                fontSize: 10,
+                                fontWeight: 700,
+                                color: FOG,
+                                textTransform: "uppercase",
+                                letterSpacing: "0.1em",
+                                fontFamily: "monospace",
+                                marginBottom: 4,
+                              }}
+                            >
+                              {spec.label}
+                            </span>
+                            <span
+                              style={{
+                                fontSize: 14,
+                                fontWeight: 700,
+                                color: PAPER,
+                                fontFamily: "monospace",
+                              }}
+                            >
+                              {mat.specs[spec.key]}
+                            </span>
+                          </div>
+                        ))}
                       </div>
 
                       {/* Key Applications */}
-                      <div className="mb-6">
-                        <span className="text-xs font-bold uppercase text-paper block mb-2 font-mono tracking-wide">Key Applications</span>
-                        <div className="flex flex-wrap gap-2">
+                      <div style={{ marginBottom: 24 }}>
+                        <span
+                          style={{
+                            display: "block",
+                            fontSize: 11,
+                            fontWeight: 700,
+                            textTransform: "uppercase",
+                            color: PAPER,
+                            letterSpacing: "0.08em",
+                            fontFamily: "monospace",
+                            marginBottom: 8,
+                          }}
+                        >
+                          Key Applications
+                        </span>
+                        <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
                           {mat.apps.map((app) => (
-                            <span key={app} className="px-2.5 py-1 bg-surface text-paper-dim text-xs rounded border border-line font-medium">
+                            <span
+                              key={app}
+                              style={{
+                                padding: "5px 12px",
+                                background: SURFACE,
+                                border: `1px solid ${LINE}`,
+                                borderRadius: 6,
+                                fontSize: 12,
+                                fontWeight: 500,
+                                color: PAPER_DIM,
+                              }}
+                            >
                               {app}
                             </span>
                           ))}
@@ -271,25 +550,38 @@ export default function ProductsPage() {
                       </div>
                     </div>
 
-                    {/* Actions */}
-                    <div className="pt-6 border-t border-line/50 flex flex-wrap gap-4">
-                      <button 
+                    {/* Action buttons */}
+                    <div
+                      style={{
+                        paddingTop: 24,
+                        borderTop: `1px solid ${LINE}`,
+                        display: "flex",
+                        flexWrap: "wrap",
+                        gap: 16,
+                      }}
+                    >
+                      <button
                         onClick={() => openModal(mat.slug)}
-                        className="btn btn-blue text-sm py-3 px-6 cursor-pointer"
+                        className="btn btn-blue"
+                        style={{ fontSize: 14, padding: "12px 24px", cursor: "pointer" }}
                       >
                         Request Quote
-                        <span className="material-symbols-outlined text-sm">arrow_forward</span>
+                        <span className="material-symbols-outlined" style={{ fontSize: 16 }}>
+                          arrow_forward
+                        </span>
                       </button>
-                      <button 
+                      <button
                         onClick={() => handleDownload(mat.name)}
-                        className="btn btn-ghost text-sm py-3 px-6 cursor-pointer"
+                        className="btn btn-ghost"
+                        style={{ fontSize: 14, padding: "12px 24px", cursor: "pointer" }}
                       >
                         Download spec sheet
-                        <span className="material-symbols-outlined text-sm">download</span>
+                        <span className="material-symbols-outlined" style={{ fontSize: 16 }}>
+                          download
+                        </span>
                       </button>
                     </div>
                   </div>
-                  
                 </div>
               </div>
             ))}

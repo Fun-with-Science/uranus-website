@@ -3,6 +3,46 @@
 import React, { Suspense, useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 
+/* ─────────── Inline style constants ─────────── */
+const LIGHT_BG  = "#f0f2f7";
+const CARD_BG   = "#ffffff";
+const DARK_CARD = "linear-gradient(160deg, #1a2332 0%, #0E1116 100%)";
+const INPUT_BG  = "#f7f8fa";
+const INPUT_BD  = "#d1d5db";
+const INPUT_FOC = "#3E82F7";
+const LABEL_CLR = "#6b7280";
+const TEXT_DARK = "#111827";
+const TEXT_MID  = "#6b7280";
+const TEXT_LITE = "#9ca3af";
+const BLUE      = "#3E82F7";
+
+const inputStyle: React.CSSProperties = {
+  width: "100%",
+  background: INPUT_BG,
+  border: `1.5px solid ${INPUT_BD}`,
+  borderRadius: 10,
+  padding: "12px 14px 12px 40px",
+  fontSize: 14,
+  color: TEXT_DARK,
+  outline: "none",
+  transition: "border-color 0.2s, box-shadow 0.2s",
+};
+
+const inputStyleNoIcon: React.CSSProperties = {
+  ...inputStyle,
+  paddingLeft: 14,
+};
+
+const labelStyle: React.CSSProperties = {
+  display: "block",
+  fontSize: 11,
+  fontWeight: 700,
+  color: LABEL_CLR,
+  textTransform: "uppercase" as const,
+  letterSpacing: "0.08em",
+  marginBottom: 6,
+};
+
 function ContactForm() {
   const searchParams = useSearchParams();
   const [inquiryType, setInquiryType] = useState("");
@@ -11,41 +51,35 @@ function ContactForm() {
   useEffect(() => {
     const product = searchParams.get("product");
     const inquiry = searchParams.get("inquiry");
-    
     if (product) {
-      if (["10mm", "20mm", "40mm", "60mm"].includes(product)) {
-        setInquiryType("aggregates");
-      } else if (product === "msand") {
-        setInquiryType("msand");
-      } else if (product === "gsb") {
-        setInquiryType("gsb");
-      }
-    } else if (inquiry === "bulk") {
-      setInquiryType("bulk");
-    }
+      if (["10mm", "20mm", "40mm", "60mm"].includes(product)) setInquiryType("aggregates");
+      else if (product === "msand") setInquiryType("msand");
+      else if (product === "gsb") setInquiryType("gsb");
+    } else if (inquiry === "bulk") setInquiryType("bulk");
   }, [searchParams]);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setSubmitted(true);
+  const handleSubmit = (e: React.FormEvent) => { e.preventDefault(); setSubmitted(true); };
+
+  const handleFocus = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    e.target.style.borderColor = INPUT_FOC;
+    e.target.style.boxShadow = `0 0 0 3px rgba(62,130,247,0.12)`;
+  };
+  const handleBlur = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    e.target.style.borderColor = INPUT_BD;
+    e.target.style.boxShadow = "none";
   };
 
   if (submitted) {
     return (
-      <div className="bg-moss/10 border border-moss/20 p-10 rounded-xl text-center space-y-4 relative">
-        <div className="w-16 h-16 bg-moss/20 border border-moss rounded-full flex items-center justify-center mx-auto text-moss">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
-            <path d="M20 6L9 17L4 12" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
+      <div style={{ textAlign: "center", padding: "60px 20px" }}>
+        <div style={{ width: 72, height: 72, borderRadius: "50%", background: "#ecfdf5", border: "2px solid #a7f3d0", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 20px" }}>
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17L4 12" stroke="#22c55e" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
         </div>
-        <h3 className="text-2xl font-bold text-paper uppercase tracking-tight">Material Inquiry Submitted!</h3>
-        <p className="text-sm text-paper-dim max-w-md mx-auto leading-relaxed">
-          Thank you for reaching out. A sales engineer and dispatch officer will review your required volume, sizing parameters, and delivery site coordinates, and contact you within 2 business hours.
+        <h3 style={{ fontSize: 22, fontWeight: 800, color: TEXT_DARK, marginBottom: 10 }}>Inquiry Submitted!</h3>
+        <p style={{ fontSize: 14, color: TEXT_MID, maxWidth: 380, margin: "0 auto 24px", lineHeight: 1.6 }}>
+          Thank you for reaching out. Our team will contact you within 2 business hours.
         </p>
-        <button 
-          onClick={() => setSubmitted(false)}
-          className="btn btn-blue text-sm py-3 px-6 cursor-pointer rounded-lg"
-        >
+        <button onClick={() => setSubmitted(false)} style={{ background: BLUE, color: "#fff", fontWeight: 700, fontSize: 14, padding: "12px 28px", borderRadius: 10, border: "none", cursor: "pointer" }}>
           Submit Another Inquiry
         </button>
       </div>
@@ -53,218 +87,293 @@ function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+    <form onSubmit={handleSubmit}>
+      {/* Row 1: Name + Company */}
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginBottom: 16 }}>
         <div>
-          <label className="block text-sm font-medium text-paper-dim mb-2">Full Name *</label>
-          <input 
-            type="text" 
-            required 
-            placeholder="e.g. John Doe"
-            className="w-full bg-ink/40 border border-line focus:border-blue focus:ring-4 focus:ring-blue/15 text-paper text-sm px-4 py-3.5 outline-none rounded-lg transition-all"
-          />
+          <label style={labelStyle}>Full Name *</label>
+          <div style={{ position: "relative" }}>
+            <span style={{ position: "absolute", left: 13, top: "50%", transform: "translateY(-50%)", color: TEXT_LITE }}>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </span>
+            <input type="text" required placeholder="Full Name" style={inputStyle} onFocus={handleFocus} onBlur={handleBlur} />
+          </div>
         </div>
         <div>
-          <label className="block text-sm font-medium text-paper-dim mb-2">Company Name *</label>
-          <input 
-            type="text" 
-            required 
-            placeholder="e.g. ABC Construction Corp"
-            className="w-full bg-ink/40 border border-line focus:border-blue focus:ring-4 focus:ring-blue/15 text-paper text-sm px-4 py-3.5 outline-none rounded-lg transition-all"
-          />
+          <label style={labelStyle}>Company Name *</label>
+          <div style={{ position: "relative" }}>
+            <span style={{ position: "absolute", left: 13, top: "50%", transform: "translateY(-50%)", color: TEXT_LITE }}>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 21h18M9 21V9l6-3v15M3 21V11l6-2M21 21V7l-6 2"/></svg>
+            </span>
+            <input type="text" required placeholder="Company Name" style={inputStyle} onFocus={handleFocus} onBlur={handleBlur} />
+          </div>
         </div>
-      </div>
-      
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-        <div>
-          <label className="block text-sm font-medium text-paper-dim mb-2">Contact Email *</label>
-          <input 
-            type="email" 
-            required 
-            placeholder="e.g. name@company.com"
-            className="w-full bg-ink/40 border border-line focus:border-blue focus:ring-4 focus:ring-blue/15 text-paper text-sm px-4 py-3.5 outline-none rounded-lg transition-all"
-          />
-        </div>
-        <div>
-          <label className="block text-sm font-medium text-paper-dim mb-2">Contact Number *</label>
-          <input 
-            type="tel" 
-            required 
-            placeholder="e.g. +91 98765 43210"
-            className="w-full bg-ink/40 border border-line focus:border-blue focus:ring-4 focus:ring-blue/15 text-paper text-sm px-4 py-3.5 outline-none rounded-lg transition-all"
-          />
-        </div>
-      </div>
-      
-      <div>
-        <label className="block text-sm font-medium text-paper-dim mb-2">Inquiry Type *</label>
-        <select 
-          value={inquiryType}
-          onChange={(e) => setInquiryType(e.target.value)}
-          required
-          className="w-full bg-ink/40 border border-line focus:border-blue focus:ring-4 focus:ring-blue/15 text-paper text-sm px-4 py-3.5 outline-none rounded-lg transition-all appearance-none cursor-pointer"
-        >
-          <option value="" disabled>Select Inquiry Type...</option>
-          <option value="aggregates">Aggregate Supply (6mm to 60mm)</option>
-          <option value="msand">M-Sand Supply (Manufactured Sand)</option>
-          <option value="gsb">GSB Supply (Granular Sub Base)</option>
-          <option value="bulk">Bulk Order Procurement Contract</option>
-          <option value="partnership">B2B Partnership / Dealership</option>
-          <option value="general">General Corporate Inquiry</option>
-        </select>
       </div>
 
-      <div>
-        <label className="block text-sm font-medium text-paper-dim mb-2">Estimated Tonnage Required</label>
-        <input 
-          type="text" 
-          placeholder="e.g. 5,000 Tonnes"
-          className="w-full bg-ink/40 border border-line focus:border-blue focus:ring-4 focus:ring-blue/15 text-paper text-sm px-4 py-3.5 outline-none rounded-lg transition-all"
+      {/* Row 2: Email + Phone */}
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginBottom: 16 }}>
+        <div>
+          <label style={labelStyle}>Email Address *</label>
+          <div style={{ position: "relative" }}>
+            <span style={{ position: "absolute", left: 13, top: "50%", transform: "translateY(-50%)", color: TEXT_LITE }}>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </span>
+            <input type="email" required placeholder="Email Address" style={inputStyle} onFocus={handleFocus} onBlur={handleBlur} />
+          </div>
+        </div>
+        <div>
+          <label style={labelStyle}>Phone Number *</label>
+          <div style={{ position: "relative" }}>
+            <span style={{ position: "absolute", left: 13, top: "50%", transform: "translateY(-50%)", color: TEXT_LITE }}>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.13.81.36 1.6.7 2.35a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.75.34 1.54.57 2.35.7A2 2 0 0122 16.92z"/></svg>
+            </span>
+            <input type="tel" required placeholder="Phone Number" style={inputStyle} onFocus={handleFocus} onBlur={handleBlur} />
+          </div>
+        </div>
+      </div>
+
+      {/* Inquiry Type */}
+      <div style={{ marginBottom: 16 }}>
+        <label style={labelStyle}>Inquiry Type *</label>
+        <div style={{ position: "relative" }}>
+          <select
+            value={inquiryType}
+            onChange={(e) => setInquiryType(e.target.value)}
+            required
+            style={{ ...inputStyleNoIcon, appearance: "none" as const, cursor: "pointer", color: inquiryType ? TEXT_DARK : TEXT_LITE }}
+            onFocus={handleFocus as unknown as React.FocusEventHandler<HTMLSelectElement>}
+            onBlur={handleBlur as unknown as React.FocusEventHandler<HTMLSelectElement>}
+          >
+            <option value="" disabled>Select inquiry type</option>
+            <option value="aggregates">Aggregate Supply (6mm – 60mm)</option>
+            <option value="msand">M-Sand Supply</option>
+            <option value="gsb">GSB Supply (Granular Sub Base)</option>
+            <option value="bulk">Bulk Order / Procurement Contract</option>
+            <option value="partnership">B2B Partnership / Dealership</option>
+            <option value="general">General Inquiry</option>
+          </select>
+          <span style={{ position: "absolute", right: 14, top: "50%", transform: "translateY(-50%)", pointerEvents: "none", color: TEXT_LITE }}>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M6 9l6 6 6-6"/></svg>
+          </span>
+        </div>
+      </div>
+
+      {/* Project Details */}
+      <div style={{ marginBottom: 24 }}>
+        <label style={labelStyle}>Project Details / Requirements *</label>
+        <textarea
+          required
+          rows={4}
+          placeholder="Please provide details about your project, material type, quantity, delivery location, timeline, etc."
+          style={{ ...inputStyleNoIcon, resize: "none" as const, lineHeight: 1.6 }}
+          onFocus={handleFocus as unknown as React.FocusEventHandler<HTMLTextAreaElement>}
+          onBlur={handleBlur as unknown as React.FocusEventHandler<HTMLTextAreaElement>}
         />
       </div>
 
-      <div>
-        <label className="block text-sm font-medium text-paper-dim mb-2">Delivery Details &amp; Specifications *</label>
-        <textarea 
-          required 
-          rows={5}
-          placeholder="Please list specific aggregate sizes, delivery site coordinates, and timeline targets..."
-          className="w-full bg-ink/40 border border-line focus:border-blue focus:ring-4 focus:ring-blue/15 text-paper text-sm px-4 py-3.5 outline-none rounded-lg transition-all resize-none"
-        ></textarea>
-      </div>
-
-      <button 
-        type="submit" 
-        className="w-full btn btn-blue justify-center text-sm py-4 uppercase font-extrabold tracking-widest cursor-pointer rounded-lg hover:shadow-[0_0_20px_rgba(62,130,247,0.25)] transition-all"
+      {/* Submit */}
+      <button
+        type="submit"
+        style={{
+          display: "inline-flex", alignItems: "center", gap: 8,
+          background: BLUE, color: "#fff", fontWeight: 700, fontSize: 14,
+          padding: "14px 30px", borderRadius: 10, border: "none", cursor: "pointer",
+          transition: "background 0.2s, box-shadow 0.2s",
+        }}
+        onMouseEnter={(e) => { e.currentTarget.style.background = "#5D98FC"; e.currentTarget.style.boxShadow = "0 6px 20px rgba(62,130,247,0.3)"; }}
+        onMouseLeave={(e) => { e.currentTarget.style.background = BLUE; e.currentTarget.style.boxShadow = "none"; }}
       >
-        Submit Material Inquiry
-        <span className="material-symbols-outlined text-sm ml-2">send</span>
+        Get Quote
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h9M8 4l4 4-4 4" stroke="#fff" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/></svg>
       </button>
+
+      {/* Privacy */}
+      <p style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 12, color: TEXT_LITE, marginTop: 14 }}>
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+        Your information is secure and will never be shared.
+      </p>
     </form>
   );
 }
 
+/* ═══════════════ MAIN PAGE ═══════════════ */
 export default function ContactPage() {
   return (
     <div>
-      {/* Page Header Banner */}
+      {/* ──── HERO BANNER ──── */}
       <section className="page-banner">
         <div className="absolute inset-0 z-0">
-          <div 
-            className="w-full h-full bg-cover bg-center" 
-            style={{ backgroundImage: "url('/uranus website assets/Aparna-Crusher-Plant_4.jpg.jpeg')" }}
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-ink/60 via-ink/88 to-ink"></div>
+          <div className="w-full h-full bg-cover bg-center" style={{ backgroundImage: "url('/uranus website assets/Aparna-Crusher-Plant_4.jpg.jpeg')" }} />
+          <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(14,17,22,0.5) 0%, rgba(14,17,22,0.85) 70%, rgba(14,17,22,0.98) 100%)" }} />
         </div>
         <div className="relative z-10 wrap w-full">
-          <div className="max-w-3xl border-l-4 border-blue pl-10">
-            <span className="text-xs font-bold text-blue uppercase tracking-widest block font-mono mb-3">Connect With Us</span>
-            <h1 className="text-3xl md:text-5xl font-black text-paper leading-tight mb-4">Request B2B Quote &amp; Consultation</h1>
-            <p className="text-base text-paper-dim">Submit material requirements, grading specs, and logistics dispatch targets.</p>
+          <div style={{ maxWidth: 600 }}>
+            <span style={{ fontSize: 12, fontWeight: 700, color: BLUE, textTransform: "uppercase", letterSpacing: "0.2em", display: "block", marginBottom: 18 }}>Contact Us</span>
+            <h1 className="text-paper" style={{ fontSize: "clamp(30px, 5vw, 48px)", fontWeight: 900, lineHeight: 1.1, marginBottom: 20 }}>
+              Let&apos;s Build Something<br/>Great Together
+            </h1>
+            <p style={{ fontSize: 16, color: "#C3C9D1", lineHeight: 1.7, marginBottom: 28, maxWidth: 480 }}>
+              Have a question, need a quotation, or want to discuss your project? We&apos;re here to help. Reach out to our team and we&apos;ll get back to you as soon as possible.
+            </p>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: 12 }}>
+              <a href="tel:+919876543210" className="btn btn-blue" style={{ borderRadius: 10, fontSize: 14 }}>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.13.81.36 1.6.7 2.35a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.75.34 1.54.57 2.35.7A2 2 0 0122 16.92z"/></svg>
+                Call Us Now
+              </a>
+              <a href="mailto:hello@uranusstone.in" className="btn btn-ghost" style={{ borderRadius: 10, fontSize: 14 }}>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                Email Us
+              </a>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Contact Bento Grid */}
-      <section className="py-24 w-full">
-        <div className="wrap">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-16">
-            {/* Form Block */}
-            <div className="lg:col-span-8 bg-surface-2/30 border border-line p-8 lg:p-10 rounded-xl shadow-2xl relative">
-              <h2 className="text-2xl font-bold text-paper mb-6">Material Inquiry Form</h2>
-              <Suspense fallback={<div className="text-center py-20 text-fog font-mono">Loading inquiry parameters...</div>}>
-                <ContactForm />
-              </Suspense>
-            </div>
-
-            {/* Contacts Info */}
-            <div className="lg:col-span-4 space-y-8">
-              {/* Plant Info Card */}
-              <div className="bg-surface-2/30 p-8 rounded-xl border border-line shadow-2xl relative">
-                <h3 className="font-bold text-lg text-paper mb-6 uppercase tracking-tight">Plant Office</h3>
-                <ul className="space-y-6 text-sm text-paper-dim">
-                  <li className="flex items-start gap-4">
-                    <span className="material-symbols-outlined text-blue mt-0.5">location_on</span>
-                    <div>
-                      <span className="block font-semibold text-paper mb-1">Site Address</span>
-                      <span>Uranus Stone Yard Area,<br/>Nongpoh, Ri-Bhoi District,<br/>Meghalaya - 793102</span>
-                    </div>
-                  </li>
-                  <li className="flex items-start gap-4">
-                    <span className="material-symbols-outlined text-blue mt-0.5">phone</span>
-                    <div>
-                      <span className="block font-semibold text-paper mb-1">Phone Line</span>
-                      <span>+91 98765 43210</span>
-                    </div>
-                  </li>
-                  <li className="flex items-start gap-4">
-                    <span className="material-symbols-outlined text-blue mt-0.5">mail</span>
-                    <div>
-                      <span className="block font-semibold text-paper mb-1">Email Inbox</span>
-                      <span>hello@uranusstone.in</span>
-                    </div>
-                  </li>
-                </ul>
+      {/* ──── FORM + CONTACT INFO ──── */}
+      <section style={{ background: LIGHT_BG }}>
+        <div className="wrap" style={{ paddingTop: 0, paddingBottom: 80 }}>
+          {/* Cards pulled up into the hero */}
+          <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: 24, marginTop: -60, position: "relative", zIndex: 10 }}>
+            
+            {/* Desktop: side-by-side using CSS grid on wider screens */}
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))", gap: 24 }}>
+              
+              {/* FORM CARD */}
+              <div style={{ background: CARD_BG, borderRadius: 20, padding: "36px 36px 40px", boxShadow: "0 8px 40px rgba(0,0,0,0.08)", border: "1px solid #e5e7eb" }}>
+                <span style={{ fontSize: 12, fontWeight: 700, color: BLUE, textTransform: "uppercase", letterSpacing: "0.14em", display: "block", marginBottom: 6 }}>Send Us a Message</span>
+                <h2 style={{ fontSize: 24, fontWeight: 900, color: TEXT_DARK, marginBottom: 28 }}>Request a Quotation</h2>
+                <Suspense fallback={<div style={{ textAlign: "center", padding: "60px 0", color: TEXT_LITE, fontSize: 14 }}>Loading form...</div>}>
+                  <ContactForm />
+                </Suspense>
               </div>
 
-              {/* B2B Contacts Directory */}
-              <div className="bg-surface-2/30 p-8 rounded-xl border border-line shadow-2xl relative">
-                <h3 className="font-bold text-lg text-paper mb-6 uppercase tracking-tight">B2B Directory</h3>
-                <div className="space-y-5 text-sm text-paper-dim">
-                  <div className="flex justify-between items-center border-b border-line pb-3">
-                    <div>
-                      <span className="block font-semibold text-paper mb-0.5">Sales &amp; Tenders</span>
-                      <span className="text-xs text-fog">For bulk corporate contracts</span>
+              {/* CONTACT INFO CARD */}
+              <div style={{ background: DARK_CARD, borderRadius: 20, padding: "36px 32px", boxShadow: "0 8px 40px rgba(0,0,0,0.15)" }}>
+                <h2 style={{ fontSize: 20, fontWeight: 800, color: "#fff", marginBottom: 36 }}>Contact Information</h2>
+                <div style={{ display: "flex", flexDirection: "column", gap: 28 }}>
+                  {/* Visit */}
+                  <div style={{ display: "flex", alignItems: "flex-start", gap: 16 }}>
+                    <div style={{ width: 44, height: 44, borderRadius: "50%", background: BLUE, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                      <span className="material-symbols-outlined" style={{ color: "#fff", fontSize: 20 }}>location_on</span>
                     </div>
-                    <a href="mailto:sales@uranusstone.in" className="text-blue font-mono hover:underline">sales@uranusstone.in</a>
+                    <div>
+                      <h4 style={{ fontSize: 15, fontWeight: 700, color: "#fff", marginBottom: 4 }}>Visit Us</h4>
+                      <p style={{ fontSize: 14, color: "#9ca3af", lineHeight: 1.6, margin: 0 }}>
+                        Uranus Stone Yard Area,<br/>Nongpoh, Ri-Bhoi District,<br/>Meghalaya — 793102
+                      </p>
+                    </div>
                   </div>
-                  <div className="flex justify-between items-center border-b border-line pb-3">
-                    <div>
-                      <span className="block font-semibold text-paper mb-0.5">Quality Assurance Lab</span>
-                      <span className="text-xs text-fog">For testing &amp; grading certificates</span>
+                  {/* Call */}
+                  <div style={{ display: "flex", alignItems: "flex-start", gap: 16 }}>
+                    <div style={{ width: 44, height: 44, borderRadius: "50%", background: BLUE, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                      <span className="material-symbols-outlined" style={{ color: "#fff", fontSize: 20 }}>phone</span>
                     </div>
-                    <a href="mailto:qa@uranusstone.in" className="text-blue font-mono hover:underline">qa@uranusstone.in</a>
+                    <div>
+                      <h4 style={{ fontSize: 15, fontWeight: 700, color: "#fff", marginBottom: 4 }}>Call Us</h4>
+                      <p style={{ fontSize: 14, color: "#9ca3af", margin: 0 }}>+91 98765 43210</p>
+                    </div>
                   </div>
-                  <div className="flex justify-between items-center">
-                    <div>
-                      <span className="block font-semibold text-paper mb-0.5">Logistics Dispatch</span>
-                      <span className="text-xs text-fog">For dumper truck tracking</span>
+                  {/* Email */}
+                  <div style={{ display: "flex", alignItems: "flex-start", gap: 16 }}>
+                    <div style={{ width: 44, height: 44, borderRadius: "50%", background: BLUE, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                      <span className="material-symbols-outlined" style={{ color: "#fff", fontSize: 20 }}>mail</span>
                     </div>
-                    <a href="mailto:dispatch@uranusstone.in" className="text-blue font-mono hover:underline">dispatch@uranusstone.in</a>
+                    <div>
+                      <h4 style={{ fontSize: 15, fontWeight: 700, color: "#fff", marginBottom: 4 }}>Email Us</h4>
+                      <p style={{ fontSize: 14, color: "#9ca3af", margin: 0 }}>hello@uranusstone.in</p>
+                    </div>
+                  </div>
+                  {/* Hours */}
+                  <div style={{ display: "flex", alignItems: "flex-start", gap: 16 }}>
+                    <div style={{ width: 44, height: 44, borderRadius: "50%", background: BLUE, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                      <span className="material-symbols-outlined" style={{ color: "#fff", fontSize: 20 }}>schedule</span>
+                    </div>
+                    <div>
+                      <h4 style={{ fontSize: 15, fontWeight: 700, color: "#fff", marginBottom: 4 }}>Working Hours</h4>
+                      <p style={{ fontSize: 14, color: "#9ca3af", margin: 0, lineHeight: 1.6 }}>
+                        Monday – Saturday: 24 Hours<br/>Sunday: <span style={{ color: BLUE }}>Maintenance</span>
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
-              
-              {/* Operations Hours Card */}
-              <div className="bg-surface-2/30 p-8 rounded-xl border border-line shadow-2xl relative">
-                <h3 className="font-bold text-lg text-paper mb-4 uppercase tracking-tight">Operations Hours</h3>
-                <p className="text-sm text-paper-dim leading-relaxed mb-6 block">Our crushing yards and logistics dispatch networks operate 24 hours a day, 6 days a week, ensuring zero-delay bulk aggregate supply.</p>
-                <ul className="text-sm text-paper-dim space-y-4 font-mono">
-                  <li className="flex justify-between border-b border-line pb-2">
-                    <span className="font-sans text-paper">Mon - Sat:</span>
-                    <span className="font-bold text-blue">24 Hours Operations</span>
-                  </li>
-                  <li className="flex justify-between">
-                    <span className="font-sans text-paper">Sunday:</span>
-                    <span className="font-bold text-red-500">Maintenance Shutdown</span>
-                  </li>
-                </ul>
               </div>
             </div>
           </div>
 
-          {/* Embedded Google Map Section */}
-          <div className="w-full h-[450px] border border-line rounded-xl overflow-hidden relative shadow-2xl p-2 bg-surface">
+          {/* ──── DEPARTMENT CONTACTS ──── */}
+          <h2 style={{ fontSize: 24, fontWeight: 900, color: TEXT_DARK, textAlign: "center", margin: "64px 0 32px" }}>Our Department Contacts</h2>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 20 }}>
+            {[
+              { icon: "groups", title: "Sales & Tenders", desc: "Bulk orders & pricing inquiries", email: "sales@uranusstone.in", label: "Email Sales" },
+              { icon: "science", title: "Quality Lab", desc: "Testing & certificates", email: "qa@uranusstone.in", label: "Email Quality Lab" },
+              { icon: "local_shipping", title: "Logistics", desc: "Dispatch & tracking support", email: "dispatch@uranusstone.in", label: "Email Logistics" },
+            ].map((dept) => (
+              <div key={dept.title} style={{ background: CARD_BG, borderRadius: 16, padding: "28px 24px", border: "1px solid #e5e7eb", boxShadow: "0 4px 16px rgba(0,0,0,0.05)", transition: "transform 0.2s, box-shadow 0.2s" }}>
+                <div style={{ display: "flex", alignItems: "flex-start", gap: 14, marginBottom: 16 }}>
+                  <div style={{ width: 46, height: 46, borderRadius: 12, background: "rgba(62,130,247,0.08)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                    <span className="material-symbols-outlined" style={{ color: BLUE, fontSize: 22 }}>{dept.icon}</span>
+                  </div>
+                  <div>
+                    <h3 style={{ fontSize: 16, fontWeight: 700, color: TEXT_DARK, marginBottom: 2 }}>{dept.title}</h3>
+                    <p style={{ fontSize: 13, color: TEXT_MID, margin: 0 }}>{dept.desc}</p>
+                  </div>
+                </div>
+                <a href={`mailto:${dept.email}`} style={{ fontSize: 13, color: BLUE, fontWeight: 600, display: "block", marginBottom: 14 }}>{dept.email}</a>
+                <a
+                  href={`mailto:${dept.email}`}
+                  style={{ display: "inline-flex", alignItems: "center", gap: 6, fontSize: 13, fontWeight: 600, color: BLUE, border: `1.5px solid rgba(62,130,247,0.3)`, borderRadius: 8, padding: "8px 18px", textDecoration: "none", transition: "background 0.2s" }}
+                >
+                  {dept.label}
+                  <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h9M8 4l4 4-4 4" stroke={BLUE} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                </a>
+              </div>
+            ))}
+          </div>
+
+          {/* ──── MAP ──── */}
+          <div style={{ marginTop: 56, position: "relative", width: "100%", height: 400, borderRadius: 20, overflow: "hidden", border: "1px solid #d1d5db", boxShadow: "0 4px 24px rgba(0,0,0,0.06)" }}>
             <iframe
-              title="Uranus Stone Plant Location Map"
+              title="Uranus Stone Plant Location"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d114851.9868750849!2d91.80373030386762!3d25.900827299999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x375a52d3a339bd95%3A0xe50682054ff8e7b3!2sNongpoh%2C%20Meghalaya!5e0!3m2!1sen!2sin!4v1718919000000!5m2!1sen!2sin"
               width="100%"
               height="100%"
-              style={{ border: 0, filter: "grayscale(1) invert(0.9) contrast(1.2)" }}
+              style={{ border: 0 }}
               allowFullScreen={false}
               loading="lazy"
-              className="rounded-lg"
-            ></iframe>
+            />
+            {/* Floating card */}
+            <div style={{ position: "absolute", bottom: 20, left: 20, background: "rgba(14,17,22,0.94)", backdropFilter: "blur(8px)", color: "#fff", padding: "20px 24px", borderRadius: 14, maxWidth: 260, boxShadow: "0 8px 32px rgba(0,0,0,0.3)" }}>
+              <h4 style={{ fontSize: 16, fontWeight: 700, marginBottom: 6 }}>Find Us</h4>
+              <p style={{ fontSize: 13, color: "#9ca3af", lineHeight: 1.5, margin: "0 0 12px" }}>Nongpoh, Ri-Bhoi District,<br/>Meghalaya — 793102</p>
+              <a href="https://maps.google.com/?q=Nongpoh,+Meghalaya" target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: 6, fontSize: 13, fontWeight: 600, color: BLUE, textDecoration: "none" }}>
+                <span className="material-symbols-outlined" style={{ fontSize: 16 }}>directions</span>
+                Get Directions →
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ──── TRUST STATS STRIP ──── */}
+      <section style={{ background: "#0E1116", borderTop: "1px solid rgba(255,255,255,0.1)", padding: "48px 0" }}>
+        <div className="wrap">
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 32 }}>
+            {[
+              { icon: "engineering", num: "500+", label: "Projects Delivered" },
+              { icon: "verified", num: "15+", label: "Years Experience" },
+              { icon: "local_shipping", num: "24/7", label: "Logistics Support" },
+              { icon: "workspace_premium", num: "ISO", label: "Certified Processes" },
+            ].map((stat) => (
+              <div key={stat.label} style={{ display: "flex", alignItems: "center", gap: 14 }}>
+                <div style={{ width: 48, height: 48, borderRadius: 12, background: "rgba(62,130,247,0.1)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                  <span className="material-symbols-outlined" style={{ color: BLUE, fontSize: 22 }}>{stat.icon}</span>
+                </div>
+                <div>
+                  <div style={{ fontSize: 22, fontWeight: 900, color: "#ECEEF1" }}>{stat.num}</div>
+                  <div style={{ fontSize: 12, color: "#98A2AE" }}>{stat.label}</div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
