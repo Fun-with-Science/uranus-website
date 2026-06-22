@@ -56,11 +56,9 @@ export default function Footer() {
           </div>
           
           <div>
-            <h4>Company</h4>
+            <h4>About</h4>
             <ul>
               <li><Link href="/about">About us</Link></li>
-              <li><Link href="/#process">Our process</Link></li>
-              <li><Link href="/sustainability">Sustainability</Link></li>
               <li><Link href="/gallery">Gallery</Link></li>
               <li><Link href="/contact">Contact</Link></li>
               <li>
@@ -78,9 +76,7 @@ export default function Footer() {
             <h4>Plant &amp; Office</h4>
             <ul className="mb-4">
               <li>Uranus Stone Yard, Nongpoh, Ri-Bhoi District, Meghalaya - 793102</li>
-              <li>Phone: +91 98765 43210</li>
-              <li>Email: hello@uranusstone.in</li>
-              <li>GSTIN: 17AAACO1234A1Z9</li>
+              <li>+91 98765 43210, hello@uranusstone.in</li>
             </ul>
             <div className="mapbox overflow-hidden rounded">
               <iframe
@@ -102,7 +98,6 @@ export default function Footer() {
             <Link href="/privacy-policy" className="hover:text-blue transition-colors">Privacy Policy</Link>
             <Link href="/terms-and-conditions" className="hover:text-blue transition-colors">Terms &amp; Conditions</Link>
           </div>
-          <span>Directors: Ankit Mittal · Conformi Mukhim · Shweta Mittal</span>
         </div>
       </div>
 

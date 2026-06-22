@@ -11,7 +11,6 @@ export default function GalleryPage() {
     { id: "crusher", label: "Crusher Plant" },
     { id: "infrastructure", label: "Infrastructure" },
     { id: "equipment", label: "Equipment" },
-    { id: "sustainability", label: "Sustainability" },
     { id: "products", label: "Products" },
   ];
 
@@ -39,13 +38,6 @@ export default function GalleryPage() {
       image: "/uranus website assets/10.png",
       title: "Heavy Excavator Loading",
       tag: "Equipment"
-    },
-    {
-      category: "sustainability",
-      image: "/uranus website assets/8.png",
-      title: "Afforestation & Eco Buffers",
-      tag: "Sustainability",
-      accent: true
     },
     {
       category: "products",
@@ -108,7 +100,7 @@ export default function GalleryPage() {
                 <div className="relative w-full h-full overflow-hidden rounded">
                   <img src={item.image} alt={item.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                   <div className="absolute inset-0 bg-ink/75 opacity-0 group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end text-white">
-                    <span className={`font-bold text-xs uppercase font-mono ${item.accent ? "text-moss" : "text-blue"}`}>{item.tag}</span>
+                    <span className="font-bold text-xs uppercase font-mono text-blue">{item.tag}</span>
                     <h3 className="font-bold text-base mt-1 text-paper">{item.title}</h3>
                   </div>
                 </div>

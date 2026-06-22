@@ -13,7 +13,6 @@ export default function HomeClient() {
   const [tonnesCount, setTonnesCount] = useState(0);
   const [hoursCount, setHoursCount] = useState(0);
 
-  const procGridRef = useRef<HTMLDivElement>(null);
   const countersSectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -68,26 +67,9 @@ export default function HomeClient() {
       counterObserver.observe(countersSectionRef.current);
     }
 
-    // 4. Process line drawing animation
-    const processObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && procGridRef.current) {
-            procGridRef.current.classList.add("drawn");
-            processObserver.disconnect();
-          }
-        });
-      },
-      { threshold: 0.2 }
-    );
-    if (procGridRef.current) {
-      processObserver.observe(procGridRef.current);
-    }
-
     return () => {
       revealObserver.disconnect();
       counterObserver.disconnect();
-      processObserver.disconnect();
     };
   }, []);
 
@@ -276,104 +258,7 @@ export default function HomeClient() {
         </div>
       </section>
 
-      {/* PROCESS */}
-      <section className="section" id="process">
-        <div className="wrap">
-          <div className="sec-head r">
-            <span className="eyebrow">Quarry to Site</span>
-            <h2 className="text-paper">Our 6-stage production and delivery lifecycle.</h2>
-            <p>We manage quality at every step, from blasting to tipper loading, ensuring certified materials hit your project site.</p>
-          </div>
 
-          <div className="proc-grid" id="procGrid" ref={procGridRef}>
-            <div className="proc-rule"><div className="proc-rule-active"></div></div>
-            
-            {/* Step 1 */}
-            <div className="proc-step r">
-              <div className="num">1</div>
-              <h3 className="text-paper">Mining</h3>
-              <p>Controlled excavation and sorting of raw basalt granite from our licensed hillside quarry sites.</p>
-            </div>
-
-            {/* Step 2 */}
-            <div className="proc-step r">
-              <div className="num">2</div>
-              <h3 className="text-paper">Crushing</h3>
-              <p>Multi-stage primary and secondary crushers process the heavy rock down to manageable sizes.</p>
-            </div>
-
-            {/* Step 3 */}
-            <div className="proc-step r">
-              <div className="num">3</div>
-              <h3 className="text-paper">Screening</h3>
-              <p>High-frequency sorting grids separate aggregate fractions into precise sizes from 6 mm to 60 mm.</p>
-            </div>
-
-            {/* Step 4 */}
-            <div className="proc-step r">
-              <div className="num">4</div>
-              <h3 className="text-paper">Lab Testing</h3>
-              <p>Our in-house quality checks review gradation curves and flake index values to ensure strict compliance.</p>
-            </div>
-
-            {/* Step 5 */}
-            <div className="proc-step r">
-              <div className="num">5</div>
-              <h3 className="text-paper">Stockpiling</h3>
-              <p>Finished grades are stored in clean, segregated zones, preventing mixing or moisture accumulation.</p>
-            </div>
-
-            {/* Step 6 */}
-            <div className="proc-step r">
-              <div className="num">6</div>
-              <h3 className="text-paper">Dispatch</h3>
-              <p>Loaded onto our tipper fleet with electronic weight certification and active GPS transit tracking.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* SUSTAINABILITY */}
-      <section className="section sus" id="sustain">
-        <div className="wrap">
-          <div className="sus-grid">
-            <div className="r">
-              <span className="eyebrow">Eco-safe production</span>
-              <h2 className="text-paper">Growth that respects the hills we work in.</h2>
-              <p>Stone mining requires careful stewardship. Uranus is committed to minimizing dust emissions, managing runoff, and active land restoration.</p>
-              
-              <div className="sus-list">
-                <div className="sus-item">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 2L2 22h20L12 2z"/></svg>
-                  <div>
-                    <h4 className="text-paper">Afforestation Drive</h4>
-                    <p>10,000+ native plants cultivated around buffer zones to offset emissions.</p>
-                  </div>
-                </div>
-                <div className="sus-item">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
-                  <div>
-                    <h4 className="text-paper">Dust Suppression</h4>
-                    <p>Water misting systems operate along crushing grids to clean emission clouds.</p>
-                  </div>
-                </div>
-              </div>
-              
-              <Link href="/sustainability" className="btn btn-blue">Read Environmental Policy</Link>
-            </div>
-            
-            <div className="about-media r">
-              <div className="frame rounded-full max-w-sm mx-auto overflow-hidden border-8 border-surface-2 shadow-2xl">
-                <img 
-                  src="/uranus website assets/8.png" 
-                  alt="Uranus Green Plantation Buffer Zone" 
-                  className="w-full aspect-square object-cover"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* WHERE MATERIAL GOES */}
       <section className="section">

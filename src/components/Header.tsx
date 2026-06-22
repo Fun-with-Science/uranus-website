@@ -35,12 +35,11 @@ export default function Header() {
             />
           </Link>
           
-          {/* Desktop Navigation links - kept to the 5 primary ones to prevent navbar compression */}
+          {/* Desktop Navigation links */}
           <div className="nav-links">
+            <Link href="/">Home</Link>
             <Link href="/products">Products</Link>
-            <Link href={isHome ? "#process" : "/#process"}>Process</Link>
-            <Link href="/sustainability">Sustainability</Link>
-            <Link href="/about">Company</Link>
+            <Link href="/about">About</Link>
             <Link href="/contact">Contact</Link>
           </div>
           
@@ -65,7 +64,7 @@ export default function Header() {
           </div>
         </div>
       </nav>
-
+ 
       {/* Mobile Drawer menu - lists all available page routes */}
       <div className={`mpanel ${isMenuOpen ? "open" : ""}`} id="mpanel">
         <button 
@@ -76,10 +75,9 @@ export default function Header() {
         >
           &times;
         </button>
+        <Link href="/" onClick={closeMenu}>Home</Link>
         <Link href="/products" onClick={closeMenu}>Products</Link>
-        <Link href={isHome ? "#process" : "/#process"} onClick={closeMenu}>Process</Link>
-        <Link href="/sustainability" onClick={closeMenu}>Sustainability</Link>
-        <Link href="/about" onClick={closeMenu}>Company</Link>
+        <Link href="/about" onClick={closeMenu}>About</Link>
         <Link href="/infrastructure" onClick={closeMenu}>Infrastructure</Link>
         <Link href="/gallery" onClick={closeMenu}>Gallery</Link>
         <Link href="/contact" onClick={closeMenu}>Contact</Link>
