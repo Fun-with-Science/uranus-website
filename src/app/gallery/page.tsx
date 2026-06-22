@@ -71,8 +71,8 @@ export default function GalleryPage() {
           <div className="absolute inset-0 bg-gradient-to-b from-ink/60 via-ink/88 to-ink"></div>
         </div>
         <div className="relative z-10 wrap w-full">
-          <div className="max-w-3xl border-l-4 border-amber pl-10">
-            <span className="text-xs font-bold text-amber uppercase tracking-widest block font-mono mb-3">Visual Portfolio</span>
+          <div className="max-w-3xl border-l-4 border-blue pl-10">
+            <span className="text-xs font-bold text-blue uppercase tracking-widest block font-mono mb-3">Visual Portfolio</span>
             <h1 className="text-3xl md:text-5xl font-black text-paper leading-tight mb-4">Operational Media Gallery</h1>
             <p className="text-base text-paper-dim">A photographic showcase of our plants, quarry excavation, and materials catalog.</p>
           </div>
@@ -90,8 +90,8 @@ export default function GalleryPage() {
                 onClick={() => setActiveFilter(filter.id)}
                 className={`px-6 py-2.5 rounded font-bold text-sm uppercase border cursor-pointer transition-all ${
                   activeFilter === filter.id
-                    ? "bg-amber border-amber text-ink shadow-md"
-                    : "border-line text-paper-dim hover:border-amber hover:text-paper"
+                    ? "bg-blue border-blue text-ink shadow-md"
+                    : "border-line text-paper-dim hover:border-blue hover:text-paper"
                 }`}
               >
                 {filter.label}
@@ -108,7 +108,7 @@ export default function GalleryPage() {
                 <div className="relative w-full h-full overflow-hidden rounded">
                   <img src={item.image} alt={item.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                   <div className="absolute inset-0 bg-ink/75 opacity-0 group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end text-white">
-                    <span className={`font-bold text-xs uppercase font-mono ${item.accent ? "text-moss" : "text-amber"}`}>{item.tag}</span>
+                    <span className={`font-bold text-xs uppercase font-mono ${item.accent ? "text-moss" : "text-blue"}`}>{item.tag}</span>
                     <h3 className="font-bold text-base mt-1 text-paper">{item.title}</h3>
                   </div>
                 </div>

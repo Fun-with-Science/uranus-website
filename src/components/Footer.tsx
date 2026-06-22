@@ -1,14 +1,37 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { useQuoteModal } from "./Providers";
 
 export default function Footer() {
   const { openModal } = useQuoteModal();
+  const [showScroll, setShowScroll] = useState(false);
+
+  useEffect(() => {
+    const checkScrollTop = () => {
+      if (!showScroll && window.scrollY > 400) {
+        setShowScroll(true);
+      } else if (showScroll && window.scrollY <= 400) {
+        setShowScroll(false);
+      }
+    };
+
+    window.addEventListener("scroll", checkScrollTop);
+    return () => {
+      window.removeEventListener("scroll", checkScrollTop);
+    };
+  }, [showScroll]);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
 
   return (
-    <footer className="foot">
+    <footer className="foot relative">
       <div className="wrap">
         <div className="foot-grid">
           <div>
@@ -43,7 +66,7 @@ export default function Footer() {
               <li>
                 <button 
                   onClick={() => openModal()} 
-                  className="text-left text-paper-dim hover:text-amber transition-colors bg-none border-none p-0 cursor-pointer"
+                  className="text-left text-paper-dim hover:text-blue transition-colors bg-none border-none p-0 cursor-pointer"
                 >
                   Request quote
                 </button>
@@ -55,7 +78,7 @@ export default function Footer() {
             <h4>Plant &amp; Office</h4>
             <ul className="mb-4">
               <li>Uranus Stone Yard, Nongpoh, Ri-Bhoi District, Meghalaya - 793102</li>
-              <li>Phone: +91 00000 00000</li>
+              <li>Phone: +91 98765 43210</li>
               <li>Email: hello@uranusstone.in</li>
               <li>GSTIN: 17AAACO1234A1Z9</li>
             </ul>
@@ -73,11 +96,26 @@ export default function Footer() {
           </div>
         </div>
         
-        <div className="foot-bottom">
+        <div className="foot-bottom flex flex-col md:flex-row justify-between items-center gap-4 py-8 border-t border-line mt-12 text-sm text-paper-dim">
           <span>© {new Date().getFullYear()} Uranus Stone Products Limited. All rights reserved.</span>
+          <div className="flex gap-6 text-xs uppercase font-mono tracking-wider">
+            <Link href="/privacy-policy" className="hover:text-blue transition-colors">Privacy Policy</Link>
+            <Link href="/terms-and-conditions" className="hover:text-blue transition-colors">Terms &amp; Conditions</Link>
+          </div>
           <span>Directors: Ankit Mittal · Conformi Mukhim · Shweta Mittal</span>
         </div>
       </div>
+
+      {/* Floating Back to Top Button */}
+      <button
+        onClick={scrollToTop}
+        className={`fixed bottom-8 right-8 bg-blue text-ink p-3.5 rounded-full shadow-[0_0_20px_rgba(62,130,247,0.4)] hover:bg-blue-hover hover:scale-110 active:scale-95 transition-all duration-300 z-50 cursor-pointer flex items-center justify-center ${
+          showScroll ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10 pointer-events-none"
+        }`}
+        aria-label="Back to top"
+      >
+        <span className="material-symbols-outlined font-bold">arrow_upward</span>
+      </button>
     </footer>
   );
 }

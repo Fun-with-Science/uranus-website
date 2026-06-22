@@ -48,7 +48,7 @@ export default function Header() {
             <span className="nav-phone mono whitespace-nowrap">+91 00000 00000</span>
             <button 
               onClick={() => openModal()} 
-              className="btn btn-amber btn-sm cursor-pointer"
+              className="btn btn-blue btn-sm cursor-pointer"
             >
               Request a quote
             </button>
@@ -85,7 +85,7 @@ export default function Header() {
         <Link href="/contact" onClick={closeMenu}>Contact</Link>
         <button 
           onClick={() => { closeMenu(); openModal(); }} 
-          className="btn btn-amber mt-6 w-full text-center py-4 uppercase font-bold tracking-widest cursor-pointer"
+          className="btn btn-blue mt-6 w-full text-center py-4 uppercase font-bold tracking-widest cursor-pointer"
         >
           Request a quote
         </button>

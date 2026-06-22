@@ -87,7 +87,7 @@ export default function QuoteModal() {
 
         {/* Close Button */}
         <button 
-          className="absolute top-4 right-4 text-paper-dim hover:text-amber text-2xl transition-colors cursor-pointer"
+          className="absolute top-4 right-4 text-paper-dim hover:text-blue text-2xl transition-colors cursor-pointer"
           onClick={closeModal}
           aria-label="Close modal"
         >
@@ -110,7 +110,7 @@ export default function QuoteModal() {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder="Enter your name"
-                className={`w-full bg-ink border ${errors.name ? "border-red-500" : "border-line"} focus:border-amber text-paper text-sm px-4 py-3 outline-none rounded transition-colors`}
+                className={`w-full bg-ink border ${errors.name ? "border-red-500" : "border-line"} focus:border-blue text-paper text-sm px-4 py-3 outline-none rounded transition-colors`}
               />
               {errors.name && <span className="text-xs text-red-500 mt-1 block">{errors.name}</span>}
             </div>
@@ -125,7 +125,7 @@ export default function QuoteModal() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="name@company.com"
-                  className={`w-full bg-ink border ${errors.email ? "border-red-500" : "border-line"} focus:border-amber text-paper text-sm px-4 py-3 outline-none rounded transition-colors`}
+                  className={`w-full bg-ink border ${errors.email ? "border-red-500" : "border-line"} focus:border-blue text-paper text-sm px-4 py-3 outline-none rounded transition-colors`}
                 />
                 {errors.email && <span className="text-xs text-red-500 mt-1 block">{errors.email}</span>}
               </div>
@@ -137,7 +137,7 @@ export default function QuoteModal() {
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
                   placeholder="+91 00000 00000"
-                  className={`w-full bg-ink border ${errors.phone ? "border-red-500" : "border-line"} focus:border-amber text-paper text-sm px-4 py-3 outline-none rounded transition-colors`}
+                  className={`w-full bg-ink border ${errors.phone ? "border-red-500" : "border-line"} focus:border-blue text-paper text-sm px-4 py-3 outline-none rounded transition-colors`}
                 />
                 {errors.phone && <span className="text-xs text-red-500 mt-1 block">{errors.phone}</span>}
               </div>
@@ -151,7 +151,7 @@ export default function QuoteModal() {
                   id="modal-material"
                   value={material}
                   onChange={(e) => setMaterial(e.target.value)}
-                  className="w-full bg-ink border border-line focus:border-amber text-paper text-sm px-4 py-3 outline-none rounded transition-colors"
+                  className="w-full bg-ink border border-line focus:border-blue text-paper text-sm px-4 py-3 outline-none rounded transition-colors"
                 >
                   <option value="6mm">06 mm Aggregate</option>
                   <option value="10mm">10 mm Aggregate</option>
@@ -171,7 +171,7 @@ export default function QuoteModal() {
                   value={quantity}
                   onChange={(e) => setQuantity(e.target.value)}
                   placeholder="e.g. 500"
-                  className={`w-full bg-ink border ${errors.quantity ? "border-red-500" : "border-line"} focus:border-amber text-paper text-sm px-4 py-3 outline-none rounded transition-colors`}
+                  className={`w-full bg-ink border ${errors.quantity ? "border-red-500" : "border-line"} focus:border-blue text-paper text-sm px-4 py-3 outline-none rounded transition-colors`}
                 />
                 {errors.quantity && <span className="text-xs text-red-500 mt-1 block">{errors.quantity}</span>}
               </div>
@@ -186,7 +186,7 @@ export default function QuoteModal() {
                 onChange={(e) => setMessage(e.target.value)}
                 placeholder="Describe your delivery location and any specific grading requests..."
                 rows={3}
-                className="w-full bg-ink border border-line focus:border-amber text-paper text-sm px-4 py-3 outline-none rounded transition-colors resize-none"
+                className="w-full bg-ink border border-line focus:border-blue text-paper text-sm px-4 py-3 outline-none rounded transition-colors resize-none"
               />
             </div>
 
@@ -194,7 +194,7 @@ export default function QuoteModal() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full btn btn-amber justify-center text-sm py-4 uppercase font-extrabold tracking-widest cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full btn btn-blue justify-center text-sm py-4 uppercase font-extrabold tracking-widest cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isSubmitting ? "Generating quotation..." : "Submit Quote Request"}
             </button>

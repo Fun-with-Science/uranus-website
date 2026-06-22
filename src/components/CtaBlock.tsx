@@ -25,12 +25,12 @@ export default function CtaBlock() {
       <div className="cta-veil"></div>
       <div className="wrap">
         <div className="cta-inner">
-          <h2>Have a project? Let's talk <span className="a text-amber">grades, volumes &amp; delivery.</span></h2>
+          <h2>Have a project? Let's talk <span className="a text-blue">grades, volumes &amp; delivery.</span></h2>
           <p className="text-paper-dim">Send us your specification and quantity. We'll come back with availability and a quote — usually within a day.</p>
           <div className="cta-actions">
             <button 
               onClick={() => openModal()} 
-              className="btn btn-amber cursor-pointer"
+              className="btn btn-blue cursor-pointer"
             >
               Request a quote
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h9M8 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>

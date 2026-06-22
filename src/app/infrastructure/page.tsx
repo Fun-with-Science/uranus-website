@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import CtaBlock from "@/components/CtaBlock";
-import WorkflowDiagram from "@/components/WorkflowDiagram";
 
 export const metadata: Metadata = {
   title: "Processing Plant Infrastructure | Metso Cone Crushers",
@@ -20,23 +19,56 @@ export default function InfrastructurePage() {
           <div className="absolute inset-0 bg-gradient-to-b from-ink/60 via-ink/88 to-ink"></div>
         </div>
         <div className="relative z-10 wrap w-full">
-          <div className="max-w-3xl border-l-4 border-amber pl-10">
-            <span className="text-xs font-bold text-amber uppercase tracking-widest block font-mono mb-3">Heavy Engineering</span>
+          <div className="max-w-3xl border-l-4 border-blue pl-10">
+            <span className="text-xs font-bold text-blue uppercase tracking-widest block font-mono mb-2">Heavy Engineering</span>
             <h1 className="text-3xl md:text-5xl font-black text-paper leading-tight mb-4">Crushing Infrastructure</h1>
             <p className="text-base text-paper-dim">Showcasing the mechanical scale of our aggregate processing units.</p>
           </div>
         </div>
       </section>
 
-      {/* Visual Workflow Diagram */}
+      {/* Plant Capabilities & Compliance Grid */}
       <section className="py-24 bg-surface border-b border-line w-full">
         <div className="wrap">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="eyebrow mb-3 block">Material Flow</span>
-            <h2 className="text-3xl font-extrabold text-paper mb-4">Industrial Processing Workflow</h2>
-            <p className="text-paper-dim text-sm">Follow the lifecycle of material processing from the rock face to project dispatch.</p>
+            <span className="eyebrow mb-3 block">Engineering Metrics</span>
+            <h2 className="text-3xl font-extrabold text-paper mb-4">Technical Plant Operations</h2>
+            <p className="text-paper-dim text-base">Industrial capabilities supporting bulk materials processing at scale.</p>
           </div>
-          <WorkflowDiagram />
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="bg-surface-2 border border-line p-8 rounded relative">
+              <span className="corner tl"></span>
+              <span className="corner br"></span>
+              <span className="material-symbols-outlined text-blue text-4xl mb-4 block">electric_bolt</span>
+              <h4 className="font-bold text-lg text-paper mb-2">Dedicated Substation</h4>
+              <p className="text-sm text-paper-dim leading-relaxed">Powered by an independent 33KV industrial grid line backed up by 500KVA diesel generators, ensuring uninterrupted operations.</p>
+            </div>
+            
+            <div className="bg-surface-2 border border-line p-8 rounded relative">
+              <span className="corner tl"></span>
+              <span className="corner br"></span>
+              <span className="material-symbols-outlined text-blue text-4xl mb-4 block">waves</span>
+              <h4 className="font-bold text-lg text-paper mb-2">Sand Washing Plant</h4>
+              <p className="text-sm text-paper-dim leading-relaxed">Integrated hydro-cyclone classification units wash out organic silts, delivering M-Sand grading with zero clay content.</p>
+            </div>
+            
+            <div className="bg-surface-2 border border-line p-8 rounded relative">
+              <span className="corner tl"></span>
+              <span className="corner br"></span>
+              <span className="material-symbols-outlined text-blue text-4xl mb-4 block">monitoring</span>
+              <h4 className="font-bold text-lg text-paper mb-2">Seismograph Stations</h4>
+              <p className="text-sm text-paper-dim leading-relaxed">Equipped with active seismic monitoring networks to log controlled blasting impacts, complying with DGMS safety rules.</p>
+            </div>
+            
+            <div className="bg-surface-2 border border-line p-8 rounded relative">
+              <span className="corner tl"></span>
+              <span className="corner br"></span>
+              <span className="material-symbols-outlined text-blue text-4xl mb-4 block">verified</span>
+              <h4 className="font-bold text-lg text-paper mb-2">NABL Laboratory</h4>
+              <p className="text-sm text-paper-dim leading-relaxed">Equipped with sieve shakers, digital compression testing machines, and flakiness indexes to certify aggregate quality.</p>
+            </div>
+          </div>
         </div>
       </section>
 

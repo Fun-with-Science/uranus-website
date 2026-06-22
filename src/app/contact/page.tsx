@@ -41,12 +41,12 @@ function ContactForm() {
           </svg>
         </div>
         <h3 className="text-2xl font-bold text-paper uppercase tracking-tight">Material Inquiry Submitted!</h3>
-        <p className="text-xs text-paper-dim max-w-md mx-auto leading-relaxed">
+        <p className="text-sm text-paper-dim max-w-md mx-auto leading-relaxed">
           Thank you for reaching out. A sales engineer and dispatch officer will review your required volume, sizing parameters, and delivery site coordinates, and contact you within 2 business hours.
         </p>
         <button 
           onClick={() => setSubmitted(false)}
-          className="btn btn-amber text-xs uppercase tracking-wider py-3 px-6 cursor-pointer"
+          className="btn btn-blue text-xs uppercase tracking-wider py-3 px-6 cursor-pointer"
         >
           Submit Another Inquiry
         </button>
@@ -63,7 +63,7 @@ function ContactForm() {
             type="text" 
             required 
             placeholder="e.g. John Doe"
-            className="w-full bg-ink border border-line focus:border-amber text-paper text-sm px-4 py-3 outline-none rounded transition-colors"
+            className="w-full bg-ink border border-line focus:border-blue focus:ring-1 focus:ring-blue/50 text-paper text-sm px-4 py-3.5 outline-none rounded transition-all"
           />
         </div>
         <div>
@@ -72,7 +72,7 @@ function ContactForm() {
             type="text" 
             required 
             placeholder="e.g. ABC Construction Corp"
-            className="w-full bg-ink border border-line focus:border-amber text-paper text-sm px-4 py-3 outline-none rounded transition-colors"
+            className="w-full bg-ink border border-line focus:border-blue focus:ring-1 focus:ring-blue/50 text-paper text-sm px-4 py-3.5 outline-none rounded transition-all"
           />
         </div>
       </div>
@@ -84,7 +84,7 @@ function ContactForm() {
             type="email" 
             required 
             placeholder="e.g. name@company.com"
-            className="w-full bg-ink border border-line focus:border-amber text-paper text-sm px-4 py-3 outline-none rounded transition-colors"
+            className="w-full bg-ink border border-line focus:border-blue focus:ring-1 focus:ring-blue/50 text-paper text-sm px-4 py-3.5 outline-none rounded transition-all"
           />
         </div>
         <div>
@@ -92,8 +92,8 @@ function ContactForm() {
           <input 
             type="tel" 
             required 
-            placeholder="e.g. +91 00000 00000"
-            className="w-full bg-ink border border-line focus:border-amber text-paper text-sm px-4 py-3 outline-none rounded transition-colors"
+            placeholder="e.g. +91 98765 43210"
+            className="w-full bg-ink border border-line focus:border-blue focus:ring-1 focus:ring-blue/50 text-paper text-sm px-4 py-3.5 outline-none rounded transition-all"
           />
         </div>
       </div>
@@ -104,7 +104,7 @@ function ContactForm() {
           value={inquiryType}
           onChange={(e) => setInquiryType(e.target.value)}
           required
-          className="w-full bg-ink border border-line focus:border-amber text-paper text-sm px-4 py-3 outline-none rounded transition-colors"
+          className="w-full bg-ink border border-line focus:border-blue focus:ring-1 focus:ring-blue/50 text-paper text-sm px-4 py-3.5 outline-none rounded transition-all"
         >
           <option value="" disabled>Select Inquiry Type...</option>
           <option value="aggregates">Aggregate Supply (6mm to 60mm)</option>
@@ -121,7 +121,7 @@ function ContactForm() {
         <input 
           type="text" 
           placeholder="e.g. 5,000 Tonnes"
-          className="w-full bg-ink border border-line focus:border-amber text-paper text-sm px-4 py-3 outline-none rounded transition-colors"
+          className="w-full bg-ink border border-line focus:border-blue focus:ring-1 focus:ring-blue/50 text-paper text-sm px-4 py-3.5 outline-none rounded transition-all"
         />
       </div>
 
@@ -129,16 +129,18 @@ function ContactForm() {
         <label className="block text-xs font-semibold uppercase tracking-wider text-fog mb-2">Delivery Details &amp; Specifications *</label>
         <textarea 
           required 
+          rows={5}
           placeholder="Please list specific aggregate sizes, delivery site coordinates, and timeline targets..."
-          className="w-full bg-ink border border-line focus:border-amber text-paper text-sm px-4 py-3 outline-none rounded transition-colors resize-none"
+          className="w-full bg-ink border border-line focus:border-blue focus:ring-1 focus:ring-blue/50 text-paper text-sm px-4 py-3.5 outline-none rounded transition-all resize-none"
         ></textarea>
       </div>
 
       <button 
         type="submit" 
-        className="w-full btn btn-amber justify-center text-sm py-4 uppercase font-extrabold tracking-widest cursor-pointer"
+        className="w-full btn btn-blue justify-center text-sm py-4 uppercase font-extrabold tracking-widest cursor-pointer"
       >
         Submit Material Inquiry
+        <span className="material-symbols-outlined text-sm">send</span>
       </button>
     </form>
   );
@@ -157,8 +159,8 @@ export default function ContactPage() {
           <div className="absolute inset-0 bg-gradient-to-b from-ink/60 via-ink/88 to-ink"></div>
         </div>
         <div className="relative z-10 wrap w-full">
-          <div className="max-w-3xl border-l-4 border-amber pl-10">
-            <span className="text-xs font-bold text-amber uppercase tracking-widest block font-mono mb-3">Connect With Us</span>
+          <div className="max-w-3xl border-l-4 border-blue pl-10">
+            <span className="text-xs font-bold text-blue uppercase tracking-widest block font-mono mb-3">Connect With Us</span>
             <h1 className="text-3xl md:text-5xl font-black text-paper leading-tight mb-4">Request B2B Quote &amp; Consultation</h1>
             <p className="text-base text-paper-dim">Submit material requirements, grading specs, and logistics dispatch targets.</p>
           </div>
@@ -168,9 +170,9 @@ export default function ContactPage() {
       {/* Contact Bento Grid */}
       <section className="py-24 w-full">
         <div className="wrap">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-16">
             {/* Form Block */}
-            <div className="lg:col-span-8 bg-surface border border-line p-10 rounded shadow-2xl relative">
+            <div className="lg:col-span-8 bg-surface border border-line p-8 lg:p-10 rounded shadow-2xl relative">
               <span className="corner tl"></span>
               <span className="corner br"></span>
               <h2 className="text-2xl font-black text-paper uppercase tracking-tight mb-6">Material Inquiry Form</h2>
@@ -181,26 +183,49 @@ export default function ContactPage() {
 
             {/* Contacts Info */}
             <div className="lg:col-span-4 space-y-8">
+              {/* Plant Info Card */}
               <div className="bg-surface p-8 rounded border border-line shadow-2xl relative">
                 <span className="corner tl"></span>
                 <span className="corner br"></span>
                 <h3 className="font-bold text-lg text-paper mb-6 uppercase tracking-tight">Plant Office</h3>
                 <ul className="space-y-5 text-sm text-paper-dim">
                   <li className="flex items-start gap-3">
-                    <span className="material-symbols-outlined text-amber">location_on</span>
+                    <span className="material-symbols-outlined text-blue">location_on</span>
                     <span>Uranus Stone Yard Area,<br/>Nongpoh, Ri-Bhoi District,<br/>Meghalaya - 793102</span>
                   </li>
                   <li className="flex items-center gap-3">
-                    <span className="material-symbols-outlined text-amber">phone</span>
-                    <span>+91 00000 00000</span>
+                    <span className="material-symbols-outlined text-blue">phone</span>
+                    <span>+91 98765 43210</span>
                   </li>
                   <li className="flex items-center gap-3">
-                    <span className="material-symbols-outlined text-amber">mail</span>
+                    <span className="material-symbols-outlined text-blue">mail</span>
                     <span>hello@uranusstone.in</span>
                   </li>
                 </ul>
               </div>
+
+              {/* B2B Contacts Directory */}
+              <div className="bg-surface p-8 rounded border border-line shadow-2xl relative">
+                <span className="corner tl"></span>
+                <span className="corner br"></span>
+                <h3 className="font-bold text-lg text-paper mb-6 uppercase tracking-tight">B2B Directory</h3>
+                <ul className="space-y-4 text-xs font-mono text-paper-dim">
+                  <li className="border-b border-line pb-2">
+                    <span className="block text-paper font-semibold text-sm font-sans">Sales &amp; Tenders</span>
+                    <a href="mailto:sales@uranusstone.in" className="hover:text-blue transition-colors">sales@uranusstone.in</a>
+                  </li>
+                  <li className="border-b border-line pb-2">
+                    <span className="block text-paper font-semibold text-sm font-sans">Quality Assurance Lab</span>
+                    <a href="mailto:qa@uranusstone.in" className="hover:text-blue transition-colors">qa@uranusstone.in</a>
+                  </li>
+                  <li>
+                    <span className="block text-paper font-semibold text-sm font-sans">Logistics Dispatch</span>
+                    <a href="mailto:dispatch@uranusstone.in" className="hover:text-blue transition-colors">dispatch@uranusstone.in</a>
+                  </li>
+                </ul>
+              </div>
               
+              {/* Operations Hours Card */}
               <div className="bg-surface p-8 rounded border border-line shadow-2xl relative">
                 <span className="corner tl"></span>
                 <span className="corner br"></span>
@@ -212,6 +237,22 @@ export default function ContactPage() {
                 </ul>
               </div>
             </div>
+          </div>
+
+          {/* Embedded Google Map Section */}
+          <div className="w-full h-[450px] border border-line rounded overflow-hidden relative shadow-2xl p-2 bg-surface">
+            <span className="corner tl"></span>
+            <span className="corner br"></span>
+            <iframe
+              title="Uranus Stone Plant Location Map"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d114851.9868750849!2d91.80373030386762!3d25.900827299999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x375a52d3a339bd95%3A0xe50682054ff8e7b3!2sNongpoh%2C%20Meghalaya!5e0!3m2!1sen!2sin!4v1718919000000!5m2!1sen!2sin"
+              width="100%"
+              height="100%"
+              style={{ border: 0, filter: "grayscale(1) invert(0.9) contrast(1.2)" }}
+              allowFullScreen={false}
+              loading="lazy"
+              className="rounded"
+            ></iframe>
           </div>
         </div>
       </section>

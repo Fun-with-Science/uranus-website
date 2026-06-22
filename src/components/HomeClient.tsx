@@ -120,7 +120,7 @@ export default function HomeClient() {
             <div className="hero-actions reveal-h d4">
               <button 
                 onClick={() => openModal()} 
-                className="btn btn-amber cursor-pointer"
+                className="btn btn-blue cursor-pointer"
               >
                 Request a quote
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h9M8 4l4 4-4 4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/></svg>
@@ -359,7 +359,7 @@ export default function HomeClient() {
                 </div>
               </div>
               
-              <Link href="/sustainability" className="btn btn-amber">Read Environmental Policy</Link>
+              <Link href="/sustainability" className="btn btn-blue">Read Environmental Policy</Link>
             </div>
             
             <div className="about-media r">
@@ -410,7 +410,7 @@ export default function HomeClient() {
             <div className="cta-actions">
               <button 
                 onClick={() => openModal()} 
-                className="btn btn-amber cursor-pointer"
+                className="btn btn-blue cursor-pointer"
               >
                 Request a quote
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h9M8 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
