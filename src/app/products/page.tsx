@@ -64,12 +64,11 @@ export default function ProductsPage() {
     document.body.removeChild(link);
   };
 
-  /* ─── Product detail cards data ─── */
   const materials: Material[] = [
     {
       name: "10mm Aggregate",
       tag: "RCC Structures",
-      image: "/uranus website assets/3.png",
+      image: "/uranus website assets/aggregate_10mm.png",
       description:
         "Specifically processed basalt aggregates sorted using precision screening grids. Conforms strictly to mechanical strength targets for RCC columns and structural slabs.",
       apps: ["RCC Columns", "Concrete Slabs", "Precast Blocks"],
@@ -79,7 +78,7 @@ export default function ProductsPage() {
     {
       name: "20mm Aggregate",
       tag: "Heavy Foundations",
-      image: "/uranus website assets/wbs.png",
+      image: "/uranus website assets/aggregate_20mm.png",
       description:
         "Premier concrete aggregate featuring exceptional cubic particles for optimum binder packing. Reduces cement voids for strong structures.",
       apps: ["High-rise Buildings", "Bridge Girders", "Heavy Foundations"],
@@ -89,7 +88,7 @@ export default function ProductsPage() {
     {
       name: "Manufactured Sand",
       tag: "Eco Friendly",
-      image: "/uranus website assets/wbs.png",
+      image: "/uranus website assets/msand.png",
       description:
         "High-quality manufactured sand, crushed and washed with zero organic impurities. Perfect grading for masonry plasters.",
       apps: ["Masonry Mortar", "Wall Plastering", "Concrete Mixes"],
@@ -99,7 +98,7 @@ export default function ProductsPage() {
     {
       name: "GSB (Sub-base)",
       tag: "Highway Base",
-      image: "/uranus website assets/duhb.png",
+      image: "/uranus website assets/gsb.png",
       description:
         "MORTH specification compliant Granular Sub Base for highway base stabilization and heavy road pavement layers.",
       apps: ["Highway Subgrades", "Base Stabilization", "Structural Fill"],
@@ -386,201 +385,190 @@ export default function ProductsPage() {
           </div>
 
           {/* Cards */}
-          <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: 48 }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: 32 }}>
             {materials.map((mat) => (
               <div
                 key={mat.name}
                 style={{
                   background: SURFACE2,
                   border: `1px solid ${LINE}`,
-                  borderRadius: 16,
+                  borderRadius: 20,
                   overflow: "hidden",
                   position: "relative",
-                  padding: 8,
+                  padding: 10,
+                  display: "flex",
+                  flexDirection: "column",
+                  boxShadow: "0 12px 36px rgba(0, 0, 0, 0.25)",
                 }}
               >
                 <span className="corner tl" />
                 <span className="corner br" />
 
+                {/* Image */}
                 <div
                   style={{
-                    display: "grid",
-                    gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-                    gap: 24,
-                    padding: 24,
+                    overflow: "hidden",
+                    borderRadius: 14,
+                    border: `1px solid ${LINE}`,
+                    background: STONE,
+                    width: "100%",
+                    height: 220,
+                    position: "relative",
                   }}
                 >
-                  {/* Left: Image */}
-                  <div
+                  <img
+                    src={mat.image}
+                    alt={mat.name}
                     style={{
-                      overflow: "hidden",
-                      borderRadius: 12,
-                      border: `1px solid ${LINE}`,
-                      background: STONE,
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      display: "block",
+                    }}
+                  />
+                  {/* Tag on top of image for premium UI look */}
+                  <span
+                    style={{
+                      position: "absolute",
+                      top: 12,
+                      right: 12,
+                      padding: "5px 12px",
+                      fontSize: 10,
+                      fontWeight: 700,
+                      textTransform: "uppercase",
+                      letterSpacing: "0.06em",
+                      borderRadius: 8,
+                      background: "rgba(14, 17, 22, 0.85)",
+                      backdropFilter: "blur(4px)",
+                      color: BLUE,
+                      border: `1px solid rgba(62, 130, 247, 0.3)`,
                     }}
                   >
-                    <img
-                      src={mat.image}
-                      alt={mat.name}
-                      style={{
-                        width: "100%",
-                        height: "100%",
-                        minHeight: 240,
-                        objectFit: "cover",
-                        borderRadius: 12,
-                        display: "block",
-                      }}
-                    />
-                  </div>
+                    {mat.tag}
+                  </span>
+                </div>
 
-                  {/* Right: Details */}
-                  <div style={{ display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
-                    <div>
-                      {/* Name + Tag */}
-                      <div
-                        style={{
-                          display: "flex",
-                          flexWrap: "wrap",
-                          justifyContent: "space-between",
-                          alignItems: "flex-start",
-                          gap: 16,
-                          marginBottom: 16,
-                        }}
-                      >
-                        <h3 style={{ fontSize: 24, fontWeight: 800, color: PAPER, margin: 0 }}>{mat.name}</h3>
-                        <span
-                          style={{
-                            padding: "4px 12px",
-                            fontSize: 11,
-                            fontWeight: 700,
-                            textTransform: "uppercase",
-                            letterSpacing: "0.05em",
-                            borderRadius: 6,
-                            background: "rgba(62,130,247,0.1)",
-                            color: BLUE,
-                            border: `1px solid rgba(62,130,247,0.2)`,
-                          }}
-                        >
-                          {mat.tag}
-                        </span>
-                      </div>
+                {/* Details Container */}
+                <div style={{ padding: "20px 12px 12px", display: "flex", flexDirection: "column", flex: 1, justifyContent: "space-between" }}>
+                  <div>
+                    {/* Name */}
+                    <h3 style={{ fontSize: 20, fontWeight: 800, color: PAPER, margin: "0 0 10px", letterSpacing: "-0.02em" }}>{mat.name}</h3>
 
-                      {/* Description */}
-                      <p style={{ fontSize: 15, color: PAPER_DIM, lineHeight: 1.7, marginBottom: 24 }}>
-                        {mat.description}
-                      </p>
+                    {/* Description */}
+                    <p style={{ fontSize: 14, color: PAPER_DIM, lineHeight: 1.6, marginBottom: 20, minHeight: 68 }}>
+                      {mat.description}
+                    </p>
 
-                      {/* Technical Specs */}
-                      <div
-                        style={{
-                          display: "grid",
-                          gridTemplateColumns: "repeat(2, 1fr)",
-                          gap: 16,
-                          background: SURFACE,
-                          border: `1px solid ${LINE}`,
-                          padding: 16,
-                          borderRadius: 10,
-                          marginBottom: 24,
-                        }}
-                      >
-                        {specLabels.map((spec) => (
-                          <div key={spec.key}>
-                            <span
-                              style={{
-                                display: "block",
-                                fontSize: 10,
-                                fontWeight: 700,
-                                color: FOG,
-                                textTransform: "uppercase",
-                                letterSpacing: "0.1em",
-                                fontFamily: "monospace",
-                                marginBottom: 4,
-                              }}
-                            >
-                              {spec.label}
-                            </span>
-                            <span
-                              style={{
-                                fontSize: 14,
-                                fontWeight: 700,
-                                color: PAPER,
-                                fontFamily: "monospace",
-                              }}
-                            >
-                              {mat.specs[spec.key]}
-                            </span>
-                          </div>
-                        ))}
-                      </div>
-
-                      {/* Key Applications */}
-                      <div style={{ marginBottom: 24 }}>
-                        <span
-                          style={{
-                            display: "block",
-                            fontSize: 11,
-                            fontWeight: 700,
-                            textTransform: "uppercase",
-                            color: PAPER,
-                            letterSpacing: "0.08em",
-                            fontFamily: "monospace",
-                            marginBottom: 8,
-                          }}
-                        >
-                          Key Applications
-                        </span>
-                        <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
-                          {mat.apps.map((app) => (
-                            <span
-                              key={app}
-                              style={{
-                                padding: "5px 12px",
-                                background: SURFACE,
-                                border: `1px solid ${LINE}`,
-                                borderRadius: 6,
-                                fontSize: 12,
-                                fontWeight: 500,
-                                color: PAPER_DIM,
-                              }}
-                            >
-                              {app}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Action buttons */}
+                    {/* Technical Specs Grid */}
                     <div
                       style={{
-                        paddingTop: 24,
-                        borderTop: `1px solid ${LINE}`,
-                        display: "flex",
-                        flexWrap: "wrap",
-                        gap: 16,
+                        display: "grid",
+                        gridTemplateColumns: "repeat(2, 1fr)",
+                        gap: 12,
+                        background: INK,
+                        border: `1px solid ${LINE}`,
+                        padding: 14,
+                        borderRadius: 12,
+                        marginBottom: 20,
                       }}
                     >
-                      <button
-                        onClick={() => openModal(mat.slug)}
-                        className="btn btn-blue"
-                        style={{ fontSize: 14, padding: "12px 24px", cursor: "pointer" }}
-                      >
-                        Request Quote
-                        <span className="material-symbols-outlined" style={{ fontSize: 16 }}>
-                          arrow_forward
-                        </span>
-                      </button>
-                      <button
-                        onClick={() => handleDownload(mat.name)}
-                        className="btn btn-ghost"
-                        style={{ fontSize: 14, padding: "12px 24px", cursor: "pointer" }}
-                      >
-                        Download spec sheet
-                        <span className="material-symbols-outlined" style={{ fontSize: 16 }}>
-                          download
-                        </span>
-                      </button>
+                      {specLabels.map((spec) => (
+                        <div key={spec.key}>
+                          <span
+                            style={{
+                              display: "block",
+                              fontSize: 9,
+                              fontWeight: 700,
+                              color: FOG,
+                              textTransform: "uppercase",
+                              letterSpacing: "0.08em",
+                              fontFamily: "monospace",
+                              marginBottom: 2,
+                            }}
+                          >
+                            {spec.label}
+                          </span>
+                          <span
+                            style={{
+                              fontSize: 13,
+                              fontWeight: 700,
+                              color: PAPER,
+                              fontFamily: "monospace",
+                            }}
+                          >
+                            {mat.specs[spec.key]}
+                          </span>
+                        </div>
+                      ))}
                     </div>
+
+                    {/* Key Applications */}
+                    <div style={{ marginBottom: 24 }}>
+                      <span
+                        style={{
+                          display: "block",
+                          fontSize: 10,
+                          fontWeight: 700,
+                          textTransform: "uppercase",
+                          color: PAPER,
+                          letterSpacing: "0.08em",
+                          fontFamily: "monospace",
+                          marginBottom: 8,
+                        }}
+                      >
+                        Key Applications
+                      </span>
+                      <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
+                        {mat.apps.map((app) => (
+                          <span
+                            key={app}
+                            style={{
+                              padding: "4px 10px",
+                              background: INK,
+                              border: `1px solid ${LINE}`,
+                              borderRadius: 6,
+                              fontSize: 11,
+                              fontWeight: 500,
+                              color: PAPER_DIM,
+                            }}
+                          >
+                            {app}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Action buttons */}
+                  <div
+                    style={{
+                      paddingTop: 16,
+                      borderTop: `1px solid ${LINE}`,
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: 10,
+                    }}
+                  >
+                    <button
+                      onClick={() => openModal(mat.slug)}
+                      className="btn btn-blue"
+                      style={{ fontSize: 13, padding: "10px 16px", cursor: "pointer", width: "100%", borderRadius: 8, display: "flex", justifyContent: "center", gap: 6 }}
+                    >
+                      Request Quote
+                      <span className="material-symbols-outlined" style={{ fontSize: 15 }}>
+                        arrow_forward
+                      </span>
+                    </button>
+                    <button
+                      onClick={() => handleDownload(mat.name)}
+                      className="btn btn-ghost"
+                      style={{ fontSize: 13, padding: "10px 16px", cursor: "pointer", width: "100%", borderRadius: 8, display: "flex", justifyContent: "center", gap: 6 }}
+                    >
+                      Download Specs
+                      <span className="material-symbols-outlined" style={{ fontSize: 15 }}>
+                        download
+                      </span>
+                    </button>
                   </div>
                 </div>
               </div>
